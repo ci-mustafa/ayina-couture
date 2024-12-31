@@ -2,8 +2,12 @@ html {
     height: 100%;
 }
 
+a {
+    text-decoration: none;
+}
+
 body {
-    background: url('/media/homepage_background_cropped.jpg') no-repeat center center fixed;
+    background: url('/media/site_background.jpeg') no-repeat center center fixed;
     background-size: cover;
     height: calc(100vh - 164px);
     color: #555;
@@ -11,6 +15,10 @@ body {
 }
 
 .main-header {
+    background-color:burlywood;
+}
+
+.footer {
     background-color:burlywood;
 }
 
