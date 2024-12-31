@@ -1,0 +1,46 @@
+html {
+    height: 100%;
+}
+
+body {
+    background: url('/media/homepage_background_cropped.jpg') no-repeat center center fixed;
+    background-size: cover;
+    height: calc(100vh - 164px);
+    color: #555;
+    font-family: 'Lato', serif;
+}
+
+.main-header {
+    background-color:burlywood;
+}
+
+.logo-font {
+    font-family: "Rubik Vinyl", serif;
+    text-transform: uppercase;
+}
+
+.main-logo-link {
+    width: fit-content;
+}
+
+.header-link-div {
+    display: inline-block;
+    max-width: 100%;
+}
+
+
+/* from Bulma */
+.icon {
+    align-items: center;
+    display: inline-flex;
+    justify-content: center;
+    height: 1.5rem;
+    width: 1.5rem;
+}
+
+.browse-style-btn {
+    background: burlywood;
+    color: black;
+    min-width: 260px;
+}
+

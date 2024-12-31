@@ -13,17 +13,92 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
+    <!-- Google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Rubik+Vinyl&display=swap"
+        rel="stylesheet">
+
+    <!-- Css file link -->
+    <link rel="stylesheet" href="{% static 'css/core.css' %}">
+
     <title>Ayina Couture</title>
 </head>
 
 <body>
     <!-- Fixed header section, it spans the full width (container-fluid) and is fixed at the top of the page -->
-    <header class="container-fluid fixed-top"></header>
+    <header class="container-fluid fixed-top main-header">
+        <div id="topnavbar" class="row d-lg-flex pt-lg-2">
+            <div class="col-12 col-lg-4 my-auto py-1 py-lg-0 text-center text-lg-left">
+                <a href="{% url 'home' %}" class="nav-link main-logo-link">
+                    <h2 class="logo-font text-black my-0"><strong>Ayina</strong><em>Couture</em></h2>
+                </a>
+            </div>
+            <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
+                <ul class="list-inline list-unstyled text-center text-lg-right my-0">
+                    <li class="list-inline-item dropdown">
+                        <a class="nav-link" href="#" id="user-options" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                            <div class="text-center">
+                                <div><i class="fas fa-user fa-lg"></i></div>
+                                <p class="my-0">My Account</p>
+                            </div>
+                        </a>
+                        <div class="dropdown-menu border-0" aria-labelledby="user-options">
+                            {% if request.user.is_authenticated %}
+                            {% if request.user.is_superuser %}
+                            <a href="" class="dropdown-item">Product Management</a>
+                            {% endif %}
+                            <a href="" class="dropdown-item">My Profile</a>
+                            <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
+                            {% else %}
+                            <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
+                            <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
+                            <a href="#" class="dropdown-item">Contact</a>
+                            <a href="#" class="dropdown-item">About Us</a>
+                            {% endif %}
+                        </div>
+                    </li>
+                    <li class="list-inline-item">
+                        <a class="{% if grand_total %}text-success font-weight-bold{% else %}text-black{% endif %} nav-link"
+                            href="">
+                            <div class="text-center">
+                                <div><i class="fas fa-shopping-bag fa-lg"></i></div>
+                                <p class="my-0">
+                                    {% if grand_total %}
+                                    €{{ grand_total|floatformat:2 }}
+                                    {% else %}
+                                    €0.00
+                                    {% endif %}
+                                </p>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
+                <form method="GET" action="">
+                    <div class="input-group w-100">
+                        <input class="form-control rounded-1" type="text" name="query"
+                            placeholder="Explore Afghan fashion">
+                        <div class="input-group-append">
+                            <button class="form-control btn btn-black rounded-1" type="submit">
+                                <span class="icon">
+                                    <i class="fas fa-search"></i>
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </header>
 
     <!-- Checking if there are any messages (Django messages framework) -->
     {% if messages %}
-        <!-- This div will contain the messages if they exist -->
-        <div class="message-box"></div>
+    <!-- This div will contain the messages if they exist -->
+    <div class="message-box"></div>
     {% endif %}
 
     {% block page_header %}
@@ -54,11 +129,11 @@
                         <li><a href="https://twitter.com" target="_blank" class="text-white">Twitter</a></li>
                     </ul>
                 </div>
-            <hr class="bg-white">
-            <div class="text-center">
-                <p>&copy; 2024 Ayina Couture. All Rights Reserved.</p>
+                <hr class="bg-white">
+                <div class="text-center">
+                    <p>&copy; 2024 Ayina Couture. All Rights Reserved.</p>
+                </div>
             </div>
-        </div>
     </footer>
 
     {% block loadjs %}
@@ -67,6 +142,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
+    <!-- Font Awsome link -->
+    <script src="https://kit.fontawesome.com/fd7875ea58.js" crossorigin="anonymous"></script>
 </body>
 
 </html>
