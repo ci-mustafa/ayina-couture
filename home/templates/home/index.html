@@ -2,21 +2,28 @@
 {% load static %}
 
 {% block page_header %}
+
 {% endblock %}
 
 {% block content %}
-    <div class="container h-100">
-        <div class="row h-100">
-            <div class="col-7 col-md-6 my-auto">
-                <h1 class="display-4 home-text-font">
-                    Timeless Afghan Styles, Crafted with Tradition.
-                </h1>
-                <div class="my-5">
-                    <h4>
-                        <a href="" class="browse-style-btn btn btn-lg rounded-1 text-uppercase py-3">Browse Our Styles</a>
-                    </h4>
-                </div>
+<div class="container h-100 home-main-div">
+    <div class="row h-100 align-items-center">
+        <!-- Text Section -->
+        <div class="col-12 col-md-6 my-auto text-center text-md-left">
+            <h1 class="display-4 home-text-font">Timeless Afghan Styles, Crafted with Tradition.</h1>
+            <div class="my-5">
+                <h4>
+                    <a href="" class="browse-style-btn btn btn-lg rounded-1 text-uppercase py-3">Browse Our Styles</a>
+                </h4>
+            </div>
+        </div>
+        <!-- Image Section -->
+        <div class="col-12 col-md-6 d-flex justify-content-center justify-content-md-end home-image-div">
+            <div class="home-image">
+                <img src="/media/site_background.png" alt="afghan-girl-image" class="img-fluid">
             </div>
         </div>
     </div>
+</div>
+
 {% endblock %}

@@ -1,5 +1,12 @@
+/* Overriding the default borwser style */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
 html {
     height: 100%;
+    overflow-x: hidden; /* Hide horizontal scrollbar */
 }
 
 a {
@@ -7,19 +14,46 @@ a {
 }
 
 body {
-    background: url('/media/site_background.jpeg') no-repeat center center fixed;
-    background-size: cover;
     height: calc(100vh - 164px);
-    color: #555;
+    color: black;
     font-family: 'Lato', serif;
+    background-color: #e4eaf5;
+}
+
+
+.home-main-div {
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 4%;
+}
+
+
+.home-image-div {
+    border: 2px solid #275d58; 
+    border-radius: 10px; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease; 
+}
+
+.home-image-div:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5); 
+    transform: translateY(-5px); 
+}
+
+
+.home-image img {
+    max-width: 100%;
+    height: auto;
 }
 
 .main-header {
-    background-color:burlywood;
+    background-color:#275d58;
 }
 
 .footer {
-    background-color:burlywood;
+    background-color:#275d58;
 }
 
 .logo-font {
@@ -47,8 +81,7 @@ body {
 }
 
 .browse-style-btn {
-    background: burlywood;
+    background: #275d58;
     color: black;
     min-width: 260px;
 }
-

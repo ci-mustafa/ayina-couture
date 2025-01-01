@@ -41,7 +41,7 @@
                         <a class="nav-link" href="#" id="user-options" data-toggle="dropdown"
                             aria-haspopup="true" aria-expanded="false">
                             <div class="text-center">
-                                <div><i class="fas fa-user fa-lg"></i></div>
+                                <i class="fa-regular fa-user fa-lg"></i>
                                 <p class="my-0">My Account</p>
                             </div>
                         </a>
@@ -64,7 +64,7 @@
                         <a class="{% if grand_total %}text-success font-weight-bold{% endif %} nav-link"
                             href="">
                             <div class="text-center">
-                                <div><i class="fas fa-shopping-bag fa-lg"></i></div>
+                                <div><i class="fa-solid fa-cart-shopping fa-lg"></i></div>
                                 <p class="my-0">
                                     {% if grand_total %}
                                     €{{ grand_total|floatformat:2 }}
@@ -109,7 +109,7 @@
     {% endblock %}
 
     <!-- Footer -->
-    <footer class="footer py-4">
+    <footer class="footer py-2">
         <div class="container">
             <div class="row">
                 <!-- Column for Useful Links -->
