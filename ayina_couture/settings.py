@@ -15,22 +15,32 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+# Load env.py if it exists
+env_file = os.path.join(BASE_DIR, 'env.py')
+if os.path.exists(env_file):
+    import env
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-*+k(x2=4(@^-*@1q9suxu6-u&#2^3=4ur6n_77y*2ei*kiq_dh'
+SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 ALLOWED_HOSTS = [
     '8000-cimustafa-ayinacouture-fe78nnez2sn.ws-eu117.gitpod.io',
+    'cimustafa-ayinacouture-fe78nnez2sn.ws-eu117.gitpod.io',
+    'localhost',
+    '127.0.0.1',
 ]
 
 CSRF_TRUSTED_ORIGINS = [
     'https://8000-cimustafa-ayinacouture-fe78nnez2sn.ws-eu117.gitpod.io',
+    'https://cimustafa-ayinacouture-fe78nnez2sn.ws-eu117.gitpod.io',
+    'http://127.0.0.1:8000',
+    'http://localhost:8000',
 ]
 
 # Application definition
@@ -46,7 +56,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'home'
+    'home',
+    'allauth.socialaccount.providers.google',
 ]
 
 MIDDLEWARE = [
@@ -59,6 +70,21 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     "allauth.account.middleware.AccountMiddleware",
 ]
+
+# Google OAuth2 settings
+SOCIALACCOUNT_PROVIDERS = {
+    'google': {
+        'SCOPE': [
+            'profile',
+            'email',
+        ],
+        'AUTH_PARAMS': {
+            'access_type': 'online',
+        },
+    }
+}
+
+ACCOUNT_DEFAULT_HTTP_PROTOCOL = 'https'  # Ensure secure protocol is used
 
 ROOT_URLCONF = 'ayina_couture.urls'
 
@@ -75,6 +101,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.request',
             ],
         },
     },
@@ -96,7 +123,18 @@ WSGI_APPLICATION = 'ayina_couture.wsgi.application'
 # and user login/signup workflows using Django Allauth, including email backend, 
 # login redirects, and account verification requirements.
 SITE_ID = 1
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+if DEBUG:
+    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+else:
+    EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+    EMAIL_HOST = 'smtp.gmail.com'
+    EMAIL_PORT = 587
+    EMAIL_USE_TLS = True
+    EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
+    EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
+    DEFAULT_FROM_EMAIL = 'Ayina Couture <ayina.couture@gmail.com>'
+
 ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
