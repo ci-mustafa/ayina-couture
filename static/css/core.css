@@ -82,6 +82,10 @@ body {
 
 .browse-style-btn {
     background: #275d58;
-    color: black;
+    color: white;
     min-width: 260px;
+}
+
+.browse-style-btn:hover {
+    border:2px solid #275d58;
 }
