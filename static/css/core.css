@@ -15,9 +15,9 @@ a {
 
 body {
     height: calc(100vh - 164px);
-    color: black;
     font-family: 'Lato', serif;
     background-color: #e4eaf5;
+    color: black;
 }
 
 /* Main nav link hover style */
@@ -80,15 +80,31 @@ body {
     background-color:#275d58;
 }
 
+/* footer section */
 .footer {
     background-color:#275d58;
 }
+
+.footer a,
+.footer h5,
+.footer p {
+    color: black;
+}
+
+.footer a:hover{
+    color: white; 
+    transform: scale(1.1); 
+    background-color: rgba(255, 99, 71, 0.1); 
+    border-radius: 5px; 
+}
+
 
 /* Logo font styles */
 .logo-font {
     font-family: "Rubik Vinyl", serif;
     text-transform: uppercase;
     transition: color 0.3s ease, transform 0.3s ease, text-shadow 0.3s ease;
+    color: white;
 }
 
 /* Hover effect for logo */
