@@ -134,6 +134,7 @@ body {
     width: 1.5rem;
 }
 
+/* browse button */
 .browse-style-btn {
     background: #275d58;
     color: white;
@@ -188,6 +189,19 @@ body {
     margin: 0;
     font-size: 18px;
     color: white;
+}
+
+/* Dropdown Glass Effect (Visible on smaller devices) */
+@media (max-width: 992px) {
+    .navbar-collapse {
+        background: rgba(255, 255, 255, 0.2); 
+        padding: 10px; 
+    }
+
+    .navbar-nav .nav-item {
+        margin: 5px 0; 
+    }
+
 }
 
 
