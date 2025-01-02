@@ -20,13 +20,17 @@ body {
     color: black;
 }
 
+.main-header {
+    background-color:#275d58;
+}
+
 /* Main nav link hover style */
 #main-nav .nav-link {
     position: relative;
     transition: color 0.3s, transform 0.3s;
 }
 
-/* Hover effect for links */
+
 #main-nav .nav-link:hover,
 #account-link:hover,
 #card-link:hover,
@@ -49,6 +53,7 @@ body {
 }
 
 
+/* Home main div */
 .home-main-div {
     min-height: 80vh;
     display: flex;
@@ -57,7 +62,7 @@ body {
     margin-top: 4%;
 }
 
-
+/* Home image */
 .home-image-div {
     border: 2px solid #275d58; 
     border-radius: 10px; 
@@ -76,9 +81,6 @@ body {
     height: auto;
 }
 
-.main-header {
-    background-color:#275d58;
-}
 
 /* footer section */
 .footer {
@@ -99,7 +101,7 @@ body {
 }
 
 
-/* Logo font styles */
+/* Logo font styles and Hover effect */
 .logo-font {
     font-family: "Rubik Vinyl", serif;
     text-transform: uppercase;
@@ -107,7 +109,7 @@ body {
     color: white;
 }
 
-/* Hover effect for logo */
+
 .logo-font:hover {
     color: white; 
     transform: scale(1.05); 
@@ -125,7 +127,7 @@ body {
 }
 
 
-/* from Bulma */
+/* from */
 .icon {
     align-items: center;
     display: inline-flex;
@@ -145,35 +147,36 @@ body {
     border:2px solid #275d58;
 }
 
+
 /* Popup container */
 .popup-container {
-    display: none; /* Initially hidden */
+    display: none; 
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
-    z-index: 9999; /* Ensure it is above other content */
-    justify-content: center; /* Align children horizontally */
-    align-items: center; /* Align children vertically */
-    display: flex; /* Use flexbox for centering */
+    background: rgba(0, 0, 0, 0.5); 
+    z-index: 9999; 
+    justify-content: center; 
+    align-items: center; 
+    display: flex; 
 }
 
-/* Popup message box */
+
 .popup-message {
     background-color: #275d58;
     padding: 20px;
     border-radius: 8px;
     text-align: center;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    width: 80%; /* Responsive width */
-    max-width: 500px; /* Maximum width for the popup */
+    width: 80%; 
+    max-width: 500px; 
     font-size: 16px;
-    position: relative; /* To position the close button inside this container */
+    position: relative; 
 }
 
-/* Close button inside the popup */
+
 .popup-close {
     position: absolute;
     top: 10px;
@@ -181,17 +184,40 @@ body {
     font-size: 24px;
     font-weight: bold;
     cursor: pointer;
-    color: white; /* Set close button color */
+    color: white;
 }
 
-/* Styling for popup text */
+
 .popup-message p {
     margin: 0;
     font-size: 18px;
     color: white;
 }
 
-/* Dropdown Glass Effect (Visible on smaller devices) */
+/* My Account Dropdown Menu (Glass Effect with Larger Size and No Rounded Borders) */
+.dropdown-menu {
+    background: rgba(255, 255, 255, 0.2); 
+    backdrop-filter: blur(10px); 
+    -webkit-backdrop-filter: blur(10px); 
+    text-align: left; 
+    border-radius: 0; 
+    min-width: 220px; 
+    padding: 10px 0; 
+}
+
+
+.dropdown-menu .dropdown-item {
+    padding: 10px 20px; 
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+
+.dropdown-menu .dropdown-item:hover {
+    background-color: rgba(13, 79, 59, 0.8); 
+    color: #fff;
+}
+
+/* Main navbar dropdown glass effect (Visible on smaller devices) */
 @media (max-width: 992px) {
     .navbar-collapse {
         background: rgba(255, 255, 255, 0.2); 
@@ -203,5 +229,7 @@ body {
     }
 
 }
+
+
 
 
