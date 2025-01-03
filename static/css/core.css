@@ -34,7 +34,8 @@ body {
 #main-nav .nav-link:hover,
 #account-link:hover,
 #card-link:hover,
-#search-top-link:hover {
+#search-top-link:hover,
+#wishlist-link:hover {
     color: white; 
     transform: scale(1.1); 
     background-color: rgba(255, 99, 71, 0.1); 
