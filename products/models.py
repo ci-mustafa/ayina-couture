@@ -1,3 +1,4 @@
+import uuid
 from django.db import models
 from typing import Optional
 from django.core.validators import MinValueValidator
@@ -80,16 +81,6 @@ class Product(models.Model):
         ('Women', 'Women'),
     ]
 
-    # Size choices as a class-level variable
-    SIZE_CHOICES = [
-        ('XXS', 'XXS'),
-        ('XS', 'XS'),
-        ('S', 'S'),
-        ('M', 'M'),
-        ('L', 'L'),
-        ('XL', 'XL'),
-        ('XXL', 'XXL'),
-    ]
 
     COLOR_CHOICES = [
     ('red', 'Red'),
@@ -123,12 +114,6 @@ class Product(models.Model):
         max_digits=6, decimal_places=2, validators=[MinValueValidator(1)]
     )
     has_sizes = models.BooleanField(default=False, null=True, blank=True)
-    available_sizes = models.CharField(
-        max_length=3,
-        null=True, 
-        blank=True, 
-        choices=SIZE_CHOICES
-    ) 
     color = models.CharField(
         max_length=10,
         null=True, 
@@ -183,6 +168,36 @@ class Product(models.Model):
             total_ratings = sum([rating.rating for rating in ratings])  
             return total_ratings / ratings.count()  
         return None  
+    
+    def save(self, *args, **kwargs) -> None:
+
+        """
+        Save method override for the Product model.
+
+        This method ensures that an SKU (Stock Keeping Unit) is automatically generated 
+        if one is not already provided. It calls the `generate_sku` method to create a 
+        unique SKU before saving the product instance.
+
+        Returns:
+        None
+        """
+        if not self.sku:  # Only generate if SKU is not already set
+            self.sku = self.generate_sku()
+        super(Product, self).save(*args, **kwargs)
+    
+    def generate_sku(self) -> str:
+
+        """
+        Generate a unique SKU for the product.
+
+        This method generates an SKU using a random UUID, ensuring uniqueness. 
+        The SKU follows the format: 'PROD-XXXXXXXX', where 'XXXXXXXX' is an 
+        8-character uppercase hexadecimal string derived from the UUID.
+
+        Returns:
+        str: A string representing the generated SKU.
+        """
+        return f"PROD-{uuid.uuid4().hex[:8].upper()}"
 
 # Productrating model
 class ProductRating(models.Model):
