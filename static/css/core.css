@@ -24,6 +24,7 @@ body {
     background-color:#275d58;
 }
 
+
 /* Main nav link hover style */
 #main-nav .nav-link {
     position: relative;
@@ -82,6 +83,53 @@ body {
     height: auto;
 }
 
+/* Product page main div */
+.product-main-page {
+    margin-top: 125px;
+    margin-bottom: 15px;
+    padding: 20px;
+    background-color: #275d58;
+    overflow: visible; /* Ensures it grows with content */
+}
+
+/* Ensure all product images are fixed in size */
+.fixed-img {
+    width: 100%; 
+    height: 500px; 
+    object-fit: cover; 
+    object-position: center; 
+}
+
+/* Styling for the product item */
+.product-item {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative; 
+}
+
+/* Hover effect on product item */
+.product-item:hover {
+    transform: translateY(-5px); 
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); 
+}
+
+/* Hover effect on the image */
+.product-item:hover .card-img-top {
+    transform: scale(1.05); 
+    transition: transform 0.3s ease;
+}
+
+
+/* Styling for text on hover */
+.product-item:hover .card-title,
+.product-item:hover p{
+    color: #275d58; /* Change title color on hover */
+    transition: color 0.3s ease;
+}
+
+.product-item:hover {
+    cursor: pointer;
+}
+
 
 /* footer section */
 .footer {
@@ -137,14 +185,18 @@ body {
     width: 1.5rem;
 }
 
-/* browse button */
-.browse-style-btn {
+/* buttons */
+.browse-style-btn,
+.add-to-wishlist-btn,
+.add-to-card-btn {
     background: #275d58;
     color: white;
     min-width: 260px;
 }
 
-.browse-style-btn:hover {
+.browse-style-btn:hover,
+.add-to-wishlist-btn:hover,
+.add-to-card-btn {
     border:2px solid #275d58;
 }
 

@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block page_header %}
+{% endblock %}
+
+{% block content %}
+<div class="container product-main-page">
+    <div class="row">
+        {% for product in products %}
+        <div class="col-md-4 mb-4 product-item">
+            <div class="card h-100 shadow-sm">
+                {% if product.image %}
+                <img src="{{ product.image.url }}" class="card-img-top img-fluid fixed-img" alt="{{ product.name }}">
+                {% else %}
+                <img src="{% static 'images/default-product.jpg' %}" class="card-img-top img-fluid fixed-img" alt="No image available">
+                {% endif %}
+                <div class="card-body product-info">
+                    <h5 class="card-title">{{ product.name }}</h5>
+                    <p>Material: {{ product.material }}</p>
+                    <p>Price: €{{ product.price }}</p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
