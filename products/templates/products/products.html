@@ -28,7 +28,7 @@
                     <p>Material: {{ product.material }}</p>
                     <p>Price: €{{ product.price }}</p>
                     {% if product.average_rating %}
-                    <p>Rating: {{ product.average_rating }} | 
+                    <p>Rating: {{ product.average_rating }}/{{ top_rate_value }} | 
                         <span class="stars">
                             {% for i in rating_range %}
                             {% if i <= product.average_rating %}
