@@ -203,7 +203,7 @@ body {
 /* buttons */
 .browse-style-btn,
 .add-to-wishlist-btn,
-.add-to-card-btn {
+.add-to-cart-btn {
     background: #275d58;
     color: white;
     min-width: 260px;
@@ -211,7 +211,7 @@ body {
 
 .browse-style-btn:hover,
 .add-to-wishlist-btn:hover,
-.add-to-card-btn {
+.add-to-cart-btn:hover {
     border:2px solid #275d58;
 }
 
@@ -284,6 +284,37 @@ body {
     background-color: rgba(13, 79, 59, 0.8); 
     color: #fff;
 }
+
+/* Prodcut details Custom Styling */
+.product-detail {
+    margin-top: 125px;
+    padding: 20px;
+    margin-bottom: 15px;
+    background-color: #275d58;
+}
+
+.card-img-top {
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.product-title {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.stars {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    color: #f39c12;
+}
+
+.product-actions a {
+    margin: 5px;
+}
+
 
 /* Main navbar dropdown glass effect (Visible on smaller devices) */
 @media (max-width: 992px) {

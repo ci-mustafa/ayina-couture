@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.core.paginator import Paginator
 from . import models
 
@@ -19,3 +19,15 @@ def all_products(request):
         'page_number': page_number
     }
     return render(request, 'products/products.html', context)
+
+
+# Product detail view
+def product_detail(request, pk):
+    product = get_object_or_404(models.Product, pk=pk)
+    ratings_range = range(1, 6)
+    top_rate_value = 5.0
+    context = {
+        'product': product,
+        'rating_range': ratings_range,
+    }
+    return render(request, 'products/product_detail.html', context)

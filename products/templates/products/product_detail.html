@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block page_header %}
+{% endblock %}
+
+
+
+{% block content %}
+<div class="container product-detail">
+    <div class="row">
+        <!-- Product Card -->
+        <div class="col-12 col-md-6">
+            <div class="card h-100 shadow-sm">
+                <!-- Product Image Section -->
+                <div class="card-img-top product-image">
+                    {% if product.image %}
+                    <img src="{{ product.image.url }}" class="img-fluid" alt="{{ product.name }}">
+                    {% else %}
+                    <img src="{% static 'images/no-image.jpg' %}" class="img-fluid" alt="No image available">
+                    {% endif %}
+                </div>
+
+                <!-- Product Information Section -->
+                <div class="card-body product-info">
+                    <h2 class="card-title product-title">{{ product.name }}</h2>
+                    <p class="product-material">Material: {{ product.material }}</p>
+                    <p class="product-price">Price: €{{ product.price }}</p>
+
+                    {% if product.average_rating %}
+                    <p class="product-rating">
+                        Rating: {{ product.average_rating }} |
+                        <span class="stars">
+                            {% for i in rating_range %}
+                            {% if i <= product.average_rating %} ★ {% else %} ☆ {% endif %} {% endfor %} </span>
+                    </p>
+                    {% else %}
+                    <p>No ratings yet</p>
+                    {% endif %}
+                    <p class="product-description">Description: {{ product.description }}</p>
+                    <!-- Product Actions Section -->
+                    <div class="product-actions">
+                        <a href="#" class="add-to-cart-btn btn rounded-1 text-uppercase py-3">Add to Cart</a>
+                        <a href="#" class="add-to-wishlist-btn btn rounded-1 text-uppercase py-3">Add to Wishlist</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

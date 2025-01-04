@@ -18,25 +18,29 @@
         <div class="col-12 col-md-6 col-lg-4 mb-4 product-item">
             <div class="card h-100 shadow-sm">
                 {% if product.image %}
-                <img src="{{ product.image.url }}" class="card-img-top img-fluid fixed-img" alt="{{ product.name }}">
+                <a href="{% url 'product-detail' pk=product.id %}"><img src="{{ product.image.url }}"
+                        class="card-img-top img-fluid fixed-img" alt="{{ product.name }}"></a>
+
                 {% else %}
-                <img src="{% static 'images/default-product.jpg' %}" class="card-img-top img-fluid fixed-img"
-                    alt="No image available">
+                <a href="{% url 'product-detail' pk=product.id %}">
+                    <img src="{% static 'images/no-image.jpg' %}" class="card-img-top img-fluid fixed-img"
+                        alt="No image available">
+                </a>
+
                 {% endif %}
                 <div class="card-body product-info">
                     <h5 class="card-title">{{ product.name }}</h5>
                     <p>Material: {{ product.material }}</p>
                     <p>Price: €{{ product.price }}</p>
                     {% if product.average_rating %}
-                    <p>Rating: {{ product.average_rating }}/{{ top_rate_value }} | 
+                    <p>Rating: {{ product.average_rating }}/{{ top_rate_value }} |
                         <span class="stars">
                             {% for i in rating_range %}
-                            {% if i <= product.average_rating %}
-                                ★ <!-- Full Star -->
-                            {% else %}
+                            {% if i <= product.average_rating %} ★ <!-- Full Star -->
+                                {% else %}
                                 ☆ <!-- Empty Star -->
-                            {% endif %}
-                            {% endfor %}
+                                {% endif %}
+                                {% endfor %}
                         </span>
                     </p>
                     {% else %}
@@ -67,11 +71,11 @@
 
                 <!-- Display Page Numbers -->
                 {% for num in page_obj.paginator.page_range %}
-                    {% if page_obj.number == num %}
-                    <li class="page-item active"><a class="page-link" href="?page={{ num }}">{{ num }}</a></li>
-                    {% else %}
-                    <li class="page-item"><a class="page-link" href="?page={{ num }}">{{ num }}</a></li>
-                    {% endif %}
+                {% if page_obj.number == num %}
+                <li class="page-item active"><a class="page-link" href="?page={{ num }}">{{ num }}</a></li>
+                {% else %}
+                <li class="page-item"><a class="page-link" href="?page={{ num }}">{{ num }}</a></li>
+                {% endif %}
                 {% endfor %}
 
                 {% if page_obj.has_next %}
