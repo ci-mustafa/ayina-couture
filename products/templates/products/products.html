@@ -14,8 +14,8 @@
     <hr class="w-100 md-1">
     <br>
     <div class="row">
-        {% for product in products %}
-        <div class="col-md-4 mb-4 product-item">
+        {% for product in page_obj %}
+        <div class="col-12 col-md-6 col-lg-4 mb-4 product-item">
             <div class="card h-100 shadow-sm">
                 {% if product.image %}
                 <img src="{{ product.image.url }}" class="card-img-top img-fluid fixed-img" alt="{{ product.name }}">
@@ -42,11 +42,52 @@
                     {% else %}
                     <p>No ratings yet</p>
                     {% endif %}
-
                 </div>
             </div>
         </div>
         {% endfor %}
+    </div>
+
+    <!-- Pagination Controls -->
+    <div class="pagination-container">
+        <nav>
+            <ul class="pagination justify-content-center">
+                {% if page_obj.has_previous %}
+                <li class="page-item">
+                    <a class="page-link" href="?page=1" aria-label="First">
+                        <span aria-hidden="true">&laquo;&laquo;</span>
+                    </a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ page_obj.previous_page_number }}" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+                {% endif %}
+
+                <!-- Display Page Numbers -->
+                {% for num in page_obj.paginator.page_range %}
+                    {% if page_obj.number == num %}
+                    <li class="page-item active"><a class="page-link" href="?page={{ num }}">{{ num }}</a></li>
+                    {% else %}
+                    <li class="page-item"><a class="page-link" href="?page={{ num }}">{{ num }}</a></li>
+                    {% endif %}
+                {% endfor %}
+
+                {% if page_obj.has_next %}
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ page_obj.next_page_number }}" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ page_obj.paginator.num_pages }}" aria-label="Last">
+                        <span aria-hidden="true">&raquo;&raquo;</span>
+                    </a>
+                </li>
+                {% endif %}
+            </ul>
+        </nav>
     </div>
 </div>
 {% endblock %}
