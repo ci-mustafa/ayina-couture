@@ -20,17 +20,29 @@
                 {% if product.image %}
                 <img src="{{ product.image.url }}" class="card-img-top img-fluid fixed-img" alt="{{ product.name }}">
                 {% else %}
-                <img src="{% static 'images/default-product.jpg' %}" class="card-img-top img-fluid fixed-img" alt="No image available">
+                <img src="{% static 'images/default-product.jpg' %}" class="card-img-top img-fluid fixed-img"
+                    alt="No image available">
                 {% endif %}
                 <div class="card-body product-info">
                     <h5 class="card-title">{{ product.name }}</h5>
                     <p>Material: {{ product.material }}</p>
                     <p>Price: €{{ product.price }}</p>
-                    {% if product.average_rating%}
-                    <p>Rating: {{ product.average_rating }}</p>
+                    {% if product.average_rating %}
+                    <p>Rating: {{ product.average_rating }} | 
+                        <span class="stars">
+                            {% for i in rating_range %}
+                            {% if i <= product.average_rating %}
+                                ★ <!-- Full Star -->
+                            {% else %}
+                                ☆ <!-- Empty Star -->
+                            {% endif %}
+                            {% endfor %}
+                        </span>
+                    </p>
                     {% else %}
                     <p>No ratings yet</p>
                     {% endif %}
+
                 </div>
             </div>
         </div>
