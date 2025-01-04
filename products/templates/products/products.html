@@ -26,6 +26,11 @@
                     <h5 class="card-title">{{ product.name }}</h5>
                     <p>Material: {{ product.material }}</p>
                     <p>Price: €{{ product.price }}</p>
+                    {% if product.average_rating%}
+                    <p>Rating: {{ product.average_rating }}</p>
+                    {% else %}
+                    <p>No ratings yet</p>
+                    {% endif %}
                 </div>
             </div>
         </div>
