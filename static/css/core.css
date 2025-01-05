@@ -347,7 +347,8 @@ body {
 
 
 /* Prodcut details Custom Styling */
-.product-detail {
+.product-detail,
+.product-add {
     margin-top: 125px;
     padding: 20px;
     margin-bottom: 15px;
@@ -386,6 +387,89 @@ body {
 .admin-links .update-link {
     margin-right: 15px; /* Custom margin between "Update" and "Delete" */
 }
+
+/* General product form styling */
+.product-info form {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.product-info input[type="text"],
+.product-info input[type="number"],
+.product-info input[type="email"],
+.product-info input[type="password"],
+.product-info select,
+.product-info textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: #f8f9fa;
+    transition: all 0.3s ease-in-out;
+}
+
+
+.product-info button {
+    background-color: #275d58;
+    color: #fff;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+}
+
+.product-info button:hover {
+    background-color: black;
+    color: white;
+}
+
+
+.product-info textarea {
+    height: 120px;
+    resize: vertical;
+}
+
+.product-info input[type="file"] {
+    padding: 5px;
+    background-color: #fff;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+
+/* Dropdown Select Styling */
+.product-info select {
+    appearance: none;
+    background-color: #fff;
+    padding: 10px;
+}
+
+/* Placeholder for better UX */
+.product-info input::placeholder,
+.product-info textarea::placeholder {
+    color: #6c757d;
+    opacity: 1;
+}
+
+/* Style stock quantity input */
+.product-info input[name="stock_quantity"] {
+    width: 100%;
+}
+
+.delete-confirm {
+    padding: 20px;
+    background-color: #275d58;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .product-info form {
+        width: 100%;
+    }
+}
+
 
 
 /* Main navbar dropdown glass effect (Visible on smaller devices) */

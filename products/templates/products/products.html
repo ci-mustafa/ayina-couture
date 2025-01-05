@@ -88,7 +88,7 @@
                         <!-- Links for updating and deleting the product -->
                         <div class="admin-links d-flex justify-content-start">
                             <a href="#" class="update-link text-primary">Update</a>
-                            <a href="#" class="delete-link text-danger">Delete</a>
+                            <a href="{% url 'product-delete' pk=product.id %}" class="delete-link text-danger">Delete</a>
                         </div>
                     {% endif %}
                     {% endif %}

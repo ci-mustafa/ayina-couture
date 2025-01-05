@@ -1,8 +1,11 @@
 from django.shortcuts import render, get_object_or_404, redirect, reverse
+from django.contrib.auth.decorators import login_required
+from django.http import HttpResponseForbidden
 from django.contrib import messages
 from django.db.models import Q
 from django.core.paginator import Paginator
 from . import models
+from .forms import ProductForm
 
 
 # Products view
@@ -64,3 +67,46 @@ def product_detail(request, pk):
         'rating_range': ratings_range,
     }
     return render(request, 'products/product_detail.html', context)
+
+# Add product view
+@login_required
+def product_add(request):
+    # Check if the user is a superuser
+    if not request.user.is_superuser:
+        messages.error(request, 'You are not authorized to add products.')
+        return redirect(reverse('home'))
+
+    # Handle the form submission
+    if request.method == 'POST':
+        form = ProductForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()  # Save the new product
+            messages.success(request, "Product added successfully.")
+            return redirect('products')  # Redirect to the product list page
+    else:
+        form = ProductForm()
+
+    context = {
+        'form': form
+    }
+    return render(request, 'products/product_add.html', context)
+
+@login_required
+def delete_product(request, pk):
+    """ Render a confirmation page before deleting a product """
+
+    if not request.user.is_superuser:
+        messages.error(request, 'You are not authorized to delete products.')
+        return redirect(reverse('home'))
+    
+    product = get_object_or_404(models.Product, pk=pk)
+
+    if request.method == 'POST':  # If user confirms deletion
+        product.delete()
+        messages.success(request, 'Product deleted successfully!')
+        return redirect(reverse('products'))
+
+    context = {
+        'product': product
+    }
+    return render(request, 'products/product_delete_confirmation.html', context)
