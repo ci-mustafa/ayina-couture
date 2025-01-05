@@ -31,15 +31,15 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 DEBUG = False
 
 ALLOWED_HOSTS = [
-    '8000-cimustafa-ayinacouture-fe78nnez2sn.ws-eu117.gitpod.io',
-    'cimustafa-ayinacouture-fe78nnez2sn.ws-eu117.gitpod.io',
+    '8000-cimustafa-ayinacouture-0g69ygd7vkp.ws.codeinstitute-ide.net',
+    'cimustafa-ayinacouture-0g69ygd7vkp.ws.codeinstitute-ide.net',
     'localhost',
     '127.0.0.1',
 ]
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://8000-cimustafa-ayinacouture-fe78nnez2sn.ws-eu117.gitpod.io',
-    'https://cimustafa-ayinacouture-fe78nnez2sn.ws-eu117.gitpod.io',
+    'https://8000-cimustafa-ayinacouture-0g69ygd7vkp.ws.codeinstitute-ide.net',
+    'https://cimustafa-ayinacouture-0g69ygd7vkp.ws.codeinstitute-ide.net',
     'http://127.0.0.1:8000',
     'http://localhost:8000',
 ]
