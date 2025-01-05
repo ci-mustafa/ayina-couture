@@ -56,7 +56,6 @@ class Product(models.Model):
     - material: The material the product is made from (e.g., Cotton, Leather).
     - price: The price of the product.
     - has_sizes: A boolean indicating whether the product has different sizes available.
-    - available_sizes: A field to store the available sizes for the product (if applicable).
     - color: The color of the product, selected from the predefined COLOR_CHOICES.
     - gender: The target gender for the product (Men, Women), selected from GENDER_CHOICES.
     - occasion: Optional field to specify the occasion for which
