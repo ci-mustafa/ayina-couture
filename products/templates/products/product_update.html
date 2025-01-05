@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+<div class="container d-flex flex-column justify-content-center align-items-center min-vh-100 product-add">
+    <div class="col-12 col-md-6">
+        <h2 class="text-center">Update Product</h2>
+    </div>
+    <hr class="w-100 md-1">
+    <div class="row w-100 justify-content-center">
+        <!-- Product Form -->
+        <div class="col-12 col-md-6">
+            <div class="card shadow-sm">
+                <!-- Product Form Section -->
+                <div class="card-body product-info">
+                    <form method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <button type="submit" class="btn w-100">Update Product</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

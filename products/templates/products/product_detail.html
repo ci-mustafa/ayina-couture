@@ -42,7 +42,7 @@
                     {% if request.user.is_superuser %}
                         <!-- Links for updating and deleting the product -->
                         <div class="admin-links">
-                            <a href="#" class="update-button btn rounded-1">Update</a>
+                            <a href="{% url 'product-update' pk=product.id %}" class="update-button btn rounded-1">Update</a>
                             <a href="{% url 'product-delete' pk=product.id %}" class="delete-button btn rounded-1">Delete</a>
                         </div>
                     {% endif %}

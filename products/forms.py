@@ -1,7 +1,21 @@
 from django import forms
 from .models import Product
 
+
+# Product form
 class ProductForm(forms.ModelForm):
+    """
+    Form for creating and updating Product instances.
+
+    This form includes fields such as name, description, price, collection, material, 
+    stock quantity, color, gender, occasion, featured status, size availability, and image. 
+    It also applies Bootstrap styling to form inputs for better UI experience.
+
+    Attributes:
+        model (Product): The associated model for this form.
+        fields (list): Specifies the fields to be included in the form.
+        widgets (dict): Customizes form field widgets for better UI styling.
+    """
     class Meta:
         model = Product
         fields = ['name', 'description', 'price', 

@@ -10,6 +10,25 @@ from .forms import ProductForm
 
 # Products view
 def all_products(request):
+    """
+    Retrieve and display all products with optional filtering, searching, sorting, and pagination.
+
+    This view supports:
+    - Filtering by collection
+    - Searching by product name or description
+    - Sorting by price (ascending or descending)
+    - Paginating results (10 products per page)
+
+    Args:
+        request (HttpRequest): The HTTP request containing optional GET parameters:
+            - `collection`: Filters products by collection title (case-insensitive)
+            - `query`: Searches products by name or description
+            - `sort_by`: Sorts products by price (`price_asc` or `price_desc`)
+            - `page`: Specifies the pagination page number
+
+    Returns:
+        HttpResponse: Renders `products.html` with the filtered and paginated product list.
+    """
     products = models.Product.objects.all()
     query = None
     collection = None
@@ -59,6 +78,20 @@ def all_products(request):
 
 # Product detail view
 def product_detail(request, pk):
+
+    """
+    Display the details of a specific product.
+
+    Retrieves a product by its primary key (pk). If the product does not exist, 
+    returns a 404 error. The view also provides a range for product ratings.
+
+    Args:
+        request (HttpRequest): The incoming HTTP request.
+        pk (int): The primary key of the product to retrieve.
+
+    Returns:
+        HttpResponse: Renders `product_detail.html` with product details.
+    """
     product = get_object_or_404(models.Product, pk=pk)
     ratings_range = range(1, 6)
     top_rate_value = 5.0
@@ -71,6 +104,18 @@ def product_detail(request, pk):
 # Add product view
 @login_required
 def product_add(request):
+
+    """
+    Display a form to add a new product and handle form submission.
+
+    Only superusers are allowed to add new products. If the request method is 
+    POST and the form is valid, the product is saved and the user is redirected 
+    to the product list with a success message. Otherwise, the form is displayed.
+
+    Returns:
+        - Renders `product_add.html` with the form for GET requests.
+        - Redirects to 'products' after successful form submission.
+    """
     # Check if the user is a superuser
     if not request.user.is_superuser:
         messages.error(request, 'You are not authorized to add products.')
@@ -91,9 +136,20 @@ def product_add(request):
     }
     return render(request, 'products/product_add.html', context)
 
+# delete product view
 @login_required
 def delete_product(request, pk):
-    """ Render a confirmation page before deleting a product """
+
+    """
+    Render a confirmation page before deleting a product.
+
+    This view allows a superuser to delete a product. If the request is 
+    a POST, the product is deleted and the user is redirected to the 
+    product list with a success message. Otherwise, a confirmation page 
+    is displayed.
+
+    Only superusers can access this view.
+    """
 
     if not request.user.is_superuser:
         messages.error(request, 'You are not authorized to delete products.')
@@ -110,3 +166,40 @@ def delete_product(request, pk):
         'product': product
     }
     return render(request, 'products/product_delete_confirmation.html', context)
+
+
+# Update product view
+@login_required
+def product_update(request, pk):
+
+    """
+    Update an existing product.
+
+    This view allows a superuser to edit product details. If the request is 
+    a POST, the form is validated and saved. Otherwise, the form is displayed 
+    with the current product data.
+
+    Only superusers can access this view.
+    """
+
+    if not request.user.is_superuser:
+        messages.error(request, 'You are not authorized to update products.')
+        return redirect(reverse('home'))
+
+    product = get_object_or_404(models.Product, pk=pk)
+
+    # Handle form submission
+    if request.method == 'POST':
+        form = ProductForm(request.POST, request.FILES, instance=product)
+        if form.is_valid():
+            form.save()  
+            messages.success(request, "Product updated successfully.")
+            return redirect('product-detail', pk=product.id)
+    else:
+        form = ProductForm(instance=product)
+
+    context = {
+        'form': form,
+        'product': product,
+    }
+    return render(request, 'products/product_update.html', context)
