@@ -10,6 +10,15 @@
         <h2>
             Our Styles
         </h2>
+        <p class="text-muted">
+            {% if search or collection %}
+                Showing <strong>{{ page_obj.paginator.count }}</strong> result(s) 
+                {% if search %} for search: "<strong>{{ search }}</strong>"{% endif %}
+                {% if collection %} in collection: "<strong>{{ collection }}</strong>"{% endif %}
+            {% else %}
+                Showing <strong>{{ page_obj.paginator.count }}</strong> product(s)
+            {% endif %}
+        </p>
     </div>
     <hr class="w-100 md-1">
     <br>
