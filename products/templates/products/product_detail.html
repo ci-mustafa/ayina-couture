@@ -38,10 +38,20 @@
                     <p>No ratings yet</p>
                     {% endif %}
                     <p class="product-description">Description: {{ product.description }}</p>
+                    {% if request.user.is_authenticated %}
+                    {% if request.user.is_superuser %}
+                        <!-- Links for updating and deleting the product -->
+                        <div class="admin-links">
+                            <a href="#" class="update-button btn rounded-1">Update</a>
+                            <a href="#" class="delete-button btn rounded-1">Delete</a>
+                        </div>
+                    {% endif %}
+                    {% endif %}
+                    <br>
                     <!-- Product Actions Section -->
                     <div class="product-actions">
-                        <a href="#" class="add-to-cart-btn btn rounded-1 text-uppercase py-3">Add to Cart</a>
-                        <a href="#" class="add-to-wishlist-btn btn rounded-1 text-uppercase py-3">Add to Wishlist</a>
+                        <a href="#" class="add-to-cart-btn btn rounded-1 text-uppercase">Add to Cart</a>
+                        <a href="#" class="add-to-wishlist-btn btn rounded-1 text-uppercase">Add to Wishlist</a>
                     </div>
                 </div>
             </div>

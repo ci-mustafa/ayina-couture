@@ -203,7 +203,9 @@ body {
 /* buttons */
 .browse-style-btn,
 .add-to-wishlist-btn,
-.add-to-cart-btn {
+.add-to-cart-btn,
+.update-button,
+.delete-button {
     background: #275d58;
     color: white;
     min-width: 260px;
@@ -211,8 +213,11 @@ body {
 
 .browse-style-btn:hover,
 .add-to-wishlist-btn:hover,
-.add-to-cart-btn:hover {
-    border:2px solid #275d58;
+.add-to-cart-btn:hover,
+.update-button:hover,
+.delete-button:hover {
+    background-color: black;
+    color: white;
 }
 
 
@@ -367,8 +372,19 @@ body {
     color: #f39c12;
 }
 
-.product-actions a {
-    margin: 5px;
+/* update and delete buttons in product page */
+.admin-links a {
+    text-decoration: none;
+    font-size: 14px; 
+    font-weight: bold; 
+}
+
+.admin-links a:hover {
+    text-decoration: underline;
+}
+
+.admin-links .update-link {
+    margin-right: 15px; /* Custom margin between "Update" and "Delete" */
 }
 
 
