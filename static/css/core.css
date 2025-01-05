@@ -205,7 +205,8 @@ body {
 .add-to-wishlist-btn,
 .add-to-cart-btn,
 .update-button,
-.delete-button {
+.delete-button,
+.button-404 {
     background: #275d58;
     color: white;
     min-width: 260px;
@@ -215,7 +216,8 @@ body {
 .add-to-wishlist-btn:hover,
 .add-to-cart-btn:hover,
 .update-button:hover,
-.delete-button:hover {
+.delete-button:hover,
+.button-404:hover {
     background-color: black;
     color: white;
 }

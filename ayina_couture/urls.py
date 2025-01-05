@@ -16,11 +16,20 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.conf.urls import handler404
+from django.shortcuts import render
 from django.conf import settings
 from django.conf.urls.static import static
 
 # Set admin site header
 admin.site.site_header = "Ayina Couture Administration"
+
+# Custom 404 error handler
+def custom_404_view(request, exception):
+    return render(request, '404.html', status=404)
+
+# Set the global 404 handler
+handler404 = custom_404_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
