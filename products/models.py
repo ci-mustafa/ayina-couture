@@ -117,7 +117,8 @@ class Product(models.Model):
         max_length=10,
         null=True, 
         blank=True, 
-        choices=COLOR_CHOICES
+        choices=COLOR_CHOICES,
+        default=None
     )
     gender = models.CharField(max_length=5, choices=GENDER_CHOICES, default='Men')
     occasion = models.CharField(max_length=254, null=True, blank=True) 

@@ -7,19 +7,47 @@
 {% block content %}
 <div class="container product-main-page">
     <div class="container-fluid">
-        <h2>
-            Our Styles
-        </h2>
-        <p class="text-muted">
-            {% if search or collection %}
-                Showing <strong>{{ page_obj.paginator.count }}</strong> result(s) 
-                {% if search %} for search: "<strong>{{ search }}</strong>"{% endif %}
-                {% if collection %} in collection: "<strong>{{ collection }}</strong>"{% endif %}
-            {% else %}
-                Showing <strong>{{ page_obj.paginator.count }}</strong> product(s)
-            {% endif %}
-        </p>
+        <div class="row align-items-center">
+            <!-- Heading -->
+            <div class="col-12 col-md-4" style="max-width: 35%;">
+                <h2>Our Styles</h2>
+            </div>
+
+            <!-- Sort Dropdown -->
+            <div class="col-12 col-md-4">
+                <form method="GET" action="{% url 'products' %}" class="d-flex align-items-center">
+                    <div class="custom-dropdown">
+                        <button type="button" class="dropdown-button">Sort by...</button>
+                        <ul class="dropdown-list">
+                            <li><a href="?sort_by=price_asc{% if collection %}&collection={{ collection }}{% endif %}">Price:
+                                    Low to High</a></li>
+                            <li><a href="?sort_by=price_desc{% if collection %}&collection={{ collection }}{% endif %}">Price:
+                                    High to Low</a></li>
+                        </ul>
+                    </div>
+                    {% if collection %}
+                    <!-- Preserve the collection filter in the form -->
+                    <input type="hidden" name="collection" value="{{ collection }}">
+                    {% endif %}
+                </form>
+            </div>
+
+
+            <!-- Product count -->
+            <div class="col-12 col-md-4 text-md-left">
+                <p class="text-muted">
+                    {% if search or collection %}
+                    Showing <strong>{{ page_obj.paginator.count }}</strong> result(s)
+                    {% if search %} for search: "<strong>{{ search }}</strong>"{% endif %}
+                    {% if collection %} in collection: "<strong>{{ collection }}</strong>"{% endif %}
+                    {% else %}
+                    Showing <strong>{{ page_obj.paginator.count }}</strong> product(s)
+                    {% endif %}
+                </p>
+            </div>
+        </div>
     </div>
+
     <hr class="w-100 md-1">
     <br>
     <div class="row">
@@ -68,14 +96,14 @@
                 {% if page_obj.has_previous %}
                 <li class="page-item">
                     <a class="page-link"
-                        href="?page=1{% if search %}&query={{ search }}{% endif %}{% if collection %}&collection={{ collection }}{% endif %}"
+                        href="?page=1{% if search %}&query={{ search }}{% endif %}{% if collection %}&collection={{ collection }}{% endif %}{% if sort_by %}&sort_by={{ sort_by }}{% endif %}"
                         aria-label="First">
                         <span aria-hidden="true">&laquo;&laquo;</span>
                     </a>
                 </li>
                 <li class="page-item">
                     <a class="page-link"
-                        href="?page={{ page_obj.previous_page_number }}{% if search %}&query={{ search }}{% endif %}{% if collection %}&collection={{ collection }}{% endif %}"
+                        href="?page={{ page_obj.previous_page_number }}{% if search %}&query={{ search }}{% endif %}{% if collection %}&collection={{ collection }}{% endif %}{% if sort_by %}&sort_by={{ sort_by }}{% endif %}"
                         aria-label="Previous">
                         <span aria-hidden="true">&laquo;</span>
                     </a>
@@ -87,12 +115,12 @@
                 {% if page_obj.number == num %}
                 <li class="page-item active">
                     <a class="page-link"
-                        href="?page={{ num }}{% if search %}&query={{ search }}{% endif %}{% if collection %}&collection={{ collection }}{% endif %}">{{num }}</a>
+                        href="?page={{ num }}{% if search %}&query={{ search }}{% endif %}{% if collection %}&collection={{ collection }}{% endif %}{% if sort_by %}&sort_by={{ sort_by }}{% endif %}">{{num}}</a>
                 </li>
                 {% else %}
                 <li class="page-item">
                     <a class="page-link"
-                        href="?page={{ num }}{% if search %}&query={{ search }}{% endif %}{% if collection %}&collection={{ collection }}{% endif %}">{{num }}</a>
+                        href="?page={{ num }}{% if search %}&query={{ search }}{% endif %}{% if collection %}&collection={{ collection }}{% endif %}{% if sort_by %}&sort_by={{ sort_by }}{% endif %}">{{num}}</a>
                 </li>
                 {% endif %}
                 {% endfor %}
@@ -100,14 +128,14 @@
                 {% if page_obj.has_next %}
                 <li class="page-item">
                     <a class="page-link"
-                        href="?page={{ page_obj.next_page_number }}{% if search %}&query={{ search }}{% endif %}{% if collection %}&collection={{ collection }}{% endif %}"
+                        href="?page={{ page_obj.next_page_number }}{% if search %}&query={{ search }}{% endif %}{% if collection %}&collection={{ collection }}{% endif %}{% if sort_by %}&sort_by={{ sort_by }}{% endif %}"
                         aria-label="Next">
                         <span aria-hidden="true">&raquo;</span>
                     </a>
                 </li>
                 <li class="page-item">
                     <a class="page-link"
-                        href="?page={{ page_obj.paginator.num_pages }}{% if search %}&query={{ search }}{% endif %}{% if collection %}&collection={{ collection }}{% endif %}"
+                        href="?page={{ page_obj.paginator.num_pages }}{% if search %}&query={{ search }}{% endif %}{% if collection %}&collection={{ collection }}{% endif %}{% if sort_by %}&sort_by={{ sort_by }}{% endif %}"
                         aria-label="Last">
                         <span aria-hidden="true">&raquo;&raquo;</span>
                     </a>
@@ -117,5 +145,23 @@
         </nav>
     </div>
 
+    <script>
+        // Get the dropdown button and dropdown list
+        const dropdownButton = document.querySelector('.dropdown-button');
+        const dropdownList = document.querySelector('.dropdown-list');
+        const customDropdown = document.querySelector('.custom-dropdown');
+    
+        // Toggle the dropdown list visibility
+        dropdownButton.addEventListener('click', () => {
+            customDropdown.classList.toggle('active');
+        });
+    
+        // Close the dropdown if the user clicks outside of it
+        window.addEventListener('click', (event) => {
+            if (!customDropdown.contains(event.target)) {
+                customDropdown.classList.remove('active');
+            }
+        });
+    </script>
 </div>
 {% endblock %}

@@ -285,6 +285,62 @@ body {
     color: #fff;
 }
 
+/* Style for the custom dropdown */
+.custom-dropdown {
+    position: relative;
+    width: 100%;
+}
+
+.dropdown-button {
+    width: 100%;
+    padding: 10px;
+    background-color: transparent;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    text-align: left;
+    color: #333;
+    cursor: pointer;
+}
+
+.dropdown-button:hover {
+    background-color: rgba(13, 79, 59, 0.8);
+    color: #fff;
+    border-color: #007bff;
+}
+
+.dropdown-list {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    background-color: white;
+    list-style-type: none;
+    border: 1px solid #ccc;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 9999; /* Ensure the dropdown is above other elements */
+}
+
+.dropdown-list li a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: #333;
+}
+
+.dropdown-list li a:hover {
+    background-color: rgba(13, 79, 59, 0.8);
+    color: #fff;
+}
+
+/* Show the dropdown when the button is clicked */
+.custom-dropdown.active .dropdown-list {
+    display: block;
+}
+
+
 /* Prodcut details Custom Styling */
 .product-detail {
     margin-top: 125px;
