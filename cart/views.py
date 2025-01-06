@@ -56,8 +56,6 @@ def add_to_cart(request, id):
         }
 
     request.session['cart'] = cart
-
-    print(request.session['cart'])
     
     return redirect(redirect_url)
 
