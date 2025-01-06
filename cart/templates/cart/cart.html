@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_header %}
+
+{% endblock %}
+
+{% block content %}
+<div class="container cart-main-div">
+    <div class="row">
+        <div class="col">
+            <h2 class="shipping-cart-heading">Shopping Cart</h2>
+            <hr>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            {% if cart_items %}
+            <div class="table-responsive"></div>
+            {% else %}
+            <p class="lead mb-6">Currently you don't have any items in your cart.</p>
+            <a href="{% url 'products' %}" class="browse-style-btn btn btn-lg rounded-1 text-uppercase py-3">
+                <span class="icon">
+                    <i class="fa-solid fa-circle-chevron-left"></i>
+                </span>
+                <span>Borwse our styles</span>
+            </a>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+{% endblock %}

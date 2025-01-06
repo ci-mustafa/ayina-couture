@@ -465,6 +465,14 @@ body {
     background-color: #275d58;
 }
 
+/* shopping cart page */
+.cart-main-div {
+    margin-top: 125px;
+    padding: 20px;
+    margin-bottom: 15px;
+    background-color: #275d58;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .product-info form {
