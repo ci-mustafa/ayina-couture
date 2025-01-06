@@ -113,6 +113,7 @@
                 {% include 'includes/main-navbar.html' %}
             </nav>
         </div>
+        {% if request.path == '/' %}
         <!-- Popup Modal for Free Delivery -->
         <div id="freeDeliveryPopup" class="popup-container">
             <div class="popup-message">
@@ -120,6 +121,7 @@
                 <p><strong>Free delivery on purchases over 40€ — Don’t miss out!</strong></p>
             </div>
         </div>
+        {% endif %}
     </header>
 
     <!-- Checking if there are any messages (Django messages framework) -->
