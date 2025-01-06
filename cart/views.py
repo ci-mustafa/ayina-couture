@@ -1,4 +1,4 @@
-from django.shortcuts import redirect, get_object_or_404, render
+from django.shortcuts import redirect, get_object_or_404, render, reverse
 from django.contrib import messages
 from products.models import Product
 
@@ -10,23 +10,6 @@ def view_cart(request):
 
 
 # add item to the cart view
-def add_to_cart(request, id):
-    
-    quantity = int(request.POST.get('quantity'))
-    redirect_url = request.POST.get('redirect_url')
-    cart = request.session.get('cart', {})
-
-    if id in list(cart.keys()):
-        cart[id] += quantity
-    else:
-        cart[id] = quantity
-
-    request.session['cart'] = cart
-    print(request.session['cart'])
-    return redirect(redirect_url)
-
-
-
 def add_to_cart(request, id):
 
     product = get_object_or_404(Product, id=id)
@@ -56,6 +39,52 @@ def add_to_cart(request, id):
         }
 
     request.session['cart'] = cart
-    
     return redirect(redirect_url)
+
+
+def update_cart_item(request, id):
+    product = get_object_or_404(Product, pk=id)
+    cart = request.session.get('cart', {})
+    
+    if product.has_sizes:
+        size = request.POST.get('size')
+        cart_item_key = f"{id}_{size}"  
+    else:
+        cart_item_key = str(id)  
+
+    if cart_item_key in cart:
+        cart_item = cart[cart_item_key]
+        if request.method == 'POST':
+            quantity = int(request.POST.get('quantity', cart_item['quantity'])) 
+            size = request.POST.get('size', cart_item['size'])  
+            cart[cart_item_key]['quantity'] = quantity
+            cart[cart_item_key]['size'] = size
+            request.session['cart'] = cart
+            messages.success(request, f'Cart item updated: {product.name}')
+            return redirect('view-cart') 
+    else:
+        messages.error(request, "Cart item not found.")
+        return redirect('view-cart') 
+    return render(request, 'cart/update_cart_item.html', {
+        'product': product, 
+        'cart_item': cart_item,  
+    })
+
+
+
+def delete_cart_item(request, id, size=None):  
+    cart = request.session.get('cart', {})
+    cart_item_key = f"{id}_{size}" if size else str(id)
+
+    if cart_item_key in cart:
+        del cart[cart_item_key]
+        request.session['cart'] = cart 
+        messages.success(request, 'Item removed from cart')
+    else:
+        messages.error(request, 'Item not found in cart')
+    return redirect('view-cart')
+
+
+
+
 

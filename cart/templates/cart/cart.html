@@ -18,9 +18,11 @@
             {% if cart_items %}
             <div class="cart-items-wrapper">
                 {% for item in cart_items %}
-                <div class="cart-item d-flex flex-column flex-md-row justify-content-between align-items-center mb-4 p-3 shadow-sm">
+                <div
+                    class="cart-item d-flex flex-column flex-md-row justify-content-between align-items-center mb-4 p-3 border-bottom">
                     <div class="cart-item-img mb-3 mb-md-0">
-                        <img class="img-fluid rounded" src="{{ item.product.image.url }}" alt="{{ item.product.name }}" style="max-width: 150px; height: auto;">
+                        <img class="img-fluid rounded" src="{{ item.product.image.url }}" alt="{{ item.product.name }}"
+                            style="max-width: 150px; height: auto;">
                     </div>
                     <div class="cart-item-info d-flex flex-column mb-3 mb-md-0 text-center text-md-start">
                         <strong class="cart-item-title">{{ item.product.name }}</strong>
@@ -32,35 +34,46 @@
                         </small>
                     </div>
                     <div class="cart-item-price text-center mb-3 mb-md-0">
-                        <p class="my-0">Price: ${{ item.product.price|floatformat:2 }}</p>
+                        <p class="my-0">Price: <i class="fa-solid fa-euro-sign fa-sm"></i>{{ item.product.price|floatformat:2 }}</p>
                     </div>
                     <div class="cart-item-qty text-center mb-3 mb-md-0">
                         <p class="my-0">Quantity: {{ item.quantity }}</p>
                     </div>
                     <div class="cart-item-subtotal text-center">
-                        <p class="my-0">${{ item.subtotal|floatformat:2 }}</p>
+                        <p class="my-0">Subtotal: <i class="fa-solid fa-euro-sign fa-sm"></i>{{ item.subtotal|floatformat:2 }}</p>
                     </div>
-                    <div class="cart-actions text-center mt-3">
-                        <!-- Update Button -->
-                        <a href="#" class="btn btn-info btn-sm upadate-item-btn">
-                            <i class="fa-regular fa-pen-to-square fa-lg"></i>
+
+                    <!-- Cart Actions (Now Inside) -->
+                    <div class="cart-actions d-flex justify-content-between w-100 mt-2">
+                        <!-- Remove Button (Left) -->
+                        <!-- <button class="btn btn-danger btn-sm remove-item-btn">
+                            <i class="fa-solid fa-trash-can fa-lg"></i> Remove
+                        </button> -->
+                        <form action="{% url 'delete-cart-item' item.id %}{% if item.size %}/{{ item.size }}{% endif %}/"
+                            id="remove-form-{{ item.id }}" method="POST">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-danger btn-sm" onclick="confirmDelete('{{ item.id }}', '{{ item.size|escapejs }}')">
+                                <i class="fa-solid fa-trash-can fa-lg"></i> Remove
+                            </button>
+                        </form>
+
+                        <!-- Update Button (Right) -->
+                        <a href="{% url 'update-cart-item' item.id %}"
+                            class="btn btn-info btn-sm update-item-btn">
+                            <i class="fa-regular fa-pen-to-square fa-lg"></i> Update
                         </a>
-                    
-                        <!-- Remove Button -->
-                        <button class="btn btn-danger btn-sm remove-item-btn" data-item-id="{{ item.product.id }}">
-                            <i class="fa-solid fa-trash-can fa-lg"></i>
-                        </button>
                     </div>
-                </div>
+                </div> <!-- Border is now at the bottom of this div -->
                 {% endfor %}
 
+
                 <div class="cart-summary mt-5">
-                    <h4><strong>Cart Total: ${{ total|floatformat:2 }}</strong></h4>
-                    <h6>Delivery: ${{ delivery|floatformat:2 }}</h6>
-                    <h3 class="mt-4"><strong>Final Total: ${{ grand_total|floatformat:2 }}</strong></h3>
+                    <h4><strong>Cart Total: <i class="fa-solid fa-euro-sign fa-sm"></i>{{ total|floatformat:2 }}</strong></h4>
+                    <h6>Delivery: <i class="fa-solid fa-euro-sign fa-sm"></i>{{ delivery|floatformat:2 }}</h6>
+                    <h3 class="mt-4"><strong>Final Total: <i class="fa-solid fa-euro-sign fa-sm"></i>{{ final_total|floatformat:2 }}</strong></h3>
                     {% if free_delivery_delta > 0 %}
                     <div class="alert alert-warning mt-3">
-                        You could get free delivery by spending <strong>${{ free_delivery_delta|floatformat:2 }}</strong> more!
+                        You could get free delivery by spending <strong><i class="fa-solid fa-euro-sign fa-sm"></i>{{ free_delivery_delta|floatformat:2}}</strong> more!
                     </div>
                     {% endif %}
                 </div>
