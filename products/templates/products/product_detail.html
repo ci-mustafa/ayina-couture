@@ -9,10 +9,9 @@
 {% block content %}
 <div class="container product-detail">
     <div class="row">
-        <!-- Product Card -->
-        <div class="col-12 col-md-6">
+        <!-- Product Image Section on the Left -->
+        <div class="col-12 col-md-6 order-md-1">
             <div class="card h-100 shadow-sm">
-                <!-- Product Image Section -->
                 <div class="card-img-top product-image">
                     {% if product.image %}
                     <img src="{{ product.image.url }}" class="img-fluid" alt="{{ product.name }}">
@@ -20,8 +19,12 @@
                     <img src="{% static 'images/no-image.jpg' %}" class="img-fluid" alt="No image available">
                     {% endif %}
                 </div>
+            </div>
+        </div>
 
-                <!-- Product Information Section -->
+        <!-- Product Information Section on the Right -->
+        <div class="col-12 col-md-6 order-md-2">
+            <div class="card h-100 shadow-sm">
                 <div class="card-body product-info">
                     <h2 class="card-title product-title">{{ product.name }}</h2>
                     <p class="product-material">Material: {{ product.material }}</p>
@@ -37,34 +40,76 @@
                     {% else %}
                     <p>No ratings yet</p>
                     {% endif %}
+
                     <p class="product-description">Description: {{ product.description }}</p>
                     {% if request.user.is_authenticated %}
-                    {% if request.user.is_superuser %}
-                        <!-- Links for updating and deleting the product -->
-                        <div class="admin-links">
-                            <a href="{% url 'product-update' pk=product.id %}" class="update-button btn rounded-1">Update</a>
-                            <a href="{% url 'product-delete' pk=product.id %}" class="delete-button btn rounded-1">Delete</a>
+                    <form class="form" action="{% url 'add-to-cart' product.id %}" method="POST">
+                        {% csrf_token %}
+                        <div class="form-row">
+                            <div class="col-12">
+                                <p class="mt-3"><strong>Quantity:</strong></p>
+                                <div class="form-group w-50">
+                                    <div class="input-group">
+                                        <input class="form-control qty_input" type="number" name="quantity" value="1"
+                                            min="1" max="99" data-item_id="{{ product.id }}"
+                                            id="id_qty_{{ product.id }}">
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+                            {% if product.has_sizes %}
+                            <div class="col-12">
+                                <p><strong>Select Size:</strong></p>
+                                <div class="form-group">
+                                    <select name="size" class="form-control">
+                                        <option value="XXS">XXS</option>
+                                        <option value="XS">XS</option>
+                                        <option value="S">S</option>
+                                        <option value="M">M</option>
+                                        <option value="L">L</option>
+                                        <option value="XL">XL</option>
+                                        <option value="XXL">XXL</option>
+                                    </select>
+                                </div>
+                            </div>
+                            {% endif %}
+                            <br>
+                            <div class="col-12">
+                                <div class="product-actions">
+                                    <input type="submit" class="add-to-cart-btn btn rounded-1 text-uppercase"
+                                        value="Add to Cart">
+                                    <input type="submit" class="add-to-wishlist-btn btn rounded-1 text-uppercase"
+                                        value="Add to Wishlist">
+                                </div>
+                            </div>
+                            <input type="hidden" name="redirect_url" value="{{ request.path }}">
                         </div>
+                    </form>
+                    {% else %}
+                    <div class="product-actions">
+                        <a href="{% url 'account_signup' %}" class="add-to-cart-btn btn rounded-1 text-uppercase">Sign
+                            Up to Add to Cart</a>
+                        <a href="{% url 'account_signup' %}"
+                            class="add-to-wishlist-btn btn rounded-1 text-uppercase">Sign Up to add to Wishlist</a>
+                    </div>
+                    {% endif %}
+                    <br>
+                    {% if request.user.is_authenticated %}
+                    {% if request.user.is_superuser %}
+                    <!-- Links for updating and deleting the product -->
+                    <div class="admin-links">
+                        <a href="{% url 'product-update' pk=product.id %}"
+                            class="update-button btn rounded-1">Update</a>
+                        <a href="{% url 'product-delete' pk=product.id %}"
+                            class="delete-button btn rounded-1">Delete</a>
+                    </div>
                     {% endif %}
                     {% endif %}
                     <br>
-                    <!-- Product Actions Section -->
-                    {% if request.user.is_authenticated %}
-                    <div class="product-actions">
-                        <a href="#" class="add-to-cart-btn btn rounded-1 text-uppercase">Add to Cart</a>
-                        <a href="#" class="add-to-wishlist-btn btn rounded-1 text-uppercase">Add to Wishlist</a>
-                    </div>
-                    {% else %}
-                    <div class="product-actions">
-                        <a href="{% url 'account_signup' %}" class="add-to-cart-btn btn rounded-1 text-uppercase">Sign Up to Add to Cart</a>
-                        <a href="{% url 'account_signup' %}" class="add-to-wishlist-btn btn rounded-1 text-uppercase">Sign Up to add to Wishlist</a>
-                    </div>
-                    {% endif %}
+
                 </div>
             </div>
         </div>
     </div>
 </div>
-
-
 {% endblock %}

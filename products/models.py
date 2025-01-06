@@ -46,7 +46,6 @@ class Product(models.Model):
     
     Attributes:
     - GENDER_CHOICES: Choices for gender-specific products (Men, Women).
-    - SIZE_CHOICES: Available sizes for the product (XXS, XS, S, M, L, XL, XXL).
     - COLOR_CHOICES: Available color options for the product (e.g., Red, Blue, Black).
     - collection: A foreign key to the Collection model, representing the collection the
         product belongs to (e.g., Summer, Winter).
