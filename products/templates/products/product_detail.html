@@ -112,4 +112,22 @@
         </div>
     </div>
 </div>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const quantityInputs = document.querySelectorAll('.qty_input');
+
+        quantityInputs.forEach(input => {
+            // Get the max value from the input
+            const max = parseInt(input.getAttribute('max'));
+
+            // Prevent entering a value higher than max
+            input.addEventListener('input', function() {
+                let value = parseInt(input.value);
+                if (value > max) {
+                    input.value = max;
+                }
+            });
+        });
+    });
+</script>
 {% endblock %}
