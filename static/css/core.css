@@ -206,7 +206,9 @@ body {
 .add-to-cart-btn,
 .update-button,
 .delete-button,
-.button-404 {
+.button-404,
+.keep-shopping-btn,
+.checkout-btn {
     background: #275d58;
     color: white;
     min-width: 260px;
@@ -217,7 +219,9 @@ body {
 .add-to-cart-btn:hover,
 .update-button:hover,
 .delete-button:hover,
-.button-404:hover {
+.button-404:hover,
+.keep-shopping-btn:hover,
+.checkout-btn:hover {
     background-color: black;
     color: white;
 }
@@ -471,6 +475,60 @@ body {
     padding: 20px;
     margin-bottom: 15px;
     background-color: #275d58;
+}
+
+.cart-items-wrapper {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: #f9f9f9;
+}
+
+.cart-item {
+    border-bottom: 1px solid #ddd;
+    flex-wrap: wrap; /* Ensure items wrap on smaller screens */
+}
+
+.cart-item-img img {
+    width: 100px; /* Ensure all images are the same size */
+    height: 100px;
+    object-fit: cover;
+}
+
+.cart-item-title {
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.cart-item-price,
+.cart-item-qty,
+.cart-item-subtotal {
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.cart-summary h4 {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.cart-actions a {
+    width: 48%;
+    padding: 15px;
+}
+
+
+/* Ensure good responsive behavior shopping page */
+@media (max-width: 767px) {
+    .cart-item {
+        flex-direction: column; /* Stack items vertically on smaller screens */
+        align-items: center;
+    }
+
+    .cart-item-img img {
+        width: 150px; /* Adjust image size on smaller screens */
+        height: 150px;
+    }
 }
 
 /* Responsive Design */

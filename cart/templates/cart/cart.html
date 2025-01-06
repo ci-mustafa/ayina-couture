@@ -2,22 +2,67 @@
 {% load static %}
 
 {% block page_header %}
-
 {% endblock %}
 
 {% block content %}
 <div class="container cart-main-div">
     <div class="row">
         <div class="col">
-            <h2 class="shipping-cart-heading">Shopping Cart</h2>
+            <h2 class="shopping-cart-heading text-center">Your Shopping Cart</h2>
             <hr>
         </div>
     </div>
+
     <div class="row">
         <div class="col">
             {% if cart_items %}
-            <div class="table-responsive">
-                {{ cart_items }}
+            <div class="cart-items-wrapper">
+                {% for item in cart_items %}
+                <div class="cart-item d-flex flex-column flex-md-row justify-content-between align-items-center mb-4 p-3 shadow-sm">
+                    <div class="cart-item-img mb-3 mb-md-0">
+                        <img class="img-fluid rounded" src="{{ item.product.image.url }}" alt="{{ item.product.name }}" style="max-width: 150px; height: auto;">
+                    </div>
+                    <div class="cart-item-info d-flex flex-column mb-3 mb-md-0 text-center text-md-start">
+                        <strong class="cart-item-title">{{ item.product.name }}</strong>
+                        <small class="cart-item-sku text-muted">SKU: {{ item.product.sku|upper }}</small>
+                        <small class="cart-item-size text-muted">
+                            {% if item.size %}
+                            Size: {{ item.size }}
+                            {% endif %}
+                        </small>
+                    </div>
+                    <div class="cart-item-price text-center mb-3 mb-md-0">
+                        <p class="my-0">Price: ${{ item.product.price|floatformat:2 }}</p>
+                    </div>
+                    <div class="cart-item-qty text-center mb-3 mb-md-0">
+                        <p class="my-0">Quantity: {{ item.quantity }}</p>
+                    </div>
+                    <div class="cart-item-subtotal text-center">
+                        <p class="my-0">${{ item.subtotal|floatformat:2 }}</p>
+                    </div>
+                </div>
+                {% endfor %}
+
+                <div class="cart-summary mt-5">
+                    <h4><strong>Cart Total: ${{ total|floatformat:2 }}</strong></h4>
+                    <h6>Delivery: ${{ delivery|floatformat:2 }}</h6>
+                    <h3 class="mt-4"><strong>Final Total: ${{ grand_total|floatformat:2 }}</strong></h3>
+                    {% if free_delivery_delta > 0 %}
+                    <div class="alert alert-warning mt-3">
+                        You could get free delivery by spending <strong>${{ free_delivery_delta|floatformat:2 }}</strong> more!
+                    </div>
+                    {% endif %}
+                </div>
+
+                <div class="cart-actions d-flex justify-content-between flex-column flex-md-row mt-4">
+                    <a href="{% url 'products' %}" class="keep-shopping-btn btn rounded-1 text-uppercase mb-3 mb-md-0">
+                        <i class="fa-solid fa-circle-chevron-left"></i> Keep Shopping
+                    </a>
+                    <a href="#" class="checkout-btn btn rounded-1 text-uppercase">
+                        Secure Checkout <i class="fa-solid fa-fingerprint"></i>
+                    </a>
+                </div>
+
             </div>
             {% else %}
             <p class="lead mb-6">Currently you don't have any items in your cart.</p>
@@ -25,11 +70,10 @@
                 <span class="icon">
                     <i class="fa-solid fa-circle-chevron-left"></i>
                 </span>
-                <span>Borwse our styles</span>
+                <span>Browse our styles</span>
             </a>
             {% endif %}
         </div>
     </div>
 </div>
-
 {% endblock %}

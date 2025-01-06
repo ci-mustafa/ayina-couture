@@ -28,13 +28,14 @@ if os.path.exists(env_file):
 SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = [
     '8000-cimustafa-ayinacouture-0g69ygd7vkp.ws.codeinstitute-ide.net',
     'cimustafa-ayinacouture-0g69ygd7vkp.ws.codeinstitute-ide.net',
     'localhost',
     '127.0.0.1',
+    'ayina-couture-3dce000c2adf.herokuapp.com'
     ".herokuapp.com",
 ]
 
@@ -43,6 +44,7 @@ CSRF_TRUSTED_ORIGINS = [
     'https://cimustafa-ayinacouture-0g69ygd7vkp.ws.codeinstitute-ide.net',
     'http://127.0.0.1:8000',
     'http://localhost:8000',
+    'https://ayina-couture-3dce000c2adf.herokuapp.com',
     'https://*.herokuapp.com',
 ]
 

@@ -34,6 +34,7 @@ def cart_context(request):
         id = key.split('_')[0]  # This gives you the numeric product ID part
         quantity = item['quantity']  # Extract quantity from the cart item
         product = get_object_or_404(Product, pk=id)  # Query by the numeric product ID
+        subtotal = quantity * product.price  # This calculates the subtotal for the item
 
         # Add the cost of this item to the total
         total += quantity * product.price  
@@ -43,7 +44,8 @@ def cart_context(request):
             'id': id,
             'quantity': quantity,
             'product': product,
-            'size': item.get('size')  # Include size if available
+            'size': item.get('size'),  # Include size if available
+            'subtotal': subtotal,
         })
 
     if total < settings.FREE_DELIVERY_THRESHOLD:
