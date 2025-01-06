@@ -1,4 +1,4 @@
-from django.shortcuts import redirect, get_object_or_404
+from django.shortcuts import redirect, get_object_or_404, render
 from django.contrib import messages
 from products.models import Product
 
@@ -39,17 +39,20 @@ def add_to_cart(request, id):
 
     cart = request.session.get('cart', {})
 
-    # Create a unique identifier for the cart item (including size if it exists)
-    item_key = f"{id}_{size}" if size else f"{id}"
-
-    # If item already exists in cart, update the quantity
-    if item_key in cart:
-        cart[item_key]['quantity'] += quantity
+    # Create a unique key by combining the product id and size (if applicable)
+    if product.has_sizes and size:
+        product_key = f'{id}_{size}'  # Use product id and size as the key
     else:
-        # Add new item to the cart
-        cart[item_key] = {
+        product_key = str(id)  # Use only the product id as the key if no size
+
+    if product_key in cart:
+        # If the product (with size) is already in the cart, increment the quantity
+        cart[product_key]['quantity'] += quantity
+    else:
+        # If the product (with size) is not in the cart, add it with the current quantity and size
+        cart[product_key] = {
             'quantity': quantity,
-            'size': size,  
+            'size': size,
         }
 
     request.session['cart'] = cart

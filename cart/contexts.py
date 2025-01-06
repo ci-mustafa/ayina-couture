@@ -1,5 +1,7 @@
 from decimal import Decimal
 from django.conf import settings
+from django.shortcuts import get_object_or_404
+from products.models import Product
 
 def cart_context(request):
     """
@@ -24,15 +26,32 @@ def cart_context(request):
     """
     
     cart_items = []
-    total = Decimal('0.00')
+    total = 0
     product_count = 0
+    cart = request.session.get('cart', {})
+    for key, item in cart.items():
+        # Extract product ID from the composite key (if size is present)
+        id = key.split('_')[0]  # This gives you the numeric product ID part
+        quantity = item['quantity']  # Extract quantity from the cart item
+        product = get_object_or_404(Product, pk=id)  # Query by the numeric product ID
+
+        # Add the cost of this item to the total
+        total += quantity * product.price  
+        product_count += quantity  # Increment the product count
+
+        cart_items.append({
+            'id': id,
+            'quantity': quantity,
+            'product': product,
+            'size': item.get('size')  # Include size if available
+        })
 
     if total < settings.FREE_DELIVERY_THRESHOLD:
         delivery = total * Decimal(settings.STANDARD_DELIVERY_PERCENTAGE / 100)
         free_delivery_delta = settings.FREE_DELIVERY_THRESHOLD - total
     else:
-        delivery = Decimal('0.00')
-        free_delivery_delta = Decimal('0.00')
+        delivery = 0
+        free_delivery_delta = 0
     
     final_total = delivery + total
     

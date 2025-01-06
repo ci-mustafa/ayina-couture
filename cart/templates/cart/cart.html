@@ -16,7 +16,9 @@
     <div class="row">
         <div class="col">
             {% if cart_items %}
-            <div class="table-responsive"></div>
+            <div class="table-responsive">
+                {{ cart_items }}
+            </div>
             {% else %}
             <p class="lead mb-6">Currently you don't have any items in your cart.</p>
             <a href="{% url 'products' %}" class="browse-style-btn btn btn-lg rounded-1 text-uppercase py-3">
