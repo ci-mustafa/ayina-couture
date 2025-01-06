@@ -1,1 +1,1 @@
-web: gunicorn ayina_couture.wsgi:application
+web: gunicorn ayina_couture.wsgi
