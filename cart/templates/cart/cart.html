@@ -60,9 +60,15 @@
                         </button>
 
                         <!-- Update Button (Right) -->
+                         {% if item.size %}
+                        <a href="{% url 'update-cart-item' item.id %}/{{ item.size }}/" class="btn btn-info btn-sm update-item-btn">
+                            <i class="fa-regular fa-pen-to-square fa-lg"></i> Update
+                        </a>
+                        {% else %}
                         <a href="{% url 'update-cart-item' item.id %}" class="btn btn-info btn-sm update-item-btn">
                             <i class="fa-regular fa-pen-to-square fa-lg"></i> Update
                         </a>
+                        {% endif %}
                     </div>
                 </div>
                 <!-- Modal -->
