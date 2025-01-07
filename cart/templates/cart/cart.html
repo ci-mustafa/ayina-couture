@@ -34,46 +34,71 @@
                         </small>
                     </div>
                     <div class="cart-item-price text-center mb-3 mb-md-0">
-                        <p class="my-0">Price: <i class="fa-solid fa-euro-sign fa-sm"></i>{{ item.product.price|floatformat:2 }}</p>
+                        <p class="my-0">Price: <i
+                                class="fa-solid fa-euro-sign fa-sm"></i>{{item.product.price|floatformat:2 }}</p>
                     </div>
                     <div class="cart-item-qty text-center mb-3 mb-md-0">
                         <p class="my-0">Quantity: {{ item.quantity }}</p>
                     </div>
                     <div class="cart-item-subtotal text-center">
-                        <p class="my-0">Subtotal: <i class="fa-solid fa-euro-sign fa-sm"></i>{{ item.subtotal|floatformat:2 }}</p>
+                        <p class="my-0">Subtotal: <i
+                                class="fa-solid fa-euro-sign fa-sm"></i>{{item.subtotal|floatformat:2 }}</p>
                     </div>
 
                     <!-- Cart Actions (Now Inside) -->
                     <div class="cart-actions d-flex justify-content-between w-100 mt-2">
-                        <!-- Remove Button (Left) -->
-                        <!-- <button class="btn btn-danger btn-sm remove-item-btn">
+                        <!-- Button trigger delete modal -->
+                        <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal"
+                            data-bs-target="#staticBackdrop">
                             <i class="fa-solid fa-trash-can fa-lg"></i> Remove
-                        </button> -->
-                        <form action="{% url 'delete-cart-item' item.id %}{% if item.size %}/{{ item.size }}{% endif %}/"
-                            id="remove-form-{{ item.id }}" method="POST">
-                            {% csrf_token %}
-                            <button type="submit" class="btn btn-danger btn-sm" onclick="confirmDelete('{{ item.id }}', '{{ item.size|escapejs }}')">
-                                <i class="fa-solid fa-trash-can fa-lg"></i> Remove
-                            </button>
-                        </form>
+                        </button>
 
                         <!-- Update Button (Right) -->
-                        <a href="{% url 'update-cart-item' item.id %}"
-                            class="btn btn-info btn-sm update-item-btn">
+                        <a href="{% url 'update-cart-item' item.id %}" class="btn btn-info btn-sm update-item-btn">
                             <i class="fa-regular fa-pen-to-square fa-lg"></i> Update
                         </a>
                     </div>
-                </div> <!-- Border is now at the bottom of this div -->
+                </div>
+                <!-- Modal -->
+                <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
+                    tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-sm modal-md modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="staticBackdropLabel" style="color: black;"><strong>Confirm
+                                        Deletion</strong></h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body text-center">
+                                <h6>Are you sure you want to delete <strong><em>{{ item.product.name }}</em></strong>
+                                    from the cart? This action cannot be undone.</h6>
+                            </div>
+                            <div class="modal-footer justify-content-center">
+                                <button type="button" class="btn btn-success" data-bs-dismiss="modal">Not sure</button>
+                                <a href="#" id="delete-button" class="btn btn-danger"
+                                    data-url="{% url 'delete-cart-item' item.id %}{% if item.size %}/{{ item.size }}{% endif %}/">
+                                    Delete
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 {% endfor %}
 
 
                 <div class="cart-summary mt-5">
-                    <h4><strong>Cart Total: <i class="fa-solid fa-euro-sign fa-sm"></i>{{ total|floatformat:2 }}</strong></h4>
+                    <h4><strong>Cart Total: <i class="fa-solid fa-euro-sign fa-sm"></i>{{ total|floatformat:2}}</strong>
+                    </h4>
                     <h6>Delivery: <i class="fa-solid fa-euro-sign fa-sm"></i>{{ delivery|floatformat:2 }}</h6>
-                    <h3 class="mt-4"><strong>Final Total: <i class="fa-solid fa-euro-sign fa-sm"></i>{{ final_total|floatformat:2 }}</strong></h3>
+                    <h3 class="mt-4"><strong>Final Total: <i
+                                class="fa-solid fa-euro-sign fa-sm"></i>{{final_total|floatformat:2 }}</strong></h3>
                     {% if free_delivery_delta > 0 %}
                     <div class="alert alert-warning mt-3">
-                        You could get free delivery by spending <strong><i class="fa-solid fa-euro-sign fa-sm"></i>{{ free_delivery_delta|floatformat:2}}</strong> more!
+                        You could get free delivery by spending <strong><i
+                                class="fa-solid fa-euro-sign fa-sm"></i>{{free_delivery_delta|floatformat:2}}</strong>
+                        more!
                     </div>
                     {% endif %}
                 </div>
@@ -100,4 +125,7 @@
         </div>
     </div>
 </div>
+
+<script src="{% static 'js/cart_item_delete_confirmation.js' %}"></script>
+
 {% endblock %}
