@@ -55,7 +55,11 @@ def add_to_cart(request, id):
             'size': size,
         }
 
+    # Save the updated cart in the session
     request.session['cart'] = cart
+
+    # Add success message
+    messages.success(request, f'Item "{product.name}" has been successfully added to your cart.')
     return redirect(redirect_url)
 
 
@@ -165,7 +169,7 @@ def delete_cart_item(request, id, size=None):
     if cart_item_key in cart:
         del cart[cart_item_key]
         request.session['cart'] = cart 
-        messages.success(request, 'Item removed from cart')
+        messages.success(request, 'Selected item removed from cart')
     else:
         messages.error(request, 'Item not found in cart')
     return redirect('view-cart')

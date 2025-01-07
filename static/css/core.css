@@ -523,6 +523,16 @@ body {
     font-size: 16px; /* Ensure consistent icon size */
 }
 
+/* bootstrap toasts */
+
+.toast {
+    margin-top: 5%;
+}
+
+.close:hover {
+    transform: scale(1.1);
+}
+
 
 /* Ensure good responsive behavior shopping page */
 @media (max-width: 767px) {

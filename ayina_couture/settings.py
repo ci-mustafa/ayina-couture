@@ -115,6 +115,9 @@ TEMPLATES = [
     },
 ]
 
+
+# MESSAGE_STORAGE defines where temporary messages (e.g., success, error, info) are stored.
+MESSAGE_STORAGE = "django.contrib.messages.storage.session.SessionStorage"
 AUTHENTICATION_BACKENDS = [
     
     # Needed to login by username in Django admin, regardless of `allauth`
