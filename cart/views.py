@@ -45,7 +45,6 @@ def add_to_cart(request, id):
 def update_cart_item(request, id):
     product = get_object_or_404(Product, pk=id)
     cart = request.session.get('cart', {})
-    
     if product.has_sizes:
         size = request.POST.get('size')
         cart_item_key = f"{id}_{size}"  
@@ -67,7 +66,7 @@ def update_cart_item(request, id):
         return redirect('view-cart') 
     return render(request, 'cart/update_cart_item.html', {
         'product': product, 
-        'cart_item': cart_item,  
+        'cart_item': cart_item, 
     })
 
 
