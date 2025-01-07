@@ -1,14 +1,22 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // Attach the modal shown event listener
-    const deleteButton = document.getElementById('delete-button');
     const modalElement = document.getElementById('staticBackdrop');
+    const modalProductName = document.getElementById('modal-product-name');
+    const deleteButton = document.getElementById('delete-button');
 
-    modalElement.addEventListener('show.bs.modal', function () {
-        // Get the delete URL when the modal is shown
-        const deleteUrl = deleteButton.getAttribute('data-url');
+    modalElement.addEventListener('show.bs.modal', function (event) {
+        // Get the button that triggered the modal
+        const button = event.relatedTarget;
 
-        // Set the href of the delete button in the modal
-        const confirmDeleteButton = document.getElementById('delete-button');
-        confirmDeleteButton.setAttribute('href', deleteUrl);
+        // Extract the product details from the button
+        const productId = button.getAttribute('data-id');
+        const productSize = button.getAttribute('data-size');
+        const productName = button.getAttribute('data-name');
+        const deleteUrl = button.getAttribute('data-url');
+
+        // Update the modal text with the correct product name
+        modalProductName.textContent = productName;
+
+        // Update the delete button with the correct URL
+        deleteButton.setAttribute('href', deleteUrl);
     });
 });
