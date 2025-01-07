@@ -223,6 +223,7 @@ class ProductRating(models.Model):
     rating = models.DecimalField(
         max_digits=2, decimal_places=1, choices=[(i, i) for i in range(1, 6)]
     )
+    comment = models.CharField(max_length=254, null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:
