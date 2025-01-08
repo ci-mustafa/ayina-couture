@@ -562,11 +562,74 @@ body {
 
 /* bootstrap toasts */
 .toast {
-    margin-top: 5px;
+    margin-top: 5%;
 }
 
 .close:hover {
     transform: scale(1.1);
+}
+
+.toast .btn-black {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid transparent; 
+    padding: 12px 25px; 
+    background-color: #f8f9fa; 
+    color: #000; 
+    font-size: 14px; 
+    text-transform: uppercase; 
+    text-decoration: none; 
+    transition: all 0.3s ease; 
+    width: 100%; 
+    margin-top: 10px; 
+}
+
+
+.toast .btn-black .icon {
+    margin-left: 10px;
+}
+
+
+.toast .btn-black:hover {
+    border-color: #000; 
+    background-color: #f1f1f1; 
+}
+
+
+/* Button Styles for Update and Back to Cart */
+.btn-primary, .btn-secondary {
+    width: 100%; 
+    padding: 12px 20px; 
+    font-size: 16px; 
+    border-radius: 8px; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+    transition: all 0.3s ease; 
+}
+
+
+.btn-primary {
+    background-color: #007bff; 
+    border: none;
+    color: white;
+}
+
+
+.btn-primary:hover {
+    background-color: #0056b3; 
+    transform: translateY(-2px); 
+}
+
+
+.btn-secondary {
+    background-color: #6c757d; 
+    border: none;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268; 
+    transform: translateY(-2px); 
 }
 
 
@@ -635,6 +698,7 @@ body {
         margin: 5px 0; 
     }
 }
+
 
 
 
