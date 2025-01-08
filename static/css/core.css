@@ -526,12 +526,28 @@ body {
 /* bootstrap toasts */
 
 .toast {
-    margin-top: 5%;
+    margin-top: 5px;
 }
 
 .close:hover {
     transform: scale(1.1);
 }
+
+
+/* Scrollbar Styling */
+.scrollable-content::-webkit-scrollbar-thumb {
+    background: linear-gradient(45deg, #1c461f, #228d7d); 
+}
+
+.scrollable-content {
+    max-height: 300px;
+    overflow-y: auto; 
+    overflow-x: hidden; 
+    padding-right: 10px; 
+    scrollbar-color: #228d7d #333; 
+    scrollbar-width: thin;
+}
+
 
 
 /* Ensure good responsive behavior shopping page */

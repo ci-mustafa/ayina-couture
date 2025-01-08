@@ -1,16 +1,73 @@
-<div class="toast rounded-0 border-top-0 toast-message" data-bs-autohide="false" style="position: fixed; top: 0; left: 50%; transform: translateX(-50%); z-index: 1050; background: linear-gradient(to right, #ffcc00, #ff6600); border: none;">
-    <div class="arrow-up arrow-success"></div>
-    <div class="w-100 toast-capper bg-success"></div>
+<div class="toast rounded-0 border-top-0 toast-message" data-bs-autohide="false" 
+    style="position: fixed; top: 0; left: 50%; transform: translateX(-50%); z-index: 1050; 
+    background: linear-gradient(to right, #ffcc00, #ff6600); border: none; max-width: 400px;">
+
+    <!-- Toast Header -->
     <div class="toast-header bg-transparent text-white d-flex justify-content-between w-100">
         <strong class="mr-auto">Success</strong>
-        <button type="button" class="close text-white" data-bs-dismiss="toast" aria-label="Close" style="border: none; background: none; font-size: 1.5rem;">
+        <button type="button" class="close text-white" data-bs-dismiss="toast" aria-label="Close" 
+            style="border: none; background: none; font-size: 1.5rem;">
             <i class="fa-solid fa-rectangle-xmark"></i>
         </button>
     </div>
+
+    <!-- Toast Body -->
     <div class="toast-body text-white" style="background: linear-gradient(to right, rgba(0, 123, 255, 0.8), rgba(40, 167, 69, 0.8));">
-        {{ message }}
-    </div>
+        
+        <!-- Apply 'scrollable-content' class conditionally -->
+        <div class="{% if product_count > 4 %}scrollable-content{% endif %}">
+            <div class="row">
+                <div class="col">
+                    {{ message }}
+                    <hr class="mt-1 mb-3">
+                </div>
+            </div>
+
+            {% if final_total %}
+                <p class="bg-white text-black py-1">You have ({{ product_count }}) item(s) in your cart.</p>
+                <div class="bag-notification-wrapper">
+                    {% for item in cart_items %}
+                        <div class="row">
+                            <div class="col-3 my-1">
+                                <img class="w-100" src="{{ item.product.image.url }}">
+                            </div>
+                            <div class="col-9">
+                                <p class="my-0"><strong>{{ item.product.name }}</strong></p>
+                                <p class="my-0 small">{% if item.product.has_sizes %}Size: {{ item.size|upper }}{% endif %}</p>
+                                <p class="my-0 small text-muted">Qty: {{ item.quantity }}</p>
+                                <p class="my-0 small">Subtotal: <i class="fa-solid fa-euro-sign fa-sm"></i>{{ item.subtotal|floatformat:2 }}</p>
+                            </div>
+                            <hr>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+
+        </div> <!-- End Scrollable Content -->
+
+        {% if final_total %}
+            <div class="row">
+                <div class="col">
+                    <strong><p class="mt-3 mb-1 text-black">
+                        Total{% if free_delivery_delta > 0 %} (Exc. delivery){% endif %}: 
+                        <span class="float-right">${{ total|floatformat:2 }}</span>
+                    </p></strong>
+                    {% if free_delivery_delta > 0 %}
+                        <p class="mb-0 p-2 bg-warning shadow-sm text-black text-center">
+                            Spend <strong>${{ free_delivery_delta }}</strong> more to get free next-day delivery!
+                        </p>
+                    {% endif %}
+                    <a href="{% url 'view-cart' %}" class="btn btn-black btn-block rounded-0">
+                        <span class="text-uppercase">Go To Secure Checkout</span>
+                        <span class="icon"><i class="fas fa-lock"></i></span>
+                    </a>
+                </div>
+            </div>
+        {% endif %}
+        
+    </div> <!-- End Toast Body -->
 </div>
+
 
 
 
