@@ -175,6 +175,29 @@ def delete_cart_item(request, id, size=None):
     return redirect('view-cart')
 
 
+# Delete all items from the cart
+def delete_all_cart_items(request):
+    """
+    Removes all items from the cart.
+
+    This view will clear the entire cart by removing all items stored in the session-based cart.
+
+    Args:
+        request (HttpRequest): The HTTP request object.
+
+    Returns:
+        HttpResponseRedirect: Redirects the user to the cart view with a success message.
+    """
+    # Clear the cart by resetting it
+    request.session['cart'] = {}
+    
+    # Provide feedback to the user
+    messages.success(request, 'All items have been removed from your cart.')
+    
+    # Redirect back to the cart view
+    return redirect('view-cart')
+
+
 
 
 

@@ -14,4 +14,5 @@ urlpatterns = [
     path('update/<id>/<size>/', views.update_cart_item, name='update-cart-item'),
     # Update item without size
     path('update/<id>/', views.update_cart_item, name='update-cart-item'),
+    path('delete-all-cart-items/', views.delete_all_cart_items, name='delete-all-cart-items'),
 ]

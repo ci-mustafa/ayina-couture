@@ -464,6 +464,7 @@ body {
     width: 100%;
 }
 
+/* delete product confirmation */
 .delete-confirm {
     padding: 20px;
     background-color: #275d58;
@@ -513,18 +514,53 @@ body {
 }
 
 
-.cart-actions .btn a {
-    width: 40px;   /* Fixed width */
-    height: 40px;  /* Fixed height */
-    display: flex; /* Align icon in the center */
-    align-items: center;
-    justify-content: center;
-    padding: 0;    /* Remove extra padding */
-    font-size: 16px; /* Ensure consistent icon size */
+/* Main container for the cart actions */
+.cart-actions {
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    gap: 15px; 
+    margin-top: 20px; 
 }
 
-/* bootstrap toasts */
 
+.delete-item-button {
+    width: 30%; 
+    padding: 10px 20px; 
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+    font-size: 16px; 
+    transition: all 0.3s ease; 
+    margin-bottom: 10px;
+}
+
+.delete-item-button:hover {
+    background-color: #c0392b; 
+    transform: translateY(-2px); 
+}
+
+
+.update-item-btn {
+    width: 30%; 
+    padding: 10px 20px; 
+    background-color: #3498db; 
+    color: white;
+    border: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+    font-size: 16px; 
+    transition: all 0.3s ease; 
+    margin-bottom: 10px;
+}
+
+.update-item-btn:hover {
+    background-color: #2980b9; 
+    transform: translateY(-2px); 
+}
+
+
+/* bootstrap toasts */
 .toast {
     margin-top: 5px;
 }
@@ -550,15 +586,15 @@ body {
 
 
 
-/* Ensure good responsive behavior shopping page */
+/* Ensure good responsive behavior shopping cart */
 @media (max-width: 767px) {
     .cart-item {
-        flex-direction: column; /* Stack items vertically on smaller screens */
+        flex-direction: column; 
         align-items: center;
     }
 
     .cart-item-img img {
-        width: 150px; /* Adjust image size on smaller screens */
+        width: 150px; 
         height: 150px;
     }
 }
@@ -583,6 +619,21 @@ body {
         margin: 5px 0; 
     }
 
+}
+
+/* Responsive design for small screens (cart-actions) */
+@media (max-width: 576px) {
+    .cart-actions {
+        flex-direction: column;
+        align-items: stretch; 
+    }
+
+    
+    .delete-item-button,
+    .update-item-btn {
+        width: 100%; 
+        margin: 5px 0; 
+    }
 }
 
 
