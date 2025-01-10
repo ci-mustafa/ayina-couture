@@ -208,7 +208,9 @@ body {
 .delete-button,
 .button-404,
 .keep-shopping-btn,
-.checkout-btn {
+.checkout-btn,
+.adjust-cart-item-btn,
+.complate-order-btn {
     background: #275d58;
     color: white;
     min-width: 260px;
@@ -221,7 +223,9 @@ body {
 .delete-button:hover,
 .button-404:hover,
 .keep-shopping-btn:hover,
-.checkout-btn:hover {
+.checkout-btn:hover,
+.adjust-cart-item-btn:hover,
+.complate-order-btn:hover {
     background-color: black;
     color: white;
 }
@@ -646,7 +650,6 @@ body {
     scrollbar-color: #228d7d #333; 
     scrollbar-width: thin;
 }
-
 
 
 /* Ensure good responsive behavior shopping cart */

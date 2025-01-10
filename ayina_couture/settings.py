@@ -65,6 +65,7 @@ INSTALLED_APPS = [
     'cart',
     'products',
     'quickcheckout',
+    'crispy_forms',
     'allauth.socialaccount.providers.google',
 ]
 
@@ -78,6 +79,8 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     "allauth.account.middleware.AccountMiddleware",
 ]
+
+CRISPY_TEMPLATE_PACK = 'bootstrap5'
 
 # Google OAuth2 settings
 SOCIALACCOUNT_PROVIDERS = {
@@ -112,6 +115,10 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'cart.contexts.cart_context',
             ],
+            'builtins': [
+                'crispy_forms.templatetags.crispy_forms_tags',
+                'crispy_forms.templatetags.crispy_forms_field',
+            ]
         },
     },
 ]
