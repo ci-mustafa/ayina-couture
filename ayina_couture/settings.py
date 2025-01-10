@@ -64,6 +64,7 @@ INSTALLED_APPS = [
     'home',
     'cart',
     'products',
+    'quickcheckout',
     'allauth.socialaccount.providers.google',
 ]
 
