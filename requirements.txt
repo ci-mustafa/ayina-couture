@@ -9,4 +9,4 @@ psycopg2==2.9.9
 PyJWT==2.10.1
 sqlparse==0.5.3
 requests
-
+cryptography>=3.3.2
