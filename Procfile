@@ -1,1 +1,1 @@
-web: gunicorn ayina_couture.wsgi
+web: gunicorn ayina_couture.wsgi:application --preload
