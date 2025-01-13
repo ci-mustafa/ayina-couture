@@ -45,8 +45,8 @@ CSRF_TRUSTED_ORIGINS = [
     'https://cimustafa-ayinacouture-0g69ygd7vkp.ws.codeinstitute-ide.net',
     'https://ayina-couture-32f4a278cf2b.herokuapp.com',
     'https://*.herokuapp.com',
-    'http://127.0.0.1:8000',
-    'http://localhost:8000',
+    'https://127.0.0.1:8000',
+    'https://localhost:8000',
     
 ]
 
