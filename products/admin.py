@@ -14,7 +14,7 @@ class CollectionAdmin(admin.ModelAdmin):
 @admin.register(models.Product)
 class ProductAdmin(admin.ModelAdmin):
     list_display = [
-        'sku','name', 'description', 'material', 'price',
+        'sku','name', 'image','description', 'material', 'price',
         'has_sizes', 'stock_quantity',
         'collection__title'
     ]
