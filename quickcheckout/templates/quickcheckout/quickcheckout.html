@@ -107,13 +107,16 @@
                         profile</label> 
                     <input class="form-check-input ml-2 mr-0" type="checkbox" id="id-save-info" name="save-info"
                         checked> 
-                    {% else %}
-                    <label class="form-check-label small" for="id-save-info">
-                        <a class="text-info" href="{% url 'account_signup' %}">Create an account</a> or
-                        <a class="text-info" href="{% url 'account_login' %}">login</a> to save this information
-                    </label>
                     {% endif %}
                 </div>
+                <hr>
+                <fieldset class="px-3">
+                    <legend class="fieldset-label small text-black px-2 w-auto"><h5>Payment</h5></legend>
+                    <!-- Stripe card element -->
+                    <div class="mb-3" id="card-element"></div>
+                    <!-- display form errors -->
+                    <div class="mb-3 text-danger" id="card-errors" role="alert"></div>
+                </fieldset>
 
                 <!-- Button Styles -->
                 <div class="d-flex flex-column flex-md-row justify-content-between align-items-center mt-5 mb-2">
@@ -146,4 +149,18 @@
 
     </div>
 </div>
+{% endblock %}
+{% block postloadjs %}
+{{ block.super }}
+{{ stripe_public_key|json_script:"id_stripe_public_key" }}
+{{ client_secret|json_script:"id_client_secret" }}
+<script>
+    const stripePublicKey = "{{ stripe_public_key }}";
+    const clientSecret = "{{ client_secret }}";
+
+    if (!clientSecret) {
+        console.error("Client Secret is not defined!");
+    }
+</script>
+<script src="{% static 'quickcheckout/js/stripe_elements.js' %}"></script>
 {% endblock %}

@@ -13,6 +13,7 @@ psycopg2==2.9.9
 PyJWT==2.10.1
 s3transfer==0.10.4
 sqlparse==0.5.3
+stripe==11.4.1
 urllib3==1.26.20
 whitenoise==6.8.2
 requests

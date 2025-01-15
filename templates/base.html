@@ -189,9 +189,12 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <!-- Font Awsome link -->
     <script src="https://kit.fontawesome.com/fd7875ea58.js" crossorigin="anonymous"></script>
+    <!-- Strip js -->
+    <script src="https://js.stripe.com/v3/"></script>
     <!-- local scripts -->
     <script src="{% static 'js/popup.js' %}"></script>
     <script src="{% static 'js/show_toasts.js' %}"></script>
+    {% block postloadjs %}
+    {% endblock %}
 </body>
-
 </html>
