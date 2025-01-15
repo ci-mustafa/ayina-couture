@@ -48,42 +48,4 @@ form.addEventListener('submit', function(ev) {
         }
     });
 });
-// Handle form submit
-// var form = document.getElementById('payment-form');
-// form.addEventListener('submit', function (ev) {
-//     ev.preventDefault(); // Prevent default form submission
-//     card.update({ 'disabled': true });
-//     $('#submit-button').attr('disabled', true);
-
-//     stripe.confirmCardPayment(clientSecret, {
-//         payment_method: {
-//             card: card,
-//         }
-//     }).then(function (result) {
-//         if (result.error) {
-//             // Handle errors
-//             var errorDiv = document.getElementById('card-errors');
-//             var html = `
-//                 <span class="icon" role="alert">
-//                     <i class="fas fa-times"></i>
-//                 </span>
-//                 <span>${result.error.message}</span>`;
-//             $(errorDiv).html(html);
-
-//             // Re-enable card input and submit button
-//             card.update({ 'disabled': false });
-//             $('#submit-button').attr('disabled', false);
-//         } else {
-//             if (result.paymentIntent.status === 'succeeded') {
-//                 console.log("Payment succeeded. Form is being submitted.");
-
-//                 // Clear the form and force reload
-//                 form.reset();
-//                 setTimeout(function () {
-//                     window.location.href = window.location.href; // Reload the page
-//                 }, 1000); // 1-second delay
-//             }
-//         }
-//     });
-// });
 
