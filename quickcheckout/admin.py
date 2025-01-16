@@ -15,7 +15,10 @@ class OrderAdmin(admin.ModelAdmin):
         'delivery_cost', 'order_cost', 'order_final_total', 'created_at', 'updated_at'
     )
     readonly_fields = ('order_number', 'created_at', 'updated_at', 'order_cost', 'delivery_cost', 'order_final_total')
-    list_display = ('order_number', 'full_name', 'email', 'status', 'order_cost', 'delivery_cost', 'order_final_total', 'created_at')
+    list_display = ('order_number', 'full_name', 
+                    'email', 'status', 'order_cost', 
+                    'delivery_cost', 'order_final_total', 
+                    'created_at', 'original_cart', 'stripe_pid')
     list_filter = ('status', 'created_at')
     search_fields = ('order_number', 'full_name', 'email', 'status')
     ordering = ['-created_at']
