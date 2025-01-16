@@ -146,25 +146,6 @@ body {
 }
 
 
-/* footer section */
-.footer {
-    background-color:#275d58;
-}
-
-.footer a,
-.footer h5,
-.footer p {
-    color: black;
-}
-
-.footer a:hover{
-    color: white; 
-    transform: scale(1.1); 
-    background-color: rgba(255, 99, 71, 0.1); 
-    border-radius: 5px; 
-}
-
-
 /* Logo font styles and Hover effect */
 .logo-font {
     font-family: "Rubik Vinyl", serif;
