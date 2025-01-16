@@ -1,31 +1,31 @@
 <div class="collapse navbar-collapse justify-content-center" id="main-nav">
     <ul class="navbar-nav w-auto mx-auto text-center">
         <li class="nav-item">
-            <a class="font-weight-bold nav-link text-black" href="{% url 'products' %}" id="all-products-link">
+            <a class="font-weight-bold nav-link" href="{% url 'products' %}" id="all-products-link">
                 All Products
             </a>
         </li>
         <li class="nav-item">
-            <a class="font-weight-bold nav-link text-black {% if collection == 'women' %}active{% endif %}"
+            <a class="font-weight-bold nav-link {% if collection == 'women' %}active{% endif %}"
                 href="{% url 'products' %}?collection=women" id="women-clothing">
                 Women
             </a>
         </li>
 
         <li class="nav-item">
-            <a class="font-weight-bold nav-link text-black {% if collection == 'men' %}active{% endif %}"
+            <a class="font-weight-bold nav-link {% if collection == 'men' %}active{% endif %}"
                 href="{% url 'products' %}?collection=men" id="men-clothing">
                 Men
             </a>
         </li>
         <li class="nav-item">
-            <a class="font-weight-bold nav-link text-black {% if collection == 'accessories' %}active{% endif %}"
+            <a class="font-weight-bold nav-link {% if collection == 'accessories' %}active{% endif %}"
                 href="{% url 'products' %}?collection=accessories" id="accessories-link">
                 Accessories
             </a>
         </li>
         <li class="nav-item">
-            <a class="font-weight-bold nav-link text-black" href="#" id="contact-link">
+            <a class="font-weight-bold nav-link " href="#" id="contact-link">
                 Contact us
             </a>
         </li>
