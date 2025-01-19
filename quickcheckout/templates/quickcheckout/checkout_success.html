@@ -161,6 +161,14 @@
     <div class="row justify-content-center mt-4 w-100">
         <!-- Added justify-content-center to center the row -->
         <div class="col-12 col-lg-7 text-center">
+            {% if from_profile %}
+                    <a href="{% url 'profile' %}" class="browse-style-btn btn rounded-0 my-2">
+                        <span class="icon mr-2">
+                            <i class="fas fa-angle-left"></i>
+                        </span>
+                        <span class="text-uppercase">Back to Profile</span>
+                    </a>
+            {% else %}
             <!-- Changed text alignment to text-center -->
             <a href="{% url 'products' %}" class="browse-style-btn btn rounded-0 my-2">
                 <span class="icon mr-2">
@@ -168,6 +176,7 @@
                 </span>
                 <span class="text-uppercase">browse our styles</span>
             </a>
+            {% endif %}
         </div>
     </div>
 </div>

@@ -1,1 +1,23 @@
 {% extends "allauth/layouts/entrance.html" %}
+{% load static %}
+
+{% block content %}
+<div class="container h-100 home-main-div entrance-div d-flex align-items-center justify-content-center">
+    <div class="row w-100 justify-content-center">
+        <div class="col-12 col-md-8 col-lg-6 my-auto">
+            <!-- Allauth Inner Form -->
+            <div class="allauth-form-inner-content w-100 p-4 shadow rounded text-center">
+                <a class="btn btn-outline-secondary rounded-3 shadow-sm px-4" href="{% url 'home' %}">
+                    Home
+                </a>
+                {% block inner_content %}
+                
+                <!-- Placeholder for inner content (login/logout forms, etc.) -->
+                {% endblock %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+

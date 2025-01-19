@@ -39,7 +39,7 @@
             <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
                 <ul class="list-inline list-unstyled text-center text-lg-right my-0">
                     <li class="list-inline-item dropdown">
-                        <a class="nav-link" href="#" id="user-options" data-bs-toggle="dropdown" aria-haspopup="true"
+                        <a class="nav-link" href="{% url 'profile' %}" id="user-options" data-bs-toggle="dropdown" aria-haspopup="true"
                             aria-expanded="false">
                             <div class="text-center" id="account-link">
                                 <div><i class="fa-solid fa-user fa-lg"></i></div>
@@ -51,7 +51,7 @@
                             {% if request.user.is_superuser %}
                             <a href="{% url 'product-add' %}" class="dropdown-item">Product Management</a>
                             {% endif %}
-                            <a href="" class="dropdown-item">My Profile</a>
+                            <a href="{% url 'profile' %}" class="dropdown-item">My Profile</a>
                             <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
                             {% else %}
                             <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
@@ -123,7 +123,8 @@
         </div>
         {% endif %}
     </header>
-
+    <!-- Spacer to offset the fixed header -->
+    <div class="header-spacer"></div>
     <!-- Checking if there are any messages (Django messages framework) -->
     {% if messages %}
     <div class="message-box">
@@ -164,6 +165,21 @@
     <!-- local scripts -->
     <script src="{% static 'js/popup.js' %}"></script>
     <script src="{% static 'js/show_toasts.js' %}"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+    const header = document.querySelector(".main-header");
+    const spacer = document.querySelector(".header-spacer");
+
+    function adjustSpacerHeight() {
+        spacer.style.height = `${header.offsetHeight}px`;
+    }
+
+    // Adjust on page load and window resize
+    adjustSpacerHeight();
+    window.addEventListener("resize", adjustSpacerHeight);
+    });
+
+    </script>
     {% block postloadjs %}
     {% endblock %}
 </body>

@@ -1,9 +1,9 @@
 /* Overriding the default borwser style */
-* {
+/* * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-}
+} */
 html {
     height: 100%;
     overflow-x: hidden; /* Hide horizontal scrollbar */
@@ -13,8 +13,12 @@ a {
     text-decoration: none;
 }
 
+ul, ol{
+    list-style-type: none;
+    }
+
 body {
-    height: calc(100vh - 164px);
+    height:100%;
     font-family: 'Lato', serif;
     background-color: #e4eaf5;
 }
@@ -23,6 +27,11 @@ body {
     background-color:#275d58;
 }
 
+.header-spacer {
+    height: 120px; /* Match this to the height of your fixed header */
+    width: 100%;
+    background-color: transparent; /* Optional, for debugging you can set a color */
+}
 
 /* Main nav link hover style */
 #main-nav .nav-link {
@@ -60,7 +69,6 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin-top: 4%;
 }
 
 /* Home image */
@@ -84,12 +92,12 @@ body {
 
 /* Product page main div */
 .product-main-page {
-    margin-top: 125px;
-    margin-bottom: 15px;
+    margin-bottom: 15%;
     padding: 20px;
     background-color: #275d58;
     overflow: visible; /* Ensures it grows with content */
 }
+
 
 /* Ensure all product images are fixed in size */
 .fixed-img {
@@ -190,7 +198,11 @@ body {
 .keep-shopping-btn,
 .checkout-btn,
 .adjust-cart-item-btn,
-.complate-order-btn {
+.complate-order-btn,
+.home-btn,
+.update-profile-button,
+.reset-password-button,
+.signup-button {
     background: #275d58;
     color: white;
     min-width: 260px;
@@ -205,7 +217,11 @@ body {
 .keep-shopping-btn:hover,
 .checkout-btn:hover,
 .adjust-cart-item-btn:hover,
-.complate-order-btn:hover {
+.complate-order-btn:hover,
+.home-btn:hover,
+.update-profile-button:hover,
+.reset-password-button:hover,
+.signup-button:hover {
     background-color: black;
     color: white;
 }
@@ -631,6 +647,19 @@ body {
     scrollbar-width: thin;
 }
 
+/* Order history */
+.order-history {
+    max-height: 416px; 
+    overflow-y: auto;
+}
+
+/* Profile page */
+.profile-main-div {
+    margin-top: 5%;
+    margin-bottom: 5%;
+    padding: 20px;
+    background-color: #275d58;
+}
 
 /* Ensure good responsive behavior shopping cart */
 @media (max-width: 767px) {
@@ -679,6 +708,12 @@ body {
     .update-item-btn {
         width: 100%; 
         margin: 5px 0; 
+    }
+}
+
+@media (max-width: 768px) {
+    .header-spacer {
+        height: 150px; /* Adjust for smaller screens */
     }
 }
 

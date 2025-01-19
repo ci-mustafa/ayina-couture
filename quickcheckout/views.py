@@ -5,6 +5,7 @@ from .forms import OrderForm
 from products.models import Product
 from .models import Order, OrderItem
 from cart.contexts import cart_context
+from profiles.models import UserProfile
 import stripe
 
 
@@ -12,9 +13,10 @@ def quickcheckout(request):
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
     cart = request.session.get('cart', {})
+
     if not cart:
         messages.error(request, 'There is nothing in your cart at the moment!')
-    
+        return redirect('products')  # Redirect to product page or other relevant page
 
     current_cart = cart_context(request)
     total = current_cart['final_total']
@@ -24,6 +26,21 @@ def quickcheckout(request):
         amount=stripe_total,
         currency=settings.STRIPE_CURRENCY,
     )
+
+    # Initialize form data for authenticated users
+    if request.user.is_authenticated:
+        user_profile = get_object_or_404(UserProfile, user=request.user)
+        initial_data = {
+            'full_name': user_profile.full_name,
+            'email': user_profile.user.email,  # Get email from user model
+            'phone_number': user_profile.phone_number,
+            'country': user_profile.country,
+            'postcode': user_profile.postcode,
+            'city': user_profile.city,
+            'street_address': user_profile.street_address,
+        }
+    else:
+        initial_data = {}
 
     if request.method == 'POST':
         form_data = {
@@ -39,27 +56,34 @@ def quickcheckout(request):
         if order_form.is_valid():
             order = order_form.save(commit=False)
             # Set the user field if the user is authenticated
-            if request.user.is_authenticated:
+            if request.user.is_authenticated and 'save-info' in request.POST:
                 order.user = request.user
-            else:
-                messages.error(request, 'You must be logged in to place an order.')
-                return redirect('account_login') 
+                # Update the user's profile with the order info
+                user_profile.full_name = form_data['full_name']
+                user_profile.phone_number = form_data['phone_number']
+                user_profile.email = form_data['email']
+                user_profile.country = form_data['country']
+                user_profile.postcode = form_data['postcode']
+                user_profile.city = form_data['city']
+                user_profile.street_address = form_data['street_address']
+                user_profile.save()
             # Save the order to the database
+            order.user = request.user
             order.save()
 
             for key, item in cart.items():
-                # Extract product ID from the key 
-                product_id = key.split('_')[0]  
+                # Extract product ID from the key
+                product_id = key.split('_')[0]
                 product = Product.objects.get(id=product_id)
                 quantity = item['quantity']
-                size = item['size']
+                size = item.get('size', '')
 
                 # Create and save the order item
                 order_item = OrderItem(
                     order=order,
                     product=product,
                     quantity=quantity,
-                    size=size  
+                    size=size
                 )
                 order_item.save()
 
@@ -73,8 +97,7 @@ def quickcheckout(request):
         else:
             messages.error(request, 'There was an error with your form. Please double-check your information.')
 
-
-    order_form = OrderForm()
+    order_form = OrderForm(initial=initial_data)
     context = {
         'order_form': order_form,
         'stripe_public_key': stripe_public_key,
@@ -82,6 +105,7 @@ def quickcheckout(request):
     }
 
     return render(request, 'quickcheckout/quickcheckout.html', context)
+
 
 
 
