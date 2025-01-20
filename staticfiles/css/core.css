@@ -661,6 +661,7 @@ body {
     background-color: #275d58;
 }
 
+
 /* Ensure good responsive behavior shopping cart */
 @media (max-width: 767px) {
     .cart-item {

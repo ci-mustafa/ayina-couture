@@ -39,6 +39,16 @@ class Collection(models.Model):
         """
         return self.display_name
 
+
+# Color model
+class Color(models.Model):
+    name = models.CharField(max_length=50, unique=True)
+    color_code = models.CharField(max_length=7, unique=True)  # Hex code for color
+    
+    def __str__(self):
+        return self.name
+
+
 # Product model
 class Product(models.Model):
 
@@ -80,24 +90,6 @@ class Product(models.Model):
         ('Women', 'Women'),
     ]
 
-
-    COLOR_CHOICES = [
-    ('red', 'Red'),
-    ('blue', 'Blue'),
-    ('green', 'Green'),
-    ('yellow', 'Yellow'),
-    ('black', 'Black'),
-    ('white', 'White'),
-    ('pink', 'Pink'),
-    ('purple', 'Purple'),
-    ('orange', 'Orange'),
-    ('brown', 'Brown'),
-    ('gray', 'Gray'),
-    ('beige', 'Beige'),
-    ('navy', 'Navy'),
-    ('teal', 'Teal'),
-    ('violet', 'Violet'),
-    ]
     collection = models.ForeignKey(
         Collection,
         on_delete=models.SET_NULL,
@@ -113,13 +105,7 @@ class Product(models.Model):
         max_digits=6, decimal_places=2, validators=[MinValueValidator(1)]
     )
     has_sizes = models.BooleanField(default=False, null=True, blank=True)
-    color = models.CharField(
-        max_length=10,
-        null=True, 
-        blank=True, 
-        choices=COLOR_CHOICES,
-        default=None
-    )
+    color = models.ManyToManyField(Color, related_name='products', blank=True)
     gender = models.CharField(max_length=5, choices=GENDER_CHOICES, default='Men')
     occasion = models.CharField(max_length=254, null=True, blank=True) 
     stock_quantity = models.PositiveIntegerField(
@@ -198,6 +184,7 @@ class Product(models.Model):
         str: A string representing the generated SKU.
         """
         return f"PROD-{uuid.uuid4().hex[:8].upper()}"
+
 
 # Productrating model
 class ProductRating(models.Model):

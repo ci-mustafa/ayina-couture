@@ -29,7 +29,19 @@
                     <h2 class="card-title product-title">{{ product.name }}</h2>
                     <p class="product-material">Material: {{ product.material }}</p>
                     <p class="product-price">Price: €{{ product.price }}</p>
-
+                    <!-- Display product colors -->
+                    {% if product.color.all %}
+                    <p>Available Colors:</p>
+                    <ul class="color-list">
+                        {% for color in product.color.all %}
+                            <li>
+                                <span class="color-code" data-color="{{ color.color_code }}"></span>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                    {% else %}
+                    <p>No colors available for this product.</p>
+                    {% endif %}
                     {% if product.average_rating %}
                     <p class="product-rating">
                         Rating: {{ product.average_rating }} |
@@ -114,5 +126,45 @@
         </div>
     </div>
 </div>
+<!-- Embedding CSS Styles -->
+<style>
+
+    /* Ensure the color list is displayed horizontally */
+    .color-list {
+        list-style-type: none;   
+        margin-bottom: 10px;              
+        display: flex;         
+        flex-wrap: wrap;         
+    }
+
+    .color-list li {
+        margin-right: 3px;     
+        display: flex;          
+        align-items: center;  
+    }
+
+    /* Color Code Display Style */
+    .color-code {
+        width: 30px;            
+        height: 30px;           
+        display: inline-block;
+        border-radius: 50%;     
+        margin-right: 10px;     
+        border: 2px solid #000;
+    }
+
+    /* Dynamically set background color based on the color code */
+    .color-code[data-color] {
+        background-color: attr(data-color color);
+    }
+</style>
+<!-- JavaScript to dynamically apply the background color of color code -->
+<script>
+    document.querySelectorAll('.color-code').forEach(function(element) {
+        var colorCode = element.getAttribute('data-color');
+        
+        element.style.backgroundColor = colorCode;
+    });
+</script>
 <script src="{% static 'js/quantity_value_validation.js' %}"></script>
 {% endblock %}
