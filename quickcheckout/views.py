@@ -95,7 +95,13 @@ def quickcheckout(request):
             request.session.modified = True
             return redirect(reverse('checkout-success', args=[order.order_number]))
         else:
-            messages.error(request, 'There was an error with your form. Please double-check your information.')
+            # Capture form errors
+            form_errors = " ".join([f"{field}: {' '.join(errors)}" for field, errors in order_form.errors.items()])
+            
+            # Display form errors in the message
+            messages.error(request, f"There was an error with your form. Please double-check your information. — Errors: {form_errors}")
+
+
 
     order_form = OrderForm(initial=initial_data)
     context = {
