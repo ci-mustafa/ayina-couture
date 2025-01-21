@@ -14,6 +14,7 @@
     </div>
 
     <div class="row">
+        {{ cart_items }}
         <div class="col">
             {% if cart_items %}
             <div class="cart-items-wrapper">
@@ -32,6 +33,11 @@
                             Size: {{ item.size }}
                             {% endif %}
                         </small>
+                        <small class="cart-item-size text-muted">
+                            {% if item.color %}
+                            Color: {{ item.color }}
+                            {% endif %}
+                        </small>
                     </div>
                     <div class="cart-item-price text-center mb-3 mb-md-0">
                         <p class="my-0">Price: <i
@@ -48,17 +54,29 @@
                     <!-- Cart Actions for Delete and Update Button (Single Item) -->
                     <div class="cart-actions d-flex justify-content-between w-100 mt-2">
                         <!-- Delete Button -->
-                        <button type="button" class="btn btn-danger btn-sm delete-item-button" data-bs-toggle="modal"
-                            data-bs-target="#deleteItemModal" data-id="{{ item.id }}"
-                            data-size="{{ item.size|default:'' }}" data-name="{{ item.product.name }}"
-                            data-url="{% if item.size %}{% url 'delete-cart-item' item.id item.size %}{% else %}{% url 'delete-cart-item' item.id %}{% endif %}">
-                            <i class="fa-solid fa-trash-can fa-lg"></i> Remove
+                        <button type="button" class="btn btn-danger btn-sm delete-item-button" 
+                        data-bs-toggle="modal"
+                        data-bs-target="#deleteItemModal" 
+                        data-id="{{ item.id }}"
+                        data-size="{{ item.size|default:'' }}" 
+                        data-color="{{ item.color|default:'' }}"  
+                        data-name="{{ item.product.name }}"
+                        data-url="{% if item.size and item.color %}{% url 'delete-cart-item' item.id item.size item.color %}
+                                {% elif item.size %}{% url 'delete-cart-item' item.id item.size %}
+                                {% elif item.color %}{% url 'delete-cart-item' item.id '' item.color %}
+                                {% else %}{% url 'delete-cart-item' item.id %}
+                                {% endif %}">
+                        <i class="fa-solid fa-trash-can fa-lg"></i> Remove
                         </button>
 
                         <!-- Update Button (Right) -->
-                        {% if item.size %}
-                        <a href="{% url 'update-cart-item' item.id %}{{ item.size }}"
-                            class="btn btn-info btn-sm update-item-btn">
+                        <!-- Update Button -->
+                        {% if item.size and item.color %}
+                        <a href="{% url 'update-cart-item' item.id item.size item.color %}" class="btn btn-info btn-sm update-item-btn">
+                            <i class="fa-regular fa-pen-to-square fa-lg"></i> Update
+                        </a>
+                        {% elif item.size %}
+                        <a href="{% url 'update-cart-item' item.id item.size %}" class="btn btn-info btn-sm update-item-btn">
                             <i class="fa-regular fa-pen-to-square fa-lg"></i> Update
                         </a>
                         {% else %}

@@ -10,9 +10,12 @@ urlpatterns = [
     path('delete/<id>/', views.delete_cart_item, name='delete-cart-item'),
     # Delete item with size
     path('delete/<id>/<size>/', views.delete_cart_item, name='delete-cart-item'),
+    # Delete item with size and color
+    path('delete/<id>/<size>/<color>/', views.delete_cart_item, name='delete-cart-item'),
     # Update item with size
     path('update/<id>/<size>/', views.update_cart_item, name='update-cart-item'),
     # Update item without size
     path('update/<id>/', views.update_cart_item, name='update-cart-item'),
+    path('update/<id>/<size>/<color>/', views.update_cart_item, name='update-cart-item'),
     path('delete-all-cart-items/', views.delete_all_cart_items, name='delete-all-cart-items'),
 ]

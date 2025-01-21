@@ -86,6 +86,23 @@
                                     </select>
                                 </div>
                             </div>
+                            <br>
+                            <!-- Add Color Selection -->
+                            {% if product.color.all %}
+                            <div class="col-12">
+                                <p><strong>Select Color:</strong></p>
+                                <div class="form-group">
+                                    <select name="color" class="form-control" required>
+                                        <option value="">Choose a color</option>
+                                        {% for color in product.color.all %}
+                                        <option value="{{ color.id }}" style="background-color: '{{ color.color_code }}';">
+                                            {{ color.name }}
+                                        </option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                            </div>
+                            {% endif %}
                             {% endif %}
                             <br>
                             <div class="col-12">
