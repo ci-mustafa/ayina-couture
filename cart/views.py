@@ -115,9 +115,6 @@ def update_cart_item(request, id, size=None, color=None):
     cart = request.session.get('cart', {})
     cart = OrderedDict(cart)
 
-    # Debug: Print the cart contents for troubleshooting
-    print("Cart contents:", cart)
-
     # Construct the key for the cart item based on size and color
     if size and color:
         old_cart_item_key = f"{id}_{size}_{color}"
@@ -125,9 +122,6 @@ def update_cart_item(request, id, size=None, color=None):
         old_cart_item_key = f"{id}_{size}"
     else:
         old_cart_item_key = str(id)
-
-    # Debugging: Print the key that is being looked up
-    print(f"Looking up key: {old_cart_item_key}")
 
     # Check if the cart item exists using the constructed key
     if old_cart_item_key not in cart:
