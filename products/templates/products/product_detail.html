@@ -109,11 +109,16 @@
                                 <div class="product-actions">
                                     <input type="submit" class="add-to-cart-btn btn rounded-1 text-uppercase"
                                         value="Add to Cart">
-                                    <input type="submit" class="add-to-wishlist-btn btn rounded-1 text-uppercase"
-                                        value="Add to Wishlist">
                                 </div>
                             </div>
                             <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                        </div>
+                    </form>
+                    <form action="{% url 'add-to-wishlist' product.id %}" method="POST">
+                        {% csrf_token %}
+                        <div class="product-actions">
+                            <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                            <button type="submit" class="add-to-wishlist-btn btn rounded-1 text-uppercase">Add to Wishlist</button>
                         </div>
                     </form>
                     {% else %}

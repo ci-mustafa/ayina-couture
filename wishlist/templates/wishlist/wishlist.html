@@ -4,4 +4,35 @@
 
 
 {% block content %}
+<div class="wishlist">
+    <h1>Your Wishlist</h1>
+    {% if request.user.wishlist.products.exists %}
+        <ul>
+            {% for product in request.user.wishlist.products.all %}
+                <li>
+                    {% if product.image %}
+                    <!-- Display product image -->
+                    <img src="{{ product.image.url }}" alt="{{ product.name }}" class="img-fluid" style="max-width: 100px;"/>
+                    {% else %}
+                    <!-- Fallback image if no product image exists -->
+                    <img src="{% static 'images/no-image.jpg' %}" alt="No image available" class="img-fluid" style="max-width: 100px;"/>
+                    {% endif %}
+                </li>
+                <li>
+                    <!-- Add link to product detail page -->
+                    <strong><a href="{% url 'product-detail' product.id %}">{{ product.name }}</a></strong>
+                </li>
+                <li>
+                    Product Price: €{{ product.price }}
+                </li>
+                <li>
+                    <!-- Remove from wishlist button -->
+                    <a href="{% url 'remove-wishlist-item' product.id %}" class="btn btn-danger">Remove</a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Your wishlist is empty.</p>
+    {% endif %}
+</div>
 {% endblock %}
