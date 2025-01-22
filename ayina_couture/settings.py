@@ -71,6 +71,7 @@ INSTALLED_APPS = [
     'quickcheckout',
     'crispy_forms',
     'profiles',
+    'wishlist',
     'allauth.socialaccount.providers.google',
 ]
 
