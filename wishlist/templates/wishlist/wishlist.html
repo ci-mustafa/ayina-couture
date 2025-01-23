@@ -1,8 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
 
-
-
 {% block content %}
 <div class="wishlist">
     <h1>Your Wishlist</h1>
@@ -27,7 +25,14 @@
                 </li>
                 <li>
                     <!-- Remove from wishlist button -->
-                    <a href="{% url 'remove-wishlist-item' product.id %}" class="btn btn-danger">Remove</a>
+                    <button 
+                        class="btn btn-danger" 
+                        data-bs-toggle="modal" 
+                        data-bs-target="#deleteWishlistModal" 
+                        data-url="{% url 'remove-wishlist-item' product.id %}" 
+                        data-name="{{ product.name }}">
+                        Remove
+                    </button>
                 </li>
             {% endfor %}
         </ul>
@@ -35,4 +40,30 @@
         <p>Your wishlist is empty.</p>
     {% endif %}
 </div>
+
+<!-- Modal for Confirming Deletion -->
+<div class="modal fade" id="deleteWishlistModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="deleteWishlistModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="deleteWishlistModalLabel"><strong>Confirm Deletion</strong></h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center">
+                <h6 id="delete-wishlist-message">Are you sure you want to remove <strong id="wishlist-product-name"></strong> from your wishlist? This action cannot be undone.</h6>
+            </div>
+            <div class="modal-footer justify-content-center">
+                <button type="button" class="btn btn-success" data-bs-dismiss="modal">Cancel</button>
+                <form id="delete-wishlist-form" action="" method="post">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-danger" id="delete-wishlist-button">
+                        Remove
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Delete confirmation js -->
+<script src="{% static 'js/wishlist_item_delete_confirmation.js' %}"></script>
 {% endblock %}
