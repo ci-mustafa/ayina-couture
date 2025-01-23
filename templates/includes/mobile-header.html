@@ -1,5 +1,5 @@
-<li class="list-inline-item">
-    <a class="text-black nav-link d-block d-lg-none" href="#" id="mobile-search" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+<li id="topnavbar" class="list-inline-item">
+    <a class="nav-link d-block d-lg-none" href="#" id="mobile-search" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         <div class="text-center">
             <div><i class="fas fa-search fa-lg"></i></div>
             <p class="my-0">Search</p>
@@ -11,7 +11,7 @@
                 <input class="form-control border border-black rounded-0" type="text" name="query" placeholder="Explore Afghan fashion">
                 <div class="input-group-append">
                     <button class="form-control form-control btn btn-black border border-black rounded-0" type="submit">
-                        <span class="icon">
+                        <span class="search-icon">
                             <i class="fas fa-search"></i>
                         </span>
                     </button>
@@ -21,8 +21,8 @@
     </div>
 </li>
 
-<li class="list-inline-item dropdown">
-    <a class="text-black nav-link d-block d-lg-none" href="#" id="user-options" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+<li id="topnavbar" class="list-inline-item dropdown">
+    <a class="nav-link d-block d-lg-none" href="#" id="user-options" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         <div class="text-center">
             <div><i class="fa-solid fa-user fa-lg"></i></div>
             <p class="my-0">My Account</p>
@@ -43,7 +43,7 @@
         {% endif %}
     </div>
 </li>
-<li class="list-inline-item">
+<li id="topnavbar" class="list-inline-item">
     <a class="nav-link d-block d-lg-none" href="{% url 'list-wishlist' %}">
         <div class="text-center" id="wishlist-link">
             <div><i class="fa-solid fa-heart fa-lg"></i></i></div>
@@ -53,7 +53,7 @@
         </div>
     </a>
 </li>
-<li class="list-inline-item">
+<li id="topnavbar" class="list-inline-item">
     <a class="{% if final_total %}text-info{% endif %} nav-link d-block d-lg-none" href="{% url 'view-cart' %}">
         <div class="text-center">
             <div><i class="fa-solid fa-cart-shopping fa-lg"></i></div>

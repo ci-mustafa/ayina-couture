@@ -10,14 +10,27 @@
         <div class="row align-items-center">
             <!-- Heading -->
             <div class="col-12 col-md-4" style="max-width: 35%;">
-                <h2>Our Styles</h2>
+                <h2 class="product-heading">Our Styles</h2>
             </div>
 
+
+            <!-- Product count -->
+            <div class="col-12 col-md-4 text-md-left">
+                <p class="product-count">
+                    {% if search or collection %}
+                    Showing <strong>{{ page_obj.paginator.count }}</strong> result(s)
+                    {% if search %} for search: "<strong>{{ search }}</strong>"{% endif %}
+                    {% if collection %} in collection: "<strong>{{ collection }}</strong>"{% endif %}
+                    {% else %}
+                    Showing <strong>{{ page_obj.paginator.count }}</strong> product(s)
+                    {% endif %}
+                </p>
+            </div>
             <!-- Sort Dropdown -->
             <div class="col-12 col-md-4">
                 <form method="GET" action="{% url 'products' %}" class="d-flex align-items-center">
                     <div class="custom-dropdown">
-                        <button type="button" class="dropdown-button">Sort by...</button>
+                        <button type="button" class="dropdown-button">Sort by</button>
                         <ul class="dropdown-list">
                             <li><a href="?sort_by=price_asc{% if collection %}&collection={{ collection }}{% endif %}">Price:
                                     Low to High</a></li>
@@ -30,20 +43,6 @@
                     <input type="hidden" name="collection" value="{{ collection }}">
                     {% endif %}
                 </form>
-            </div>
-
-
-            <!-- Product count -->
-            <div class="col-12 col-md-4 text-md-left">
-                <p class="text-muted">
-                    {% if search or collection %}
-                    Showing <strong>{{ page_obj.paginator.count }}</strong> result(s)
-                    {% if search %} for search: "<strong>{{ search }}</strong>"{% endif %}
-                    {% if collection %} in collection: "<strong>{{ collection }}</strong>"{% endif %}
-                    {% else %}
-                    Showing <strong>{{ page_obj.paginator.count }}</strong> product(s)
-                    {% endif %}
-                </p>
             </div>
         </div>
     </div>

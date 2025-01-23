@@ -24,7 +24,7 @@ def list_wishlist(request):
     """
     wishlist_items = Wishlist.objects.filter(user=request.user)
     context = {
-        'wishlist_items': wishlist_items
+        'wishlist_items': wishlist_items,
     }
     return render(request, 'wishlist/wishlist.html', context)
 

@@ -33,7 +33,7 @@
         <div id="topnavbar" class="row d-lg-flex pt-lg-2 d-none">
             <div class="col-12 col-lg-4 my-auto py-1 py-lg-0 text-center text-lg-left">
                 <a href="{% url 'home' %}" class="nav-link main-logo-link">
-                    <h2 class="logo-font text-black my-0"><strong>Ayina</strong><em>Couture</em></h2>
+                    <h2 class="logo-font my-0"><strong>Ayina</strong><em>Couture</em></h2>
                 </a>
             </div>
             <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
@@ -64,7 +64,7 @@
                     <li class="list-inline-item">
                         <a class="nav-link" href="{% url 'list-wishlist' %}">
                             <div class="text-center" id="wishlist-link">
-                                <div><i class="fa-solid fa-heart fa-lg"></i></i></div>
+                                <div><i class="fa-solid fa-heart fa-lg"></i></div>
                                 <p class="my-0">
                                     My Wishlist
                                 </p>
@@ -93,8 +93,8 @@
                         <input class="form-control rounded-1" type="text" name="query"
                             placeholder="Explore Afghan fashion">
                         <div class="input-group-append" id="search-top-link">
-                            <button class="form-control btn btn-black rounded-1" type="submit">
-                                <span class="icon">
+                            <button class="form-control btn rounded-1" type="submit">
+                                <span class="search-icon">
                                     <i class="fas fa-search"></i>
                                 </span>
                             </button>
@@ -152,7 +152,7 @@
     {% block content %}
     {% endblock %}
     <!-- Footer -->
-    <footer class="footer bg-dark text-white text-center text-lg-start">
+    <footer class="footer text-white text-center text-lg-start">
         <div class="container p-4">
             <div class="row">
                 <!-- About Section -->
@@ -167,9 +167,9 @@
                 <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
                     <h5 class="text-uppercase">Quick Links</h5>
                     <ul class="list-unstyled">
-                        <li><a href="{% url 'home' %}" class="text-white text-decoration-none">Home</a></li>
-                        <li><a href="{% url 'products' %}" class="text-white text-decoration-none">Shop</a></li>
-                        <li><a href="#" class="text-white text-decoration-none">Contact</a></li>
+                        <li><a href="{% url 'home' %}" class="quick-link">Home</a></li>
+                        <li><a href="{% url 'products' %}" class="quick-link">Shop</a></li>
+                        <li><a href="#" class="quick-link">Contact</a></li>
                     </ul>
                 </div>
 
@@ -177,16 +177,16 @@
                 <div class="col-lg-4 col-md-12 mb-4 mb-md-0">
                     <h5 class="text-uppercase">Follow Us</h5>
                     <div class="d-flex justify-content-center justify-content-lg-start">
-                        <a href="#" class="btn btn-outline-light btn-floating m-1">
+                        <a href="#" class="btn btn-outline-light btn-floating m-1 footer-links">
                             <i class="fab fa-facebook-f"></i>
                         </a>
-                        <a href="#" class="btn btn-outline-light btn-floating m-1">
+                        <a href="#" class="btn btn-outline-light btn-floating m-1 footer-links">
                             <i class="fab fa-twitter"></i>
                         </a>
-                        <a href="#" class="btn btn-outline-light btn-floating m-1">
+                        <a href="#" class="btn btn-outline-light btn-floating m-1 footer-links">
                             <i class="fab fa-instagram"></i>
                         </a>
-                        <a href="#" class="btn btn-outline-light btn-floating m-1">
+                        <a href="#" class="btn btn-outline-light btn-floating m-1 footer-links">
                             <i class="fab fa-linkedin-in"></i>
                         </a>
                     </div>
@@ -194,7 +194,7 @@
             </div>
         </div>
         <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-            © 2025 MyBrand. All rights reserved.
+            © 2025 Ayina Couture. All rights reserved.
         </div>
     </footer>
     <!-- Bootstrap JS with Popper.js for interactive components -->
