@@ -684,6 +684,46 @@ body {
     text-align: center;
 }
 
+/* Footer Styling */
+.footer {
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    padding-top: 1.5rem;
+}
+
+.footer ul {
+    padding: 0;
+    list-style: none;
+}
+
+.footer ul li {
+    margin-bottom: 0.5rem;
+}
+
+.footer ul li a:hover {
+    text-decoration: underline;
+}
+
+.footer .btn-floating {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Responsive Footer */
+@media (max-width: 576px) {
+    .footer {
+        text-align: center;
+    }
+
+    .footer .btn-floating {
+        margin: 0.2rem;
+    }
+}
 
 
 /* Ensure good responsive behavior shopping cart */
