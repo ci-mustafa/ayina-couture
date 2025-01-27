@@ -164,8 +164,7 @@ ul, ol{
     overflow: visible; /* Ensures it grows with content */
 }
 
-.product-heading,
-.product-count {
+.product-heading {
     color: white;
 }
 .fixed-img {
@@ -200,13 +199,16 @@ ul, ol{
     cursor: pointer;
 }
 
-/* Prodcut details Custom Styling */
+/* Product details Custom Styling */
 .product-detail,
 .product-add {
     margin-top: 5%;
     padding: 20px;
     margin-bottom: 5%;
-    background-color:#222831;
+    background-color: #222831; /* Dark background */
+    max-width: 1200px; /* Prevent stretching on larger screens */
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .card-img-top {
@@ -214,17 +216,90 @@ ul, ol{
     overflow: hidden;
 }
 
-.product-title {
+.product-title,
+.product-description,
+.product-material,
+.product-price,
+.available-colors,
+.product-rating,
+.comments-list,
+.user-rating-heading,
+.submit-rating {
     font-size: 1.8rem;
     font-weight: bold;
     color: #333;
     margin-bottom: 10px;
+    text-align: left; 
+}
+
+.product-description,
+.product-material,
+.product-price,
+.available-colors,
+.product-rating,
+.comments-list,
+.user-rating-heading,
+.submit-rating {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 7px;
+    text-align: left; 
 }
 
 .stars {
     font-size: 1.2rem;
     margin-bottom: 15px;
     color: #f39c12;
+}
+
+
+
+.color-list {
+    list-style-type: none;
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+    padding: 0;
+}
+
+
+.color-list li {
+    margin-right: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.color-code {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 10px;
+    border: 2px solid #fff; /* Light border for color display */
+}
+
+
+.product-actions {
+    margin-top: 20px;
+}
+
+.product-actions input[type="submit"],
+.product-actions button {
+    width: 100%;
+    background-color: #007bff; /* Primary button color */
+    color: #fff;
+    border: none;
+    font-size: 16px;
+    padding: 10px;
+    text-transform: uppercase;
+    font-weight: bold;
+    border-radius: 4px;
+}
+
+.product-actions input[type="submit"]:hover,
+.product-actions button:hover {
+    background-color: #0056b3; /* Darker shade on hover */
 }
 
 
@@ -336,7 +411,6 @@ ul, ol{
     background-color: #EC8305; 
     color: white; 
     border: 2px solid #EC8305; 
-    transform: translateY(-3px); 
     box-shadow: 0 8px 12px rgba(0, 0, 0, 0.1); 
 }
 
@@ -487,75 +561,6 @@ ul, ol{
     margin-right: 15px; /* Custom margin between "Update" and "Delete" */
 }
 
-/* General product form styling */
-.product-info form {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-}
-
-.product-info input[type="text"],
-.product-info input[type="number"],
-.product-info input[type="email"],
-.product-info input[type="password"],
-.product-info select,
-.product-info textarea {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ced4da;
-    border-radius: 5px;
-    font-size: 16px;
-    background-color: #f8f9fa;
-    transition: all 0.3s ease-in-out;
-}
-
-
-.product-info button {
-    background-color:#222831;
-    color: #fff;
-    padding: 10px;
-    font-size: 16px;
-    border: none;
-}
-
-.product-info button:hover {
-    background-color: black;
-    color: white;
-}
-
-
-.product-info textarea {
-    height: 120px;
-    resize: vertical;
-}
-
-.product-info input[type="file"] {
-    padding: 5px;
-    background-color: #fff;
-    border: 1px solid #ced4da;
-    border-radius: 5px;
-    font-size: 16px;
-}
-
-
-/* Dropdown Select Styling */
-.product-info select {
-    appearance: none;
-    background-color: #fff;
-    padding: 10px;
-}
-
-/* Placeholder for better UX */
-.product-info input::placeholder,
-.product-info textarea::placeholder {
-    color: #6c757d;
-    opacity: 1;
-}
-
-/* Style stock quantity input */
-.product-info input[name="stock_quantity"] {
-    width: 100%;
-}
 
 
 /* shopping cart page */
