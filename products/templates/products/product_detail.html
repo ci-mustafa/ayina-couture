@@ -27,6 +27,7 @@
             <div class="card h-100 shadow-sm">
                 <div class="card-body product-info">
                     <h2 class="card-title product-title">{{ product.name }}</h2>
+                    <p class="product-description">Description: {{ product.description }}</p>
                     <p class="product-material">Material: {{ product.material }}</p>
                     <p class="product-price">Price: €{{ product.price }}</p>
                     <!-- Display product colors -->
@@ -49,11 +50,52 @@
                             {% for i in rating_range %}
                             {% if i <= product.average_rating %} ★ {% else %} ☆ {% endif %} {% endfor %} </span>
                     </p>
+
                     {% else %}
                     <p>No ratings yet</p>
                     {% endif %}
-
-                    <p class="product-description">Description: {{ product.description }}</p>
+                    <!-- Display comments -->
+                    {% if product.ratings.exists %}
+                    <h3>Users Comments and ratings:</h3>
+                    <ul class="comments-list">
+                        {% for rating in product.ratings.all %}
+                        <li class="comment">
+                            <strong>{{ rating.user.username }}:</strong>
+                            <div class="stars">
+                                {% for i in rating_range %}
+                                {% if i <= rating.rating %} ★ {% else %} ☆ {% endif %}
+                                {% endfor %}
+                            </div>
+                            <p>{{ rating.comment }}</p>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                    {% else %}
+                    <p>No comments yet.</p>
+                    {% endif %}
+                    <!-- Rating Form for authenticated users -->
+                    {% if request.user.is_authenticated %}
+                    <h3>Submit Your Rating</h3>
+                    <form action="{% url 'submit-product-rating' product.pk %}" method="POST">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label for="rating">Rating:</label>
+                            <select name="rating" id="rating" class="form-control" required>
+                                <option value="" disabled selected>Select a rating</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="comment">Comment:</label>
+                            <textarea name="comment" id="comment" class="form-control" rows="3"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary mt-3">Submit Rating</button>
+                    </form>
+                    {% endif %}
                     {% if request.user.is_authenticated %}
                     <form class="form" action="{% url 'add-to-cart' product.id %}" method="POST">
                         {% csrf_token %}

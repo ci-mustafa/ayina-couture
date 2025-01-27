@@ -208,3 +208,41 @@ def product_update(request, pk):
         'product': product,
     }
     return render(request, 'products/product_update.html', context)
+
+
+@login_required
+def submit_product_rating(request, pk):
+    """
+    Allows an authenticated user to submit a rating and comment for a product.
+    If the user has already rated the product, it updates the existing rating.
+
+    Args:
+        request (HttpRequest): The incoming HTTP request.
+        pk (int): The primary key of the product to rate.
+
+    Returns:
+        HttpResponse: Redirects back to the product detail page after submitting the rating.
+    """
+    product = get_object_or_404(models.Product, pk=pk)
+
+    # Check if the user has already rated the product
+    existing_rating = models.ProductRating.objects.filter(product=product, user=request.user).first()
+
+    # If a rating already exists, update it
+    if existing_rating:
+        existing_rating.rating = request.POST.get('rating')
+        existing_rating.comment = request.POST.get('comment')
+        existing_rating.save()
+        messages.success(request, "Your rating has been updated successfully.")
+        
+    else:
+        # Otherwise, create a new rating
+        models.ProductRating.objects.create(
+            product=product,
+            user=request.user,
+            rating=request.POST.get('rating'),
+            comment=request.POST.get('comment'),
+        )
+        messages.success(request, "Thank you for your rating!")
+    # Redirect back to the product detail page
+    return redirect('product-detail', pk=product.pk)

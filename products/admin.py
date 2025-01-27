@@ -42,5 +42,6 @@ class ProductRatingAdmin(admin.ModelAdmin):
         'product__name',
         'user__username',
         'rating',
-        'created_at'
+        'comment',
+        'created_at',
     ]

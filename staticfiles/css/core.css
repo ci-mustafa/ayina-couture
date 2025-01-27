@@ -146,6 +146,9 @@ ul, ol{
     transform: translateY(-5px); 
 }
 
+.home-text-font {
+    color: #222831;
+}
 
 .home-image img {
     max-width: 100%;
