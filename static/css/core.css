@@ -842,6 +842,76 @@ ul, ol{
 }
 
 
+/* General Contact Form Styles */
+.contact-div {
+    margin-top: 5%; 
+    margin-bottom: 5%; 
+    background-color: #f8f9fa; 
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+
+.contact-heading {
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-align: center;
+    color: #222831; 
+    margin-bottom: 20px;
+}
+
+
+.contact-p {
+    font-size: 1rem;
+    text-align: center;
+    color: #6c757d; 
+    margin-bottom: 20px;
+}
+
+
+.contact-div input,
+.contact-div textarea {
+    font-size: 1rem;
+    padding: 10px 15px;
+    border: 1px solid #222831;
+    border-radius: 8px;
+    width: 100%; 
+    transition: all 0.3s ease;
+    background-color: #ffffff; 
+}
+
+.contact-div input:focus,
+.contact-div textarea:focus {
+    outline: none;
+    border-color: #EC8305; 
+    box-shadow: 0 0 5px rgba(236, 131, 5, 0.4);
+}
+
+
+.contact-div textarea {
+    height: 150px; 
+    resize: none;
+}
+
+
+.contact-button {
+    background-color: #222831; 
+    color: white; 
+    font-size: 1.2rem;
+    padding: 12px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
+}
+
+.contact-button:hover {
+    background-color: #EC8305; 
+    transform: scale(1.05); 
+    box-shadow: 0 6px 15px rgba(236, 131, 5, 0.5);
+}
+
+
+
 /* Responsive Footer */
 @media (max-width: 576px) {
     .footer {

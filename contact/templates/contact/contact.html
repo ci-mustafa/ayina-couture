@@ -3,4 +3,34 @@
 
 
 {% block content %}
+<div class="contact-div container mt-5">
+    <!-- Centering the form -->
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <h1 class="contact-heading">We’d Love to Hear from You!</h1>
+            <p class="contact-p">Have a question, feedback, or just want to get in touch? Fill out the form below, and we’ll get back to
+                you
+                as
+                soon as possible. Whether you need assistance or have suggestions, we’re here to help.</p>
+            <br>
+            <form id="contact-form" method="POST">
+                {% csrf_token %}
+                <div class="form-group mb-3">
+                    {{ contact_form.name }}
+                </div>
+                <div class="form-group mb-3">
+                    {{ contact_form.email }}
+                </div>
+                <div class="form-group mb-4">
+                    {{ contact_form.message }}
+                </div>
+                <div class="d-grid">
+                    <button type="submit" class="contact-button btn btn-lg w-100 rounded-0 hover-scale">
+                        Send Message
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 {% endblock %}
