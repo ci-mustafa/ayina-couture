@@ -3,25 +3,25 @@
     {% if user.is_superuser %}
         <!-- Center the content using flexbox utilities -->
         <div class="container-fluid d-flex justify-content-center align-items-center" style="height: 100vh;">
-            <div class="text-center delete-confirm">
-                <h2>Are you sure you want to delete <strong>{{ product.name }}</strong>?</h2>
-                <p class="text-danger">This action cannot be undone.</p>
+            <div class="text-center delete-confirm p-4 border rounded shadow-lg bg-light">
+                <h2 class="mb-3">Are you sure you want to delete <strong>{{ product.name }}</strong>?</h2>
+                <p class="text-danger mb-4">This action cannot be undone.</p>
 
                 <form method="POST">
                     {% csrf_token %}
-                    <button type="submit" class="btn btn-danger">Yes, Delete</button>
-                    <a href="{% url 'products' %}" class="btn btn-secondary">Cancel</a>
+                    <button type="submit" class="btn btn-danger btn-lg w-50 mb-3">Yes, Delete</button>
+                    <br>
+                    <a href="{% url 'products' %}" class="btn btn-secondary btn-lg w-50">Cancel</a>
                 </form>
             </div>
         </div>
     {% else %}
         <!-- Center the content using flexbox utilities -->
         <div class="container-fluid d-flex justify-content-center align-items-center" style="height: 100vh;">
-            <div class="text-center delete-confirm">
-                <h3 class="text-danger">You do not have permission to access this page.</h3>
-                <a href="{% url 'products' %}" class="btn btn-primary">Back to Products</a>
+            <div class="text-center delete-confirm p-4 border rounded shadow-lg bg-light">
+                <h3 class="text-danger mb-3">You do not have permission to access this page.</h3>
+                <a href="{% url 'products' %}" class="btn btn-primary btn-lg">Back to Products</a>
             </div>
         </div>
     {% endif %}
 {% endblock %}
-

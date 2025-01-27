@@ -119,15 +119,20 @@ def product_add(request):
     # Check if the user is a superuser
     if not request.user.is_superuser:
         messages.error(request, 'You are not authorized to add products.')
-        return redirect(reverse('home'))
+        return redirect('home')
 
-    # Handle the form submission
     if request.method == 'POST':
         form = ProductForm(request.POST, request.FILES)
+        
+        # Check if the form is valid
         if form.is_valid():
             form.save()  # Save the new product
             messages.success(request, "Product added successfully.")
             return redirect('products')  # Redirect to the product list page
+        else:
+            # Log any errors
+            logger.error(f"Form errors: {form.errors}")
+            messages.error(request, "There was an error with the form. Please check the fields.")
     else:
         form = ProductForm()
 

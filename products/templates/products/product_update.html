@@ -1,26 +1,93 @@
 {% extends 'base.html' %}
 {% load static %}
 
-
 {% block content %}
-<div class="container d-flex flex-column justify-content-center align-items-center min-vh-100 product-add">
-    <div class="col-12 col-md-6">
-        <h2 class="text-center">Update Product</h2>
-    </div>
-    <hr class="w-100 md-1">
-    <div class="row w-100 justify-content-center">
-        <!-- Product Form -->
-        <div class="col-12 col-md-6">
-            <div class="card shadow-sm">
-                <!-- Product Form Section -->
-                <div class="card-body product-info">
-                    <form method="POST" enctype="multipart/form-data">
-                        {% csrf_token %}
-                        {{ form.as_p }}
-                        <button type="submit" class="btn w-100">Update Product</button>
-                    </form>
+<div class="container mt-5 admin-product">
+    <!-- Centering the form -->
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6">
+            <!-- Page Heading -->
+            <h1 class="text-center mb-4">Update Product</h1>
+            <p class="text-center">Update the product details below to keep your store's inventory up-to-date. Ensure all information is accurate to provide customers with the most current and reliable product descriptions, pricing, and availability.</p>
+            <br>
+            <!-- Form -->
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <!-- Name -->
+                <div class="form-group mb-3">
+                    {{ form.name }}
                 </div>
-            </div>
+                <!-- Description -->
+                <div class="form-group mb-3">
+                    {{ form.description }}
+                </div>
+                <!-- Price -->
+                <div class="form-group mb-3">
+                    {{ form.price }}
+                </div>
+                <!-- Collection -->
+                <div class="form-group mb-3">
+                    <label for="collection" class="form-check-label">Collections</label>
+                    {{ form.collection }}
+                </div>
+                <!-- Material -->
+                <div class="form-group mb-3">
+                    {{ form.material }}
+                </div>
+                <!-- Stock Quantity -->
+                <div class="form-group mb-3">
+                    {{ form.stock_quantity }}
+                </div>
+                <!-- Color (Checkboxes) -->
+                <div class="form-group mb-3">
+                    <label for="color" class="form-label">Select Colors</label>
+                    <div class="form-check">
+                        {% for color in form.color %}
+                            <div class="color-checkbox-container form-check-inline me-4">
+                                <div class="form-check">
+                                    {{ color.tag }}
+                                    <label for="{{ color.id_for_label }}" class="form-check-label">{{ color.choice_label }}</label>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                    {% if form.color.errors %}
+                        <div class="text-danger">
+                            {% for error in form.color.errors %}
+                                <p>{{ error }}</p>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+                <!-- Gender -->
+                <div class="form-group mb-3">
+                    {{ form.gender }}
+                </div>
+                <!-- Occasion -->
+                <div class="form-group mb-3">
+                    {{ form.occasion }}
+                </div>
+                <!-- Featured -->
+                <div class="form-check mb-3">
+                    {{ form.is_featured }}
+                    <label for="is_featured" class="form-check-label">Feature this product</label>
+                </div>
+                <!-- Sizes -->
+                <div class="form-check mb-3">
+                    {{ form.has_sizes }}
+                    <label for="has_sizes" class="form-check-label">Available in multiple sizes</label>
+                </div>
+                <!-- Image -->
+                <div class="form-group mb-4">
+                    {{ form.image }}
+                </div>
+                <!-- Submit Button -->
+                <div class="d-grid">
+                    <button type="submit" class="btn btn-primary btn-lg w-100 rounded-0 hover-scale">
+                    Update Product
+                    </button>
+                </div>
+            </form>
         </div>
     </div>
 </div>
