@@ -72,6 +72,7 @@ INSTALLED_APPS = [
     'crispy_forms',
     'profiles',
     'wishlist',
+    'contact',
     'allauth.socialaccount.providers.google',
 ]
 

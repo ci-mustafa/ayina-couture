@@ -53,10 +53,10 @@
                             {% endif %}
                             <a href="{% url 'profile' %}" class="dropdown-item">My Profile</a>
                             <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
+                            <a href="#" class="dropdown-item">About Us</a>
                             {% else %}
                             <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
                             <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
-                            <a href="#" class="dropdown-item">Contact</a>
                             <a href="#" class="dropdown-item">About Us</a>
                             {% endif %}
                         </div>
@@ -169,7 +169,7 @@
                     <ul class="list-unstyled">
                         <li><a href="{% url 'home' %}" class="quick-link">Home</a></li>
                         <li><a href="{% url 'products' %}" class="quick-link">Shop</a></li>
-                        <li><a href="#" class="quick-link">Contact</a></li>
+                        <li><a href="{% url 'contact' %}" class="quick-link">Contact</a></li>
                     </ul>
                 </div>
 
