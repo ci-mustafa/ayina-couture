@@ -1198,6 +1198,30 @@ button[type="submit"]:hover {
 }
 
 
+/* social login page */
+.social-login {
+    margin-top: 10%;
+    margin-bottom: 10%;
+}
+
+.social-login-inner-div {
+    padding: 10px;
+    margin-bottom: 2%;
+}
+
+.continue-btn {
+    width: auto;
+    transition: background-color 0.3s ease;
+}
+
+/* socila login media query */
+@media (max-width: 768px) {
+    .social-login {
+        margin-top: 25%;
+        margin-bottom: 25%;
+    }
+}
+
 /* base interance media query */
 @media (max-width: 768px) {
     .base-interance-div {

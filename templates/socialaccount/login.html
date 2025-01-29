@@ -1,31 +1,30 @@
 {% extends "socialaccount/base_entrance.html" %}
 {% load i18n %}
 {% load allauth %}
+
 {% block head_title %}
     {% trans "Sign In" %}
 {% endblock head_title %}
+
 {% block content %}
-    {% if process == "connect" %}
-        {% element h1 %}
-            {% blocktrans with provider.name as provider %}Connect {{ provider }}{% endblocktrans %}
-        {% endelement %}
-        {% element p %}
-            {% blocktrans with provider.name as provider %}You are about to connect a new third-party account from {{ provider }}.{% endblocktrans %}
-        {% endelement %}
-    {% else %}
-        {% element h1 %}
-            {% blocktrans with provider.name as provider %}Sign In Via {{ provider }}{% endblocktrans %}
-        {% endelement %}
-        {% element p %}
-            {% blocktrans with provider.name as provider %}You are about to sign in using a third-party account from {{ provider }}.{% endblocktrans %}
-        {% endelement %}
-    {% endif %}
-    {% element form method="post" no_visible_fields=True %}
-        {% slot actions %}
-            {% csrf_token %}
-            {% element button type="submit" %}
-                {% trans "Continue" %}
-            {% endelement %}
-        {% endslot %}
-    {% endelement %}
+<div class="social-login flex items-center justify-center min-h-screen h-screen bg-gray-100 p-4">
+    <div class="social-login-inner-div w-full max-w-md bg-gray-200 shadow-lg rounded-0 p-6 sm:p-8">
+        <div class="text-center">
+            {% if process == "connect" %}
+                <h1 class="text-2xl font-bold text-gray-800">{% blocktrans with provider.name as provider %}Connect {{ provider }}{% endblocktrans %}</h1>
+                <p class="mt-2 text-gray-600">{% blocktrans with provider.name as provider %}You are about to connect a new third-party account from {{ provider }}.{% endblocktrans %}</p>
+            {% else %}
+                <h1 class="text-2xl font-bold text-gray-800">{% blocktrans with provider.name as provider %}Sign In Via {{ provider }}{% endblocktrans %}</h1>
+                <p class="mt-2 text-gray-600">{% blocktrans with provider.name as provider %}You are about to sign in using a third-party account from {{ provider }}.{% endblocktrans %}</p>
+            {% endif %}
+        </div>
+    </div>
+    <form method="post" class="mt-6 flex flex-col items-center">
+        {% csrf_token %}
+        <button type="submit" class="continue-btn rounded-0">
+            {% trans "Continue" %}
+        </button>
+    </form>
+</div>
 {% endblock content %}
+
