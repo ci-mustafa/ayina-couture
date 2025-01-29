@@ -31,19 +31,43 @@ for a {{ site_name }} account and sign in below:{% endblocktrans %}</p>
 <a href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}</p>
 {% endif %}
 
-<!-- Modern Styled Form -->
 <form class="login needs-validation mt-4" method="POST" action="{% url 'account_login' %}" novalidate>
     {% csrf_token %}
-    
+
+    {% if form.non_field_errors %}
+        <div class="text-danger">
+            {% for error in form.non_field_errors %}
+                <p>{{ error }}</p>
+            {% endfor %}
+        </div>
+    {% endif %}
+
+    <!-- Username Input -->
     <div class="custom-form-group mb-3">
         <label for="login" class="custom-label">{% trans "Username" %}</label>
-        {{ form.login}}
+        {{ form.login }}
+        {% if form.login.errors %}
+            <div class="text-danger small">
+                {% for error in form.login.errors %}
+                    <p>{{ error }}</p>
+                {% endfor %}
+            </div>
+        {% endif %}
     </div>
-    
+
+    <!-- Password Input -->
     <div class="custom-form-group mb-3">
         <label for="password" class="custom-label">{% trans "Password" %}</label>
-        {{ form.password}}
+        {{ form.password }}
+        {% if form.password.errors %}
+            <div class="text-danger small">
+                {% for error in form.password.errors %}
+                    <p>{{ error }}</p>
+                {% endfor %}
+            </div>
+        {% endif %}
     </div>
+
     
     
 
@@ -68,7 +92,7 @@ for a {{ site_name }} account and sign in below:{% endblocktrans %}</p>
     </div>
 </form>
 
-<!-- Optional Footer Links -->
+
 <div class="text-center mt-3">
     <p>{% trans "Don't have an account?" %} 
         <a href="{{ signup_url }}" class="btn btn-primary signup-button btn-sm rounded-0">
