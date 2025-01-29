@@ -53,7 +53,7 @@
                     <!-- Cart Actions for Delete and Update Button (Single Item) -->
                     <div class="cart-actions d-flex justify-content-between w-100 mt-2">
                         <!-- Delete Button -->
-                        <button type="button" class="btn btn-danger btn-sm delete-item-button" 
+                        <button type="button" class="btn btn-sm rounded-0 delete-item-button" 
                         data-bs-toggle="modal"
                         data-bs-target="#deleteItemModal" 
                         data-id="{{ item.id }}"
@@ -68,18 +68,17 @@
                         <i class="fa-solid fa-trash-can fa-lg"></i> Remove
                         </button>
 
-                        <!-- Update Button (Right) -->
                         <!-- Update Button -->
                         {% if item.size and item.color %}
-                        <a href="{% url 'update-cart-item' item.id item.size item.color %}" class="btn btn-info btn-sm update-item-btn">
+                        <a href="{% url 'update-cart-item' item.id item.size item.color %}" class="btn btn-sm rounded-0 update-item-btn">
                             <i class="fa-regular fa-pen-to-square fa-lg"></i> Update
                         </a>
                         {% elif item.size %}
-                        <a href="{% url 'update-cart-item' item.id item.size %}" class="btn btn-info btn-sm update-item-btn">
+                        <a href="{% url 'update-cart-item' item.id item.size %}" class="btn btn-sm rounded-0 update-item-btn">
                             <i class="fa-regular fa-pen-to-square fa-lg"></i> Update
                         </a>
                         {% else %}
-                        <a href="{% url 'update-cart-item' item.id %}" class="btn btn-info btn-sm update-item-btn">
+                        <a href="{% url 'update-cart-item' item.id %}" class="btn btn-sm rounded-0 update-item-btn">
                             <i class="fa-regular fa-pen-to-square fa-lg"></i> Update
                         </a>
                         {% endif %}
@@ -130,7 +129,7 @@
                 </div>
                 <!-- Delete All Button -->
                 <div class="delete-all-cart text-center mt-4">
-                    <button type="button" class="btn btn-danger btn-block rounded-1 delete-item-button"
+                    <button type="button" class="btn rounded-0 delete-item-button"
                         data-bs-toggle="modal" data-bs-target="#deleteItemModal" data-all="true"
                         data-url="{% url 'delete-all-cart-items' %}">
                         <i class="fa-solid fa-trash-can fa-lg"></i> Delete All Items
@@ -138,18 +137,18 @@
                 </div>
                 <!-- checkout button -->
                 <div class="cart-actions d-flex justify-content-between flex-column flex-md-row mt-4">
-                    <a href="{% url 'products' %}" class="keep-shopping-btn btn rounded-1 text-uppercase mb-3 mb-md-0">
+                    <a href="{% url 'products' %}" class="keep-shopping-btn btn rounded-0 text-uppercase mb-3 mb-md-0">
                         <i class="fa-solid fa-circle-chevron-left"></i> Keep Shopping
                     </a>
-                    <a href="{% url 'quickcheckout' %}" class="checkout-btn btn rounded-1 text-uppercase">
+                    <a href="{% url 'quickcheckout' %}" class="checkout-btn btn rounded-0 text-uppercase">
                         Secure Checkout <i class="fa-solid fa-fingerprint"></i>
                     </a>
                 </div>
 
             </div>
             {% else %}
-            <p class="lead mb-6">Currently you don't have any items in your cart.</p>
-            <a href="{% url 'products' %}" class="browse-style-btn btn btn-lg rounded-1 text-uppercase py-3">
+            <p class="shopping-cart-para lead mb-6">Currently you don't have any items in your cart.</p>
+            <a href="{% url 'products' %}" class="browse-style-btn btn btn-lg rounded-0 text-uppercase py-3">
                 <span class="icon">
                     <i class="fa-solid fa-circle-chevron-left"></i>
                 </span>

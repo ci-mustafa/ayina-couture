@@ -94,7 +94,7 @@
                             <label for="comment">Comment:</label>
                             <textarea name="comment" id="comment" class="form-control" rows="3"></textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary mt-3">Submit Rating</button>
+                        <button type="submit" class="btn btn rounded-0 text-uppercase">Submit Rating</button>
                     </form>
                     {% endif %}
                     <hr>
@@ -151,7 +151,7 @@
                             <br>
                             <div class="col-12">
                                 <div class="product-actions">
-                                    <input type="submit" class="add-to-cart-btn btn rounded-1 text-uppercase"
+                                    <input type="submit" class="add-to-cart-btn btn rounded-0 text-uppercase"
                                         value="Add to Cart">
                                 </div>
                             </div>
@@ -162,15 +162,15 @@
                         {% csrf_token %}
                         <div class="product-actions">
                             <input type="hidden" name="redirect_url" value="{{ request.path }}">
-                            <button type="submit" class="add-to-wishlist-btn btn rounded-1 text-uppercase">Add to Wishlist</button>
+                            <button type="submit" class="add-to-wishlist-btn btn rounded-0 text-uppercase">Add to Wishlist</button>
                         </div>
                     </form>
                     {% else %}
                     <div class="product-actions">
-                        <a href="{% url 'account_signup' %}" class="add-to-cart-btn btn rounded-1 text-uppercase">Sign
+                        <a href="{% url 'account_signup' %}" class="add-to-cart-btn btn rounded-0 text-uppercase">Sign
                             Up to Add to Cart</a>
                         <a href="{% url 'account_signup' %}"
-                            class="add-to-wishlist-btn btn rounded-1 text-uppercase">Sign Up to add to Wishlist</a>
+                            class="add-to-wishlist-btn btn rounded-0 text-uppercase">Sign Up to add to Wishlist</a>
                     </div>
                     {% endif %}
                     <br>
