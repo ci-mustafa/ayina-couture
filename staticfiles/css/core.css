@@ -1201,8 +1201,8 @@ button[type="submit"]:hover {
 /* base interance media query */
 @media (max-width: 768px) {
     .base-interance-div {
-        margin-top: 20%;
-        margin-bottom: 20%;
+        margin-top: 25%;
+        margin-bottom: 25%;
     }
 }
 
