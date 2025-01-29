@@ -648,7 +648,11 @@ ul, ol{
 
 /* bootstrap toasts */
 .toast {
-    margin-top: 5%;
+    margin-top: 10%;
+}
+
+.toast-body {
+    background-color:#222831
 }
 
 .close:hover {
@@ -679,7 +683,7 @@ ul, ol{
 
 .toast .btn-black:hover {
     border-color: #000; 
-    background-color: #f1f1f1; 
+    background-color: #EC8305; 
 }
 
 
@@ -714,7 +718,7 @@ ul, ol{
 
 /* Scrollbar Styling */
 .scrollable-content::-webkit-scrollbar-thumb {
-    background: linear-gradient(45deg, #1c461f, #228d7d); 
+    background: linear-gradient(45deg, #222831, #EC8305); 
 }
 
 .scrollable-content {
@@ -722,7 +726,7 @@ ul, ol{
     overflow-y: auto; 
     overflow-x: hidden; 
     padding-right: 10px; 
-    scrollbar-color: #228d7d #333; 
+    scrollbar-color: #222831 #EC8305; 
     scrollbar-width: thin;
 }
 
@@ -1150,8 +1154,8 @@ button[type="submit"]:hover {
 }
 
 .base-interance-div {
-    margin-top: 5%;
-    margin-bottom: 5%;
+    margin-top: 15%;
+    margin-bottom: 15%;
 }
 
 /* Logout page style */
