@@ -1154,8 +1154,8 @@ button[type="submit"]:hover {
 }
 
 .base-interance-div {
-    margin-top: 15%;
-    margin-bottom: 15%;
+    margin-top: 5%;
+    margin-bottom: 5%;
 }
 
 /* Logout page style */
@@ -1195,6 +1195,15 @@ button[type="submit"]:hover {
 
 .delete-btn {
     margin: 2%;
+}
+
+
+/* base interance media query */
+@media (max-width: 768px) {
+    .base-interance-div {
+        margin-top: 20%;
+        margin-bottom: 20%;
+    }
 }
 
 
