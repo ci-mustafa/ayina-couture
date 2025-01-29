@@ -1116,6 +1116,33 @@ button[type="submit"]:hover {
     color: #222831;                   
 }
 
+/* username and password inputs style */
+.custom-form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;  
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+    transition: all 0.3s ease-in-out;
+}
+
+.custom-form-group:hover {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 1.15);
+}
+
+.custom-label {
+    font-weight: bold;
+    font-size: 14px;
+    color: #555;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.base-interance-div {
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
 
 /* Responsive Footer */
 @media (max-width: 576px) {

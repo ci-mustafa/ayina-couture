@@ -6,7 +6,7 @@
 
 {% block inner_content %}
 <hr>
-<h2 class="logo-font mb-4 text-black">{% trans "Sign In" %}</h2>
+<h2 class="logo-font mb-4">{% trans "Sign In" %}</h2>
 <hr>
 
 {% get_providers as socialaccount_providers %}
@@ -35,13 +35,17 @@ for a {{ site_name }} account and sign in below:{% endblocktrans %}</p>
 <form class="login needs-validation mt-4" method="POST" action="{% url 'account_login' %}" novalidate>
     {% csrf_token %}
     
-    <!-- Styled Inputs -->
-    <div class="form-group mb-3">
-        {{ form.login }}
+    <div class="custom-form-group mb-3">
+        <label for="login" class="custom-label">{% trans "Username" %}</label>
+        {{ form.login}}
     </div>
-    <div class="form-group mb-3">
-        {{ form.password }}
+    
+    <div class="custom-form-group mb-3">
+        <label for="password" class="custom-label">{% trans "Password" %}</label>
+        {{ form.password}}
     </div>
+    
+    
 
     {% if redirect_field_value %}
     <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
