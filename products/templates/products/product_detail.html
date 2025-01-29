@@ -74,7 +74,6 @@
                     <p>No comments yet.</p>
                     {% endif %}
                     <!-- Rating Form for authenticated users -->
-                     <hr>
                     {% if request.user.is_authenticated %}
                     <h3>Submit Your Rating</h3>
                     <form action="{% url 'submit-product-rating' product.pk %}" method="POST">
@@ -97,7 +96,6 @@
                         <button type="submit" class="btn btn rounded-0 text-uppercase">Submit Rating</button>
                     </form>
                     {% endif %}
-                    <hr>
                     {% if request.user.is_authenticated %}
                     <form class="form" action="{% url 'add-to-cart' product.id %}" method="POST">
                         {% csrf_token %}

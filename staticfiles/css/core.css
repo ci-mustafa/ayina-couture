@@ -161,6 +161,10 @@ ul, ol{
     overflow: visible; /* Ensures it grows with content */
 }
 
+.product-count {
+    color: white
+}
+
 .product-heading {
     color: white;
 }
@@ -372,7 +376,9 @@ ul, ol{
 .reset-password-button,
 .signup-button,
 .add-to-cart-btn-signup,
-.add-to-wishlist-btn-signup {
+.add-to-wishlist-btn-signup
+.delete-btn,
+.cancel-btn {
     background-color: #222831; 
     color: white; 
     min-width: 260px; 
@@ -401,7 +407,9 @@ ul, ol{
 .reset-password-button:hover,
 .signup-button:hover,
 .add-to-cart-btn-signup:hover,
-.add-to-wishlist-btn-signup:hover {
+.add-to-wishlist-btn-signup:hover,
+.delete-btn:hover,
+.cancel-btn:hover {
     background-color: #EC8305; 
     color:#222831; 
 }
@@ -676,22 +684,16 @@ ul, ol{
 
 
 /* Button Styles for Update and Back to Cart */
-.btn-primary, .btn-secondary {
-    width: 100%; 
-    padding: 12px 20px; 
-    font-size: 16px; 
-    border-radius: 8px; 
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
-    transition: all 0.3s ease; 
-}
-
-
 .btn-primary {
     background-color: #222831; 
     border: none;
     color: white;
+    width: 100%; 
+    padding: 12px 20px; 
+    font-size: 16px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+    transition: all 0.3s ease; 
 }
-
 
 .btn-primary:hover {
     background-color: #EC8305; 
@@ -1168,6 +1170,27 @@ button[type="submit"]:hover {
 
 .logout-form button:hover {
     background-color: #EC8305; /* Darker red for sign out */
+}
+
+/* delete confirmation page */
+.delete-confirm-container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.delete-confirm-box {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    padding: 30px;
+    max-width: 450px;
+    animation: fadeIn 0.4s ease-in-out;
+}
+
+.delete-btn {
+    margin: 2%;
 }
 
 
