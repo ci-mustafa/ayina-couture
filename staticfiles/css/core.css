@@ -768,6 +768,7 @@ ul, ol{
     text-align: center;
 }
 
+/* success checkout page */
 .success-checkout {
     color: white;
 }
@@ -1163,8 +1164,8 @@ button[type="submit"]:hover {
 }
 
 .base-interance-div {
-    margin-top: 5%;
-    margin-bottom: 5%;
+    margin-top: 10%;
+    margin-bottom: 10%;
 }
 
 /* Logout page style */
@@ -1234,8 +1235,8 @@ button[type="submit"]:hover {
 /* base interance media query */
 @media (max-width: 768px) {
     .base-interance-div {
-        margin-top: 25%;
-        margin-bottom: 25%;
+        margin-top: 30%;
+        margin-bottom: 30%;
     }
 }
 
