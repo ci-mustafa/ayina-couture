@@ -1152,6 +1152,25 @@ button[type="submit"]:hover {
     margin-bottom: 5%;
 }
 
+/* Logout page style */
+.logout-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.logout-form button {
+    font-size: 16px;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+}
+
+.logout-form button:hover {
+    background-color: #EC8305; /* Darker red for sign out */
+}
+
+
 /* Responsive Footer */
 @media (max-width: 576px) {
     .footer {
