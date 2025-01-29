@@ -16,15 +16,14 @@
 of your existing third-party accounts. Or, <a href="{{ signup_url }}">sign up</a>
 for a {{ site_name }} account and sign in below:{% endblocktrans %}</p>
 
-<div class="socialaccount_ballot text-center mb-4">
-    <ul class="socialaccount_providers">
+<div class="socialaccount_ballot text-center mb-4 socialaccount-div">
+    <div class="socialaccount_providers">
         {% include "socialaccount/snippets/provider_list.html" with process="login" %}
-    </ul>
-    <div class="login-or my-3 text-uppercase text-muted">
-        <span>{% trans 'or' %}</span>
     </div>
 </div>
-
+<div class="login-or my-3 text-uppercase text-muted">
+    <span>{% trans 'or' %}</span>
+</div>
 {% include "socialaccount/snippets/login_extra.html" %}
 
 {% else %}

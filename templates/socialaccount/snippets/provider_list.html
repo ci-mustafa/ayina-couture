@@ -2,17 +2,23 @@
 {% get_providers as socialaccount_providers %}
 {% if socialaccount_providers %}
     {% element provider_list %}
-        {% for provider in socialaccount_providers %}
-            {% if provider.id == "openid" %}
-                {% for brand in provider.get_brands %}
-                    {% provider_login_url provider openid=brand.openid_url process=process as href %}
-                    {% element provider name=brand.name provider_id=provider.id href=href %}
-                    {% endelement %}
+        <!-- Wrap the provider list with a container -->
+        <div class="provider-list-container">
+            <ul class="provider-list">
+                {% for provider in socialaccount_providers %}
+                    {% provider_login_url provider process=process scope=scope auth_params=auth_params as href %}
+                    
+                    <!-- Custom code for Google icon next to the provider name -->
+                    <li class="provider-item">
+                        {% if provider.id == "google" %}
+                            <a href="{{ href }}" class="provider-link google-provider">
+                                {{ provider.name }}
+                            </a>
+                        {% endif %}
+                    </li>
                 {% endfor %}
-            {% endif %}
-            {% provider_login_url provider process=process scope=scope auth_params=auth_params as href %}
-            {% element provider name=provider.name provider_id=provider.id href=href %}
-            {% endelement %}
-        {% endfor %}
+            </ul>
+        </div>  <!-- End of provider list container -->
     {% endelement %}
 {% endif %}
+
