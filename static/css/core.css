@@ -370,7 +370,9 @@ ul, ol{
 .home-btn,
 .update-profile-button,
 .reset-password-button,
-.signup-button {
+.signup-button,
+.add-to-cart-btn-signup,
+.add-to-wishlist-btn-signup {
     background-color: #222831; 
     color: white; 
     min-width: 260px; 
@@ -397,7 +399,9 @@ ul, ol{
 .home-btn:hover,
 .update-profile-button:hover,
 .reset-password-button:hover,
-.signup-button:hover {
+.signup-button:hover,
+.add-to-cart-btn-signup:hover,
+.add-to-wishlist-btn-signup:hover {
     background-color: #EC8305; 
     color:#222831; 
 }
@@ -683,15 +687,14 @@ ul, ol{
 
 
 .btn-primary {
-    background-color: #007bff; 
+    background-color: #222831; 
     border: none;
     color: white;
 }
 
 
 .btn-primary:hover {
-    background-color: #0056b3; 
-    transform: translateY(-2px); 
+    background-color: #EC8305; 
 }
 
 
