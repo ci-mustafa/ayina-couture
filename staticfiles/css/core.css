@@ -741,7 +741,8 @@ ul, ol{
     margin-top: 5%;
     margin-bottom: 5%;
     padding: 20px;
-    background-color: #275d58;
+    background-color: #222831;
+    color: white;
 }
 
 /* Wishlist sytles */
@@ -765,6 +766,14 @@ ul, ol{
     flex-direction: column;
     justify-content: space-between; 
     text-align: center;
+}
+
+.success-checkout {
+    color: white;
+}
+
+.success-checkout-info {
+    color: #EC8305;
 }
 
 /* Footer Styling */
