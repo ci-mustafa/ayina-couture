@@ -1120,7 +1120,8 @@ button[type="submit"]:hover {
 .custom-form-group {
     display: flex;
     flex-direction: column;
-    gap: 6px;  
+    gap: 6px;
+    background-color: white;  
     padding: 10px;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
@@ -1129,6 +1130,13 @@ button[type="submit"]:hover {
 
 .custom-form-group:hover {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 1.15);
+}
+
+
+.custom-form-group input:focus {
+    background-color: #e9ecef; 
+    border-color: #EC8305; 
+    outline: none;
 }
 
 .custom-label {

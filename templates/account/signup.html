@@ -12,15 +12,50 @@
 
 <p>{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">sign in</a>.{% endblocktrans %}</p>
 
-<form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
+<!-- Modern Styled Form -->
+<form class="signup needs-validation mt-4" id="signup_form" method="post" action="{% url 'account_signup' %}" novalidate>
   {% csrf_token %}
-  <div class="form-group mb-3">
-    {{ form }}
+
+  <!-- Email -->
+  <div class="custom-form-group mb-3">
+      <label for="email" class="custom-label">{% trans "Email" %}</label>
+      {{ form.email }}
   </div>
+
+  <!-- Email (again) -->
+  <div class="custom-form-group mb-3">
+      <label for="email2" class="custom-label">{% trans "Email (again)" %}</label>
+      {{ form.email2 }}
+  </div>
+
+  <!-- Username -->
+  <div class="custom-form-group mb-3">
+      <label for="username" class="custom-label">{% trans "Username" %}</label>
+      {{ form.username }}
+  </div>
+
+<!-- Password -->
+<div class="custom-form-group mb-3">
+  <label for="password1" class="custom-label">{% trans "Password" %}</label>
+  {{ form.password1 }}
+  {% if form.password1.help_text %}
+      <small class="form-text text-muted">{{ form.password1.help_text }}</small>
+  {% endif %}
+</div>
+
+<!-- Password (again) -->
+<div class="custom-form-group mb-3">
+  <label for="password2" class="custom-label">{% trans "Password (again)" %}</label>
+  {{ form.password2 }}
+</div>
+
   {% if redirect_field_value %}
   <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
   {% endif %}
-  <button type="submit">{% trans "Sign Up" %}</button>
-</form>
 
+  <button class="btn btn-primary rounded-0 shadow-sm px-4" type="submit">
+      {% trans "Sign Up" %}
+  </button>
+</form>
 {% endblock %}
+
