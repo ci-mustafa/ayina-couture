@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block page_header %}
+    <div class="hero-section">
+        <div class="container text-center text-white">
+            <h1 class="text-uppercase">Welcome to Ayina Couture</h1>
+            <p class="lead">Explore the rich culture of Afghanistan through our exquisite traditional clothing.</p>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <!-- About Us Section -->
+    <section class="about container my-5">
+        <h2 class="text-center">Our Story</h2>
+        <p class="lead text-center">At Ayina Couture, we bring the finest Afghan traditional clothing to the world, blending authentic craftsmanship with modern elegance. Our curated collections feature handwoven fabrics, beautiful embroidery, and stunning designs that represent the rich cultural heritage of Afghanistan.</p>
+        <div class="about-div row my-5">
+            <div class="about-image col-md-6">
+                <img src="{% static 'images/site_background.png' %}" alt="Traditional Afghan Clothing" class="img-fluid">
+            </div>
+            <div class="about-inner-div lead text-white col-md-6">
+                <p>We are passionate about supporting Afghan artisans and preserving traditional techniques that have been passed down through generations. Our clothing is not just fashion; it’s a reflection of the soul of Afghanistan, crafted with love and care.</p>
+                <p>Our mission is to provide high-quality garments that celebrate the rich cultural history of Afghanistan while offering you a unique and elegant fashion experience. Every piece of clothing tells a story and brings you closer to the beautiful traditions of this ancient land.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section py-5">
+        <div class="container text-center">
+            <h3 class="stats-heading">Why Choose Ayina Couture?</h3>
+            <div class="row mt-4">
+                <div class="col-md-4">
+                    <i class="about-icon fas fa-tshirt fa-3x"></i>
+                    <h4 class="stats-heading-h4">Exclusive Designs</h4>
+                    <p class="lead about-p">We offer a wide range of unique, high-quality Afghan traditional clothing.</p>
+                </div>
+                <div class="col-md-4">
+                    <i class="about-icon fas fa-users fa-3x"></i>
+                    <h4 class="stats-heading-h4">Customer Satisfaction</h4>
+                    <p class="lead about-p">Thousands of happy customers trust us for authentic Afghan fashion.</p>
+                </div>
+                <div class="col-md-4">
+                    <i class="about-icon fas fa-shipping-fast fa-3x"></i>
+                    <h4 class="stats-heading-h4">Worldwide Shipping</h4>
+                    <p class="lead about-p">We deliver our products globally, ensuring fast and reliable shipping.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section class="text-center py-5">
+        <div class="container">
+            <h3>Ready to Explore Afghan Fashion?</h3>
+            <p class="lead">Shop now and experience the elegance and beauty of traditional Afghan clothing at Ayina Couture.</p>
+            <a href="{% url 'products' %}" class="btn btn-primary rounded-0"><span style="margin-right: 5px;">Shop Now</span> 
+                <i class="fa-solid fa-basket-shopping"></i>
+            </a>
+        </div>
+    </section>
+{% endblock %}
+

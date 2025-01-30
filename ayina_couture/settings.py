@@ -73,6 +73,7 @@ INSTALLED_APPS = [
     'profiles',
     'wishlist',
     'contact',
+    'about',
     'allauth.socialaccount.providers.google',
 ]
 
