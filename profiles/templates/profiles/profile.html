@@ -3,12 +3,13 @@
 
 {% block content %}
 <div class="container profile-main-div">
-    <div class="row">
-        <div class="col">
-            <h2 class="shopping-cart-heading text-center">My Profile</h2>
-            <hr>
+    <div class="row align-items-center">
+        <div class="col d-flex justify-content-between">
+            <h2 class="shopping-cart-heading">My Profile</h2>
+            <span class="username-info">Username: <strong><em>{{ request.user.username }}</em></strong></span>    
         </div>
     </div>
+    <hr>
     <div class="row">
         <div class="col-12 col-lg-6">
             <p>Default Delivery Information</p>

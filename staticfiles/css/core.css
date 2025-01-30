@@ -745,6 +745,9 @@ ul, ol{
     color: white;
 }
 
+.username-info {
+    color: #EC8305;
+}
 
 /* Wishlist sytles */
 .wishlist-container {
