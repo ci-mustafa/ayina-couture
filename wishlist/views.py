@@ -56,7 +56,8 @@ def add_to_wishlist(request, product_id):
     else:
         wishlist.products.add(product)
         messages.success(request, f"'{product.name}' has been added to your wishlist!")
-    return redirect(request.POST.get('redirect_url', 'list-wishlist'))
+
+    return redirect('list-wishlist')
 
 
 
