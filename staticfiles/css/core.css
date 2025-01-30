@@ -1294,6 +1294,18 @@ button[type="submit"]:hover {
     color:#EC8305;
 }
 
+/* Login warning alert */
+.important-message {
+    background-color: #fff3cd;
+    color: #856404;
+    border: 1px solid #ffeeba;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
 /* Apply margin-top for about inner div class on smaller screens */
 @media (max-width: 767px) {
     .about-inner-div {
