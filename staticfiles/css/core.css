@@ -745,28 +745,48 @@ ul, ol{
     color: white;
 }
 
+
 /* Wishlist sytles */
+.wishlist-container {
+    min-height: calc(100vh - 150px); 
+    display: flex;
+    flex-direction: column;
+    background-color: #222831;
+    padding: 10px;
+}
+
+
+.wishlist-item .card {
+    border-radius: 15px;
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.wishlist-item .card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
 .wishlist-product-img {
     width: 100%;
-    height: 200px; 
-    object-fit: contain; 
-    border-radius: 5px;
+    height: auto;
+    max-height: 250px; 
+    object-fit: contain;
+    background-color: white; 
 }
 
-.card {
-    height: 350px; 
+
+.empty-wishlist {
+    min-height: 40vh; 
     display: flex;
     flex-direction: column;
-    justify-content: space-between; 
+    align-items: center;
+    justify-content: center;
 }
 
-.card-body {
-    flex-grow: 1; 
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between; 
-    text-align: center;
-}
 
 /* success checkout page */
 .success-checkout {
@@ -1223,6 +1243,7 @@ button[type="submit"]:hover {
     width: auto;
     transition: background-color 0.3s ease;
 }
+
 
 /* socila login media query */
 @media (max-width: 768px) {

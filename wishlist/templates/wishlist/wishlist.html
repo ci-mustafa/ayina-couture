@@ -2,8 +2,9 @@
 {% load static %}
 
 {% block content %}
-<div class="wishlist container my-5">
+<div class="wishlist-container container my-5">
     <h1 class="text-center mb-4">Your Wishlist</h1>
+
     {% if request.user.wishlist.products.exists %}
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 wishlist-item">
             {% for product in request.user.wishlist.products.all %}
@@ -19,7 +20,7 @@
                     <div class="card-body text-center">
                         <!-- Product details -->
                         <h5 class="card-title">{{ product.name }}</h5>
-                        <p class="card-text">Price: €{{ product.price }}</p>
+                        <p class="card-text text-muted">Price: <strong>€{{ product.price }}</strong></p>
                         <div class="d-flex justify-content-center">
                             <!-- View product button -->
                             <a href="{% url 'product-detail' product.id %}" class="btn btn-primary btn-sm me-2">
@@ -40,11 +41,12 @@
             </div>            
             {% endfor %}
         </div>
-    {% else %}
-        <div class="alert alert-info text-center" role="alert">
-            Your wishlist is empty. Start adding your favorite products!
+        {% else %}
+        <div class="text-center mt-5">
+            <p class="shopping-cart-para lead mb-4">Your wishlist is empty. Start adding your favorite products!</p>
         </div>
-    {% endif %}
+        {% endif %}
+    
 </div>
 
 <!-- Modal for Confirming Deletion -->
@@ -61,10 +63,10 @@
                 </h6>
             </div>
             <div class="modal-footer justify-content-center">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-primary rounded-0" data-bs-dismiss="modal">Cancel</button>
                 <form id="delete-wishlist-form" action="" method="post">
                     {% csrf_token %}
-                    <button type="submit" class="btn btn-danger">
+                    <button type="submit" class="btn btn-primary rounded-0">
                         Remove
                     </button>
                 </form>
