@@ -12,9 +12,11 @@
             <div class="card h-100 shadow-sm">
                 <div class="card-img-top product-image">
                     {% if product.image %}
-                    <img src="{{ product.image.url }}" class="img-fluid" alt="{{ product.name }}">
+                    <img src="{{ product.image.url }}" class="img-fluid"
+                    alt="Afghan Traditional clothing - {{ item.product.name }} by Ayina Couture">
                     {% else %}
-                    <img src="{% static 'images/no-image.jpg' %}" class="img-fluid" alt="No image available">
+                    <img src="{% static 'images/no-image.jpg' %}" class="img-fluid"
+                    alt="No image available">
                     {% endif %}
                 </div>
             </div>

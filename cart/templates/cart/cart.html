@@ -8,7 +8,7 @@
 <div class="container cart-main-div">
     <div class="row">
         <div class="col">
-            <h2 class="shopping-cart-heading text-center">Your Shopping Cart</h2>
+            <h1 class="shopping-cart-heading text-center">Your Shopping Cart - Ayina Couture</h1>
             <hr>
         </div>
     </div>
@@ -21,8 +21,10 @@
                 <div
                     class="cart-item d-flex flex-column flex-md-row justify-content-between align-items-center mb-4 p-3 border-bottom">
                     <div class="cart-item-img mb-3 mb-md-0">
-                        <img class="img-fluid rounded" src="{{ item.product.image.url }}" alt="{{ item.product.name }}"
-                            style="max-width: 150px; height: auto;">
+                        <img class="img-fluid rounded" src="{{ item.product.image.url }}"
+                        alt="Afghan Traditional clothing - {{ item.product.name }} by Ayina Couture"
+                        style="max-width: 150px; height: auto;"
+                        loading="lazy">
                     </div>
                     <div class="cart-item-info d-flex flex-column mb-3 mb-md-0 text-center text-md-start">
                         <strong class="cart-item-title">{{ item.product.name }}</strong>
