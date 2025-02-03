@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /accounts/
+Disallow: /cart/
+Sitemap: https://ayina-couture-32f4a278cf2b.herokuapp.com/sitemap.xml
