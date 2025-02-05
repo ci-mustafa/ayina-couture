@@ -36,6 +36,7 @@
                 </div>
                 <!-- Stock Quantity -->
                 <div class="form-group mb-3">
+                    <label for="stock_quantity" class="form-check-label">Quantity</label>
                     {{ form.stock_quantity }}
                 </div>
                 <!-- Color (Checkboxes) -->
@@ -58,10 +59,6 @@
                             {% endfor %}
                         </div>
                     {% endif %}
-                </div>
-                <!-- Gender -->
-                <div class="form-group mb-3">
-                    {{ form.gender }}
                 </div>
                 <!-- Occasion -->
                 <div class="form-group mb-3">

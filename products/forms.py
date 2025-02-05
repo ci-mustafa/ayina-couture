@@ -18,7 +18,7 @@ class ProductForm(forms.ModelForm):
         model = Product
         fields = ['name', 'description', 'price', 
                   'collection', 'material', 'stock_quantity', 
-                  'color', 'gender', 'occasion', 'is_featured',
+                  'color', 'occasion', 'is_featured',
                   'has_sizes', 'image']
         
         widgets = {
@@ -29,7 +29,6 @@ class ProductForm(forms.ModelForm):
             'has_sizes': forms.CheckboxInput(attrs={'class': 'form-check-input'}),
             'image': forms.FileInput(attrs={'class': 'form-control'}),
             'collection': forms.Select(attrs={'class': 'form-control'}),
-            'gender': forms.Select(attrs={'class': 'form-control'}),
             'occasion': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Occasion'}),
             'is_featured': forms.CheckboxInput(attrs={'class': 'form-check-input'}),
             'stock_quantity': forms.NumberInput(attrs={'class': 'form-control', 'placeholder': 'Stock Quantity'}),

@@ -56,8 +56,6 @@ class Product(models.Model):
     Represents a product in the store, which could be a clothing item or accessory.
     
     Attributes:
-    - GENDER_CHOICES: Choices for gender-specific products (Men, Women).
-    - COLOR_CHOICES: Available color options for the product (e.g., Red, Blue, Black).
     - collection: A foreign key to the Collection model, representing the collection the
         product belongs to (e.g., Summer, Winter).
     - sku: A unique identifier for the product, typically used for inventory management.
@@ -66,8 +64,7 @@ class Product(models.Model):
     - material: The material the product is made from (e.g., Cotton, Leather).
     - price: The price of the product.
     - has_sizes: A boolean indicating whether the product has different sizes available.
-    - color: The color of the product, selected from the predefined COLOR_CHOICES.
-    - gender: The target gender for the product (Men, Women), selected from GENDER_CHOICES.
+    - color: The color of the product, selected from related model.
     - occasion: Optional field to specify the occasion for which
         the product is suitable (e.g., Casual, Formal).
     - stock_quantity: The quantity of the product available in stock.
@@ -83,12 +80,6 @@ class Product(models.Model):
         the product is in stock (stock_quantity > 0).
     - average_rating: Returns the average rating of the product, or `None` if no ratings exist.
     """
-
-    # Gender choices as a class-level variable
-    GENDER_CHOICES = [
-        ('Men', 'Men'),
-        ('Women', 'Women'),
-    ]
 
     collection = models.ForeignKey(
         Collection,
@@ -106,7 +97,6 @@ class Product(models.Model):
     )
     has_sizes = models.BooleanField(default=False, null=True, blank=True)
     color = models.ManyToManyField(Color, related_name='products', blank=True)
-    gender = models.CharField(max_length=5, choices=GENDER_CHOICES, default='Men')
     occasion = models.CharField(max_length=254, null=True, blank=True) 
     stock_quantity = models.PositiveIntegerField(
         default=0, validators=[MinValueValidator(0)]
