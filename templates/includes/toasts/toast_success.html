@@ -61,8 +61,11 @@
                     {% endif %}
                     
                         <div class="toast-body">
-                            <a href="{% url 'view-cart' %}" class="btn btn-black btn-block rounded-0">
-                                <span class="text-uppercase">Go To Secure Checkout</span>
+                            <a href="{% if request.path == '/cart/' %}{% url 'quickcheckout' %}{% else %}{% url 'view-cart' %}{% endif %}"
+                            class="btn btn-black btn-block rounded-0">
+                                <span class="text-uppercase">
+                                    {% if request.path == '/cart/' %}Proceed to Quick Checkout{% else %}Go To Secure Checkout{% endif %}
+                                </span>
                                 <span class="icon"><i class="fas fa-lock"></i></span>
                             </a>
                         </div>
@@ -73,9 +76,5 @@
         
     </div> <!-- End Toast Body -->
 </div>
-
-
-
-
 
   
