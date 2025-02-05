@@ -1186,7 +1186,13 @@ button[type="submit"]:hover {
     letter-spacing: 0.5px;
 }
 
+/* base interance */
 .base-interance-div {
+    margin-top: 0.2%;
+    margin-bottom: 0.2%;
+}
+
+.login-signup-style {
     margin-top: 10%;
     margin-bottom: 10%;
 }
@@ -1329,7 +1335,7 @@ button[type="submit"]:hover {
 
 /* base interance media query */
 @media (max-width: 768px) {
-    .base-interance-div {
+    .login-signup-style {
         margin-top: 50%;
         margin-bottom: 50%;
     }

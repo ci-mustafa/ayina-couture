@@ -2,7 +2,8 @@
 {% load static %}
 
 {% block content %}
-<div class="base-interance-div container h-100 home-main-div entrance-div d-flex align-items-center justify-content-center">
+<div class="base-interance-div container h-100 home-main-div entrance-div d-flex align-items-center justify-content-center
+    {% if request.path == '/accounts/login/' or request.path == '/accounts/signup/' %} login-signup-style {% endif %}">
     <div class="row w-100 justify-content-center">
         <div class="col-12 col-md-8 col-lg-6 my-auto">
             <!-- Allauth Inner Form -->
