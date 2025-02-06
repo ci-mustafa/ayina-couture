@@ -103,14 +103,62 @@ You can explore the detailed user stories [here](https://github.com/ci-mustafa/a
 
 ### Wireframes
 
-- To streamline the website's design process, I created detailed wireframes for each page, ensuring a user-friendly and responsive layout. Following best practices, wireframes were designed for both mobile and desktop dimensions to optimize the user experience across all devices. I utilized [Balsamiq](https://balsamiq.com/) to develop these wireframes, covering key views such as Home, Login, Logout, and Products. These visual blueprints provided a clear structure for the site's layout and functionality, guiding the development process effectively.
+- To streamline the website's design process, I created detailed wireframes for each page, ensuring a user-friendly and responsive layout. Following best practices, wireframes were designed for both mobile and desktop dimensions to optimize the user experience across all devices. I utilized [Balsamiq](https://balsamiq.com/) to develop these wireframes, covering key views such as Home, Login, Logout, Products, Product detail, Cart and Checkout. These visual blueprints provided a clear structure for the site's layout and functionality, guiding the development process effectively.
 
 ### Mobile view Wireframes
 
 <details>
 <summary>Click to View Home Page wireframes</summary>
 
-#### Mobile
+#### Mobile Home
 ![screenshot](static/images/readme_images/wf_mobile_home.png)
+
+</details>
+
+<details>
+<summary>Click to View product page wireframes</summary>
+
+#### Mobile Products
+![screenshot](static/images/readme_images/wf_mobile_products.png)
+
+</details>
+
+<details>
+<summary>Click to View product detail page wireframes</summary>
+
+#### Mobile Product detail
+![screenshot](static/images/readme_images/wf_mobile_product_detial.png)
+
+</details>
+
+<details>
+<summary>Click to View sign in page wireframes</summary>
+
+#### Mobile Sign in
+![screenshot](static/images/readme_images/wf_mobile_signin.png)
+
+</details>
+
+<details>
+<summary>Click to View sign up page wireframes</summary>
+
+#### Mobile Sign up
+![screenshot](static/images/readme_images/wf_mobile_signup.png)
+
+</details>
+
+<details>
+<summary>Click to View cart page wireframes</summary>
+
+#### Mobile Cart
+![screenshot](static/images/readme_images/wf_mobile_cart.png)
+
+</details>
+
+<details>
+<summary>Click to View cart page wireframes</summary>
+
+#### Mobile Checkout
+![screenshot](static/images/readme_images/wf_mobile_checkout.png)
 
 </details>
