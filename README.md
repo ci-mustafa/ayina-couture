@@ -21,6 +21,9 @@ Users can browse collections, search for products, view detailed descriptions, a
     * [Project Goals](#project-goals)
 3. [Agile Planning](#agile-planning)
     * [User Stories](#user-stories)
+4. [Fundamental Structure](#fundamental-structure)
+    * [Wireframes](#wireframes)
+    * [Database Schema](#database-schema) 
 
 
 <br>
@@ -91,3 +94,23 @@ You can explore the detailed user stories [here](https://github.com/ci-mustafa/a
 ![Milestones](static/images/readme_images/ayina_c_meilstones.png)
 
 [Back to Top](#table-of-contents)
+
+<br>
+
+
+
+## Fundamental Structure
+
+### Wireframes
+
+- To streamline the website's design process, I created detailed wireframes for each page, ensuring a user-friendly and responsive layout. Following best practices, wireframes were designed for both mobile and desktop dimensions to optimize the user experience across all devices. I utilized [Balsamiq](https://balsamiq.com/) to develop these wireframes, covering key views such as Home, Login, Logout, and Products. These visual blueprints provided a clear structure for the site's layout and functionality, guiding the development process effectively.
+
+### Mobile view Wireframes
+
+<details>
+<summary>Click to View Home Page wireframes</summary>
+
+#### Mobile
+![screenshot](static/images/readme_images/wf_mobile_home.png)
+
+</details>
