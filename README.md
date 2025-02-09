@@ -162,3 +162,13 @@ You can explore the detailed user stories [here](https://github.com/ci-mustafa/a
 ![screenshot](static/images/readme_images/wf_mobile_checkout.png)
 
 </details>
+
+### Desktop view Wireframes
+
+<details>
+<summary>Click to View Home Page wireframes</summary>
+
+#### Desktop Home
+![screenshot](static/images/readme_images/wf_desktop_home.png)
+
+</details>
