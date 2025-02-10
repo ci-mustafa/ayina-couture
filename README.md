@@ -239,6 +239,32 @@ I designed all the pages using Balsamiq, ensuring a structured layout and intuit
 
 ### Existing Features
 
+#### Navigation Bar
+The navigation bar is designed for effortless accessibility and intuitive browsing, ensuring users can seamlessly explore the website. It includes:
+
+- Logo – A recognizable brand identity linking back to the homepage.
+- Search Bar – Enables users to quickly find products by name or relevant keywords.
+- Categories & Pages – Direct access to key sections, including:
+- - All Products – A complete catalog of available items.
+- - Women, Men, Accessories – Curated product categories for streamlined shopping.
+- - Contact Us & About Us – Essential business and brand information.
+- User Account Features – Logged-in users can conveniently access:
+- - My Account – Manage personal details, orders, and preferences.
+- - My Wishlist – Save favorite products for future purchases.
+- - Cart – View and manage selected items before checkout.
+
+![Navbar Image](static/images/readme_images/ayina_c_navbar.png)
+
+#### Footer
+
+The footer provides a concise yet informative overview of the website, ensuring users can easily navigate essential sections. It includes:
+
+- Brief Business Information – A short description highlighting the brand’s mission and values.
+- Quick Links – Convenient access to important pages such as Home, Shop, About Us, Contact, FAQs, and Policies.
+- Social Media Integration – Direct links to the website’s official social media profiles, allowing users to stay connected and engage with the brand.
+
+![Footer Image](static/images/readme_images/ayina_c_footer.png)
+
 #### Home Page
 The homepage serves as a visually captivating and strategically designed landing page, crafted to engage users instantly. It effectively communicates the essence of the online store while providing an intuitive and seamless browsing experience.
 
@@ -269,3 +295,18 @@ Users can view detailed information about the items in their cart, including pro
 ![Cart Image](static/images/readme_images/ayina_c_cart.png)
 
 ![Cart Image](static/images/readme_images/ayina_c_cart2.png)
+
+#### Checkout Page
+The checkout page is designed to provide a seamless and secure purchasing experience. It displays a comprehensive order summary alongside a user-friendly form for entering shipping and payment details. Users have the option to save their filled-in information to their profile by selecting the "Save to Profile" checkbox, ensuring faster checkouts in the future.
+
+Upon successful purchase, users are automatically redirected to a confirmation page, which provides detailed information about their order. If any issues arise during form submission, real-time toast notifications guide users by highlighting the specific errors that need attention.
+
+At the bottom of the page, a clear summary of the total amount to be charged is displayed, along with a "Keep Shopping" button, allowing users to continue browsing and adding more items if desired.
+
+![Checkout Image](static/images/readme_images/ayina_c_checkout.png)
+
+![Checkout Image](static/images/readme_images/ayina_c_checkout1.png)
+
+![Checkout Image](static/images/readme_images/ayina_c_checkout3.png)
+
+![Checkout Image](static/images/readme_images/ayina_c_order_summary.png)
