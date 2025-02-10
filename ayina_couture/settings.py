@@ -31,7 +31,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 DEBUG = False
 
 ALLOWED_HOSTS = [
-    '8000-cimustafa-ayinacouture-0g69ygd7vkp.ws.codeinstitute-ide.net',
+    '8000-cimustafa-ayinacouture-sisyhlz2ich.ws-eu117.gitpod.io',
     'cimustafa-ayinacouture-0g69ygd7vkp.ws.codeinstitute-ide.net',
     'ayina-couture-32f4a278cf2b.herokuapp.com',
     ".herokuapp.com",
@@ -41,7 +41,7 @@ ALLOWED_HOSTS = [
 ]
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://8000-cimustafa-ayinacouture-0g69ygd7vkp.ws.codeinstitute-ide.net',
+    'https://8000-cimustafa-ayinacouture-sisyhlz2ich.ws-eu117.gitpod.io',
     'https://cimustafa-ayinacouture-0g69ygd7vkp.ws.codeinstitute-ide.net',
     'https://ayina-couture-32f4a278cf2b.herokuapp.com',
     'https://*.herokuapp.com',

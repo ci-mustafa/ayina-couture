@@ -103,7 +103,8 @@ You can explore the detailed user stories [here](https://github.com/ci-mustafa/a
 
 ### Wireframes
 
-- To streamline the website's design process, I created detailed wireframes for each page, ensuring a user-friendly and responsive layout. Following best practices, wireframes were designed for both mobile and desktop dimensions to optimize the user experience across all devices. I utilized [Balsamiq](https://balsamiq.com/) to develop these wireframes, covering key views such as Home, Login, Logout, Products, Product detail, Cart and Checkout. These visual blueprints provided a clear structure for the site's layout and functionality, guiding the development process effectively.
+- To streamline the website's design process, I created detailed wireframes for each page, ensuring a user-friendly and responsive layout. Following best practices, wireframes were designed for both mobile and desktop dimensions to optimize the user experience across all devices.
+I designed all the pages using Balsamiq, ensuring a structured layout and intuitive user experience. To provide insights into the design process and technology choices, I have included some of these wireframes in this README file. These wireframes illustrate the key views, such as Home, Login, Logout, Products, Product Detail, Cart, and Checkout, offering a clear visual reference for the development approach.
 
 ### Mobile view Wireframes
 
@@ -156,7 +157,7 @@ You can explore the detailed user stories [here](https://github.com/ci-mustafa/a
 </details>
 
 <details>
-<summary>Click to View cart page wireframes</summary>
+<summary>Click to View checkout page wireframes</summary>
 
 #### Mobile Checkout
 ![screenshot](static/images/readme_images/wf_mobile_checkout.png)
@@ -170,5 +171,39 @@ You can explore the detailed user stories [here](https://github.com/ci-mustafa/a
 
 #### Desktop Home
 ![screenshot](static/images/readme_images/wf_desktop_home.png)
+
+</details>
+
+<details>
+<summary>Click to View products Page wireframes</summary>
+
+#### Desktop Products
+![screenshot](static/images/readme_images/wf_desktop_products.png)
+
+</details>
+
+<details>
+<summary>Click to View product detail Page wireframes</summary>
+
+#### Desktop Product detail
+![screenshot](static/images/readme_images/wf_desktop_product_detail.png)
+
+</details>
+
+<details>
+<summary>Click to View cart Page wireframes</summary>
+
+#### Desktop Cart
+![screenshot](static/images/readme_images/wf_desktop_checkout.png)
+
+</details>
+
+</details>
+
+<details>
+<summary>Click to View checkout Page wireframes</summary>
+
+#### Desktop Checkout
+![screenshot](static/images/readme_images/wf_desktop_checkoutt.png)
 
 </details>
