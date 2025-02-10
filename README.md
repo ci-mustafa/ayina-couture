@@ -207,3 +207,13 @@ I designed all the pages using Balsamiq, ensuring a structured layout and intuit
 ![screenshot](static/images/readme_images/wf_desktop_checkoutt.png)
 
 </details>
+
+### Database Schema
+
+- I created an entity relationship diagram using  [Drawsql.app](https://drawsql.app/). This allowed me to visually represent the connections between my data structures and streamlined the development process significantly. Now, I have a visual guide, making it much easier to understand and interact with my data.
+
+![Database Schema](static/images/readme_images/ERD_ayina_couture.png)
+
+[Back to Top](#table-of-contents)
+
+<br>
