@@ -24,6 +24,8 @@ Users can browse collections, search for products, view detailed descriptions, a
 4. [Fundamental Structure](#fundamental-structure)
     * [Wireframes](#wireframes)
     * [Database Schema](#database-schema) 
+5. [Main plan](#main-plan)
+6. [Features](#features )
 
 
 <br>
@@ -217,3 +219,53 @@ I designed all the pages using Balsamiq, ensuring a structured layout and intuit
 [Back to Top](#table-of-contents)
 
 <br>
+
+## Main plan
+- Crafting an Engaging Homepage: Designed a visually striking homepage featuring a compelling hero image that immediately conveys the website's core value proposition, ensuring an impactful first impression.
+
+- Seamless User Authentication & Account Management: Implemented a robust account registration system, enabling personalized user experiences, restricted access for editing and deleting reviews, wishlist management, and secure storage of user details for a streamlined checkout process.
+
+- Advanced Responsive Design: Engineered a fully responsive website, ensuring optimal performance across all devices and screen sizes. The interface is meticulously optimized for mobile users, providing an intuitive and seamless navigation experience.
+
+- Superuser Privileges & Admin Control: Equipped superusers with comprehensive administrative capabilities, allowing them to create, view, update, and delete product and user reviews with full control over content moderation and platform integrity.
+
+<br>
+
+[Back to Top](#table-of-contents)
+
+<br>
+
+## Features 
+
+### Existing Features
+
+#### Home Page
+The homepage serves as a visually captivating and strategically designed landing page, crafted to engage users instantly. It effectively communicates the essence of the online store while providing an intuitive and seamless browsing experience.
+
+![Hero Image](static/images/readme_images/ayina_c_home_page.png)
+
+#### Products Page
+Each product is showcased within a well-structured card layout, presenting essential details in a visually appealing manner. To enhance user experience and performance, pagination has been implemented, ensuring smooth navigation through the product catalog. Additionally, a dynamic product count is displayed, providing users with a clear indication of the total number of available products.
+
+![Products Page Image](static/images/readme_images/ayina_c_products.png)
+
+#### Product detail Page
+The product page offers users comprehensive information about each item, including specifications, pricing, and availability. Users can submit ratings and, if applicable, customize their selection by choosing color and size options.
+
+For a seamless shopping experience, logged-in users can add products to their cart and wishlist effortlessly. However, guests must log in before accessing these features, ensuring a personalized and secure user journey.
+
+![Product detail Page Image](static/images/readme_images/ayina_c_product_detail.png)
+
+#### Toasts
+To enhance user experience and provide real-time feedback, toast notifications have been implemented throughout the platform. These non-intrusive pop-up messages inform users about important actions such as successful product additions to the cart or wishlist, rating submissions, login requirements, and error alerts. The notifications ensure smooth interaction by delivering instant and clear updates without disrupting the browsing experience.
+
+![Toasts Image](static/images/readme_images/ayina_c_toast.png)
+
+#### Cart Page
+The cart page provides users with full control over their selected items, allowing them to update quantities or remove products as needed. A "Secure Checkout" button enables seamless navigation to the checkout process, ensuring a smooth and safe transaction.
+
+Users can view detailed information about the items in their cart, including product names, prices, and selected variations. If the cart is empty, a clear and informative message is displayed, notifying the user that "Currently you don't have any items in your cart."
+
+![Cart Image](static/images/readme_images/ayina_c_cart.png)
+
+![Cart Image](static/images/readme_images/ayina_c_cart2.png)
