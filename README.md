@@ -35,6 +35,7 @@ Users can browse collections, search for products, view detailed descriptions, a
 10. [Marketing Strategy](#marketing-strategy)
 11. [Search Engine Optimization (SEO)](#search-engine-optimization-seo)
 12. [Technologies](#technologies)
+    * [Strip payment integration](#strip-payment-integration)
     * [Languages Used](#languages-used)
     * [Frameworks Used](#frameworks-used)
     * [Libraries And Installed Packages](#libraries-and-installed-packages)
@@ -516,6 +517,9 @@ Ayina Couture operates on a Business to Consumer (B2C) model, offering customers
 
 
 ## Technologies
+
+### Strip Payment Integration
+Ayina Couture has integrated Stripe as the primary payment gateway to provide a secure and seamless transaction experience for customers. Stripe allows users to make payments using various methods, including credit and debit cards, ensuring flexibility and ease of use. The integration supports both one-time and recurring payments, making it ideal for different business models. Additionally, the website is set up to handle webhooks for receiving payment status updates. This includes handling success and failure notifications from Stripe, ensuring that customers are promptly informed of their transaction status
 
 ### Languages Used
 * [HTML5](https://en.wikipedia.org/wiki/HTML5)
