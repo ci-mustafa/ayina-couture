@@ -283,7 +283,7 @@ For a seamless shopping experience, logged-in users can add products to their ca
 ![Product detail Page Image](static/images/readme_images/ayina_c_product_detail.png)
 
 #### Toasts
-To enhance user experience and provide real-time feedback, toast notifications have been implemented throughout the platform. These non-intrusive pop-up messages inform users about important actions such as successful product additions to the cart or wishlist, rating submissions, login requirements, and error alerts. The notifications ensure smooth interaction by delivering instant and clear updates without disrupting the browsing experience.
+To enhance user experience and provide real-time feedback, toast notifications have been implemented throughout the platform. These non-intrusive pop-up messages inform users about important actions such as successful product additions to the cart or wishlist, rating submissions, login requirements, and error alerts. If there is an item in the cart, the toast notification provides a button directing users to the checkout page, ensuring a seamless purchasing process. If the cart is empty, the notification simply displays a message based on the action performed. These notifications ensure smooth interaction by delivering instant and clear updates without disrupting the browsing experience.
 
 ![Toasts Image](static/images/readme_images/ayina_c_toast.png)
 
@@ -310,3 +310,126 @@ At the bottom of the page, a clear summary of the total amount to be charged is 
 ![Checkout Image](static/images/readme_images/ayina_c_checkout3.png)
 
 ![Checkout Image](static/images/readme_images/ayina_c_order_summary.png)
+
+#### Wishlist Page
+The wishlist feature enhances the shopping experience by allowing users to save products for future purchases. Users can easily add items to their wishlist, enabling them to keep track of products they are interested in without making an immediate purchase. Additionally, they have the flexibility to remove products from the wishlist at any time. For a seamless browsing experience, users can also navigate directly to the product detail page of any item saved in their wishlist, allowing them to review product specifications and make informed purchasing decisions.
+
+![Wishlist Image](static/images/readme_images/ayina_c_wishlist.png)
+
+#### Contact Page
+The Contact Page provides both logged-in and guest users with the ability to send messages to the site owner. To submit a message, users are required to provide their name, email address, and the message content. All submitted messages are securely stored in the database, ensuring efficient communication and record-keeping for future reference. This feature allows users to reach out for inquiries, feedback, or support, enhancing overall user engagement and responsiveness.
+
+![Contact Image](static/images/readme_images/ayina_c_contact.png)
+
+#### About Page
+The About page provides users with an overview of our brand, mission, and services. It offers insight into our commitment to delivering high-quality traditional Afghan clothing while preserving cultural heritage and supporting artisans. Users can learn about our craftsmanship, exclusive designs, and dedication to customer satisfaction. This page serves as a gateway for visitors to understand our values, explore our offerings, and connect with our brand.
+
+![About Image](static/images/readme_images/ayina_c_about.png)
+
+![About Image](static/images/readme_images/ayina_c_about2.png)
+
+#### Profile Page
+- The Profile Page provides users with a personalized space to manage their account details efficiently. Users can update their billing information to ensure smooth transactions, view their username for account identification, and access their complete order history. This feature allows users to track past purchases, manage their information, and maintain a seamless shopping experience.
+
+![Profile Image](static/images/readme_images/ayina_c_profile.png)
+
+- When users click on the order number of a purchased item, they are directed to a detailed order summary page. This page displays comprehensive information about the order, including product details, pricing, payment status, and shipping information. Additionally, a message is provided to keep users informed about their order status, ensuring transparency and a seamless shopping experience.
+
+![Profile Image](static/images/readme_images/ayina_c_profile2.png)
+
+#### My Account link
+
+The My Account link dynamically adjusts based on the user's login status and role.
+
+- Logged-in Users: Gain access to their Profile and Logout options for account management.
+
+![My account Image](static/images/readme_images/ayina_c_myaccount.png)
+
+- Logged-out Users: See links to Register and Login, allowing easy access to the platform.
+
+![My account Image](static/images/readme_images/ayina_c_myaccount1.png)
+
+- Admin/Superuser: In addition to standard user options, they have exclusive access to the Product Management section, which is restricted to site administrators for managing store inventory and operations.
+
+![My account Image](static/images/readme_images/ayina_c_myaccount2.png)
+
+#### Login Page
+The Sign-In Page allows users to log in using their username and password or authenticate through Google. Both input fields are required for a successful sign-in.
+
+- Google Sign-In: Users signing in with Google for the first time will see a message prompting them to set a password before logging in with their credentials. This can be done by clicking the Reset Password button.
+- Navigation Options: Users can easily access the Sign-Up Page to create a new account if they don’t have one. Additionally, a Home Button allows users to return to the homepage effortlessly.
+
+![Login Image](static/images/readme_images/ayina_c_signin.png)
+
+![Login Image](static/images/readme_images/Ayina_c_signin1.png)
+
+
+#### Signup Page
+The Sign-Up Page allows users to create an account by providing necessary form inputs, such as their name, email, username, and password. Users can only submit the form once all inputs have been validated to ensure the information is correct and complete.
+
+- Home Button: A button is provided for users to easily return to the homepage.
+- Login Link: A link to the Login Page is available for users who already have an account and wish to sign in.
+
+![Signup Image](static/images/readme_images/ayina_c_signup.png)
+
+![Signup Image](static/images/readme_images/ayina_c_signup1.png)
+
+#### Logout Page
+
+The Logout Page provides users with a confirmation prompt to ensure that they intentionally want to log out of their account.
+
+![Logout Image](static/images/readme_images/ayina_c_logout.png)
+
+#### Reset password Page
+
+The Reset Password Page allows users to enter their email address to initiate the password recovery process. Once the email is submitted, a link is sent to the provided email address. By clicking the link in the email, users are redirected to a secure page where they can either set a new password or reset their existing password. This feature ensures a simple and secure process for users to regain access to their accounts.
+
+![Reset password Image](static/images/readme_images/ayina_c_resetpassword.png)
+
+![Reset password Image](static/images/readme_images/ayina_c_resetpassword2.png)
+
+![Reset password Image](static/images/readme_images/ayina_c_resetpassword3.png)
+
+![Reset password Image](static/images/readme_images/ayina_c_resetpassword4.png)
+
+#### Delete confirmation modal
+A Defensive Website approach has been implemented in this project to enhance user experience and prevent accidental actions. When users attempt to delete an item from their cart or wishlist, a confirmation modal appears, asking for confirmation before the item is permanently removed. This added layer of protection ensures that users can review their actions and avoid unintentional deletions, providing a more secure and thoughtful interaction with the platform.
+
+![Delete confirmation Image](static/images/readme_images/ayina_c_deletec.png)
+
+#### Search and Sort
+The Search and Sort functionality enhances the shopping experience by allowing users to easily find and filter products. Users can search for products based on their name, keywords, gender, and other relevant attributes. Additionally, the Sort feature enables users to filter products based on price, offering options to view items from low to high or high to low prices. This streamlined search and sorting process ensures users can quickly find the products they are looking for, tailored to their preferences and budget.
+
+![Search input Image](static/images/readme_images/ayina_c_search.png)
+
+![Sort select input Image](static/images/readme_images/ayina_c_sort.png)
+
+#### 404.html Page
+A 404.html page is included in the project to handle incorrect or non-existent address entries. This page notifies users that the requested page could not be found, ensuring a smooth and informative user experience when navigating to an invalid URL. The design of the 404 page helps users easily understand the error and provides them with navigation options to return to the homepage or explore other sections of the site.
+
+![404.html Image](static/images/readme_images/ayina_c_404.png)
+
+#### Product Management
+The Product Management feature allows admins or superusers to manage products directly from the website, eliminating the need to access the Django admin panel. Admin users have the ability to create, delete, and update product listings with ease.
+
+![Admin management Image](static/images/readme_images/ayina_c_admin.png)
+
+![Admin management Image](static/images/readme_images/ayina_c_admin1.png)
+
+![Admin management Image](static/images/readme_images/ayina_c_admin2.png)
+
+![Admin management Image](static/images/readme_images/ayina_c_admin3.png)
+
+![Admin management Image](static/images/readme_images/ayina_c_admin4.png)
+
+![Admin management Image](static/images/readme_images/ayina_c_admin5.png)
+
+
+#### Email confirmation
+The User Account Creation process includes email confirmation for added security and verification. When a user registers using the standard form, an email is sent to the provided address containing a link to confirm their email address. Once the user clicks on the confirmation link, their email is verified, and they are notified of successful registration with a feedback message. This ensures that only valid and verified email addresses are used to create accounts, providing both security and trust for users.
+
+![Email confirmation Image](static/images/readme_images/ayina_c_emailc.png)
+
+![Email confirmation Image](static/images/readme_images/ayina_c_emailc1.png)
+
+![Email confirmation Image](static/images/readme_images/ayina_c_email2.png)
