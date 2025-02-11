@@ -28,9 +28,17 @@ Users can browse collections, search for products, view detailed descriptions, a
 6. [Features](#features )
 7. [Features Left To Implement](#features-left-to-implement)
 8. [Design](#design)
-      * [Colour Scheme](#colour-scheme)
-      * [Typography](#typography)
-      * [Images](#images)
+    * [Colour Scheme](#colour-scheme)
+    * [Typography](#typography)
+    * [Images](#images)
+9. [Business Model](#business-model)
+10. [Marketing Strategy](#marketing-strategy)
+11. [Search Engine Optimization (SEO)](#search-engine-optimization-seo)
+12. [Technologies](#technologies)
+    * [Languages Used](#languages-used)
+    * [Frameworks Used](#frameworks-used)
+    * [Libraries And Installed Packages](#libraries-and-installed-packages)
+    * [Tools and Resources](#tools-and-resources)
 
 
 <br>
@@ -470,3 +478,105 @@ The User Account Creation process includes email confirmation for added security
 
 ### Images
 - All images used as educational material on the website have been sourced from various websites via Google. 
+
+<br>
+
+[Back to Top](#table-of-contents)
+
+## Business Model
+
+Ayina Couture operates on a Business to Consumer (B2C) model, offering customers the opportunity to purchase high-quality traditional Afghan clothing directly from the brand. Through this model, Ayina Couture ensures a seamless shopping experience by delivering exclusive, authentic garments to consumers, eliminating the need for intermediaries. Customers can explore and purchase unique products that celebrate Afghanistan's rich cultural heritage, all within a user-friendly online platform.
+
+<br>
+
+[Back to Top](#table-of-contents)
+
+## Marketing Strategy
+- Social Media Marketing: We will leverage popular social media platforms such as Instagram, Facebook, and Pinterest to showcase our unique collections, share behind-the-scenes content, and engage with our community.
+
+- Email Marketing: Regular email campaigns will keep our customers informed about new product launches, special offers, and cultural stories behind our designs. Personalized newsletters and promotions will help build customer loyalty and encourage repeat purchases.
+
+<br>
+
+[Back to Top](#table-of-contents)
+
+## Search Engine Optimization (SEO)
+- The meta tags for SEO are implemented within the base.html template, ensuring consistent and optimized search engine indexing across the entire website. These meta tags include key elements such as the website title, description, keywords, and social media metadata, which help improve visibility and search rankings.
+
+- Keywords were analyzed and added to the description of the online store on the most every page of the site.
+
+- A sitemap has been created for the website using [XML-Sitemaps](https://www.xml-sitemaps.com) to enhance search engine indexing and improve overall SEO performance. The generated XML sitemap is located in the root directory of the website, accessible for search engines to crawl and index the site's pages efficiently. This ensures that all relevant pages are discovered and ranked appropriately, helping drive organic traffic and improving visibility on search engine results pages.
+
+- The robots.txt file has been implemented to guide search engine crawlers and web robots on how to interact with the website. This file provides instructions on which pages or sections of the site should or should not be crawled, ensuring that sensitive or irrelevant content is not indexed by search engines. By utilizing the robots.txt file, we help optimize the site's SEO, control traffic, and enhance website performance while maintaining a smooth user experience. 
+
+
+<br>
+
+[Back to Top](#table-of-contents)
+
+
+## Technologies
+
+### Languages Used
+* [HTML5](https://en.wikipedia.org/wiki/HTML5)
+* [CSS3](https://en.wikipedia.org/wiki/Cascading_Style_Sheets)
+* [Javascript](https://en.wikipedia.org/wiki/JavaScript)
+* [Python](https://en.wikipedia.org/wiki/Python_(programming_language))
+
+### Frameworks Used
+
+* [Django](https://www.djangoproject.com/)
+* [Bootstrap](https://blog.getbootstrap.com/) 
+
+### Libraries And Installed Packages
+- asgiref==3.8.1: A library that provides a reference implementation of ASGI (Asynchronous Server Gateway Interface), which is used for building asynchronous web applications in Django.
+
+- cloudinary==1.36.0: A cloud-based image and video management platform, providing image and video optimization, storage, and delivery.
+
+- dj-database-url==2.3.0: A Django utility to simplify database URL parsing for database configuration, often used for cloud-based deployments like Heroku.
+
+- dj3-cloudinary-storage==0.0.6: A Django storage backend that integrates with Cloudinary, allowing you to store media files directly in Cloudinary's cloud storage.
+
+- django-allauth==65.3.1: A Django package that provides authentication, registration, account management, and social account integration for Django projects.
+
+- django-crispy-forms==2.3: A Django app that helps you style forms with Bootstrap or other CSS frameworks, improving form rendering and customization.
+
+- gunicorn==23.0.0: A Python WSGI HTTP server for UNIX that serves Python web applications, often used to run Django applications in production environments.
+
+- jmespath==1.0.1: A library for querying JSON data, enabling users to extract and manipulate data from JSON-like structures.
+
+- pillow==11.1.0: A Python Imaging Library (PIL) fork that adds image processing capabilities, including opening, manipulating, and saving many image formats.
+
+- psycopg2==2.9.9: A PostgreSQL adapter for Python, enabling Django to interact with PostgreSQL databases.
+
+- PyJWT==2.10.1: A Python library for working with JSON Web Tokens (JWT), allowing secure transmission of information between parties as a JSON object.
+
+- sqlparse==0.5.3: A non-validating SQL parser for Python that splits SQL queries into statements, making them easier to process.
+
+- stripe==11.4.1: A payment processing library for handling online payments, used for integrating Stripe's payment services in web applications.
+
+- urllib3==1.26.20: A powerful HTTP library for Python that supports connection pooling, retries, and multipart file uploads.
+
+- whitenoise==6.8.2: A library for serving static files in a Django application, particularly for deployment in production environments.
+
+- requests: A simple HTTP library for Python, used to send HTTP requests and interact with APIs, making it easier to send and handle web requests.
+
+- cryptography>=3.3.2: A package that provides cryptographic recipes and primitives for Python, including encryption, hashing, and key management.
+
+### Tools And Resources
+* [GitPod](https://www.gitpod.io/)
+* [GitHub](https://github.com/)
+* [Heroku](https://heroku.com)
+* [ElephantSQL](https://www.elephantsql.com/)
+* [Cloudinary](https://cloudinary.com/)
+* [AmIResponsive](https://ui.dev/amiresponsive)
+
+<br>
+
+[Back to Top](#table-of-contents)
+
+
+
+
+
+
