@@ -26,6 +26,11 @@ Users can browse collections, search for products, view detailed descriptions, a
     * [Database Schema](#database-schema) 
 5. [Main plan](#main-plan)
 6. [Features](#features )
+7. [Features Left To Implement](#features-left-to-implement)
+8. [Design](#design)
+      * [Colour Scheme](#colour-scheme)
+      * [Typography](#typography)
+      * [Images](#images)
 
 
 <br>
@@ -237,8 +242,6 @@ I designed all the pages using Balsamiq, ensuring a structured layout and intuit
 
 ## Features 
 
-### Existing Features
-
 #### Navigation Bar
 The navigation bar is designed for effortless accessibility and intuitive browsing, ensuring users can seamlessly explore the website. It includes:
 
@@ -424,6 +427,10 @@ The Product Management feature allows admins or superusers to manage products di
 
 ![Admin management Image](static/images/readme_images/ayina_c_admin5.png)
 
+<br>
+
+[Back to Top](#table-of-contents)
+
 
 #### Email confirmation
 The User Account Creation process includes email confirmation for added security and verification. When a user registers using the standard form, an email is sent to the provided address containing a link to confirm their email address. Once the user clicks on the confirmation link, their email is verified, and they are notified of successful registration with a feedback message. This ensures that only valid and verified email addresses are used to create accounts, providing both security and trust for users.
@@ -433,3 +440,33 @@ The User Account Creation process includes email confirmation for added security
 ![Email confirmation Image](static/images/readme_images/ayina_c_emailc1.png)
 
 ![Email confirmation Image](static/images/readme_images/ayina_c_email2.png)
+
+## Features left to implement
+- Additional Registration Providers: To provide users with more convenient sign-up options, we will integrate additional third-party providers for registration, such as Facebook, Twitter, and Apple ID. This will offer users more flexibility and streamline the registration process.
+
+- Profile Photo Upload: Users will be able to upload their own profile photos, enhancing their personalization and engagement with the platform. This feature will help users to visually represent their accounts and create a more customized experience.
+
+- Superuser User Management: We will introduce the ability for superusers to delete user accounts directly from the website, bypassing the need for access to the Django admin panel. This will provide superusers with an easy, centralized way to manage user accounts and maintain the platform’s integrity.
+
+- Wishlists with Sharing Options: Users will soon be able to create and share wishlists with friends and family. This feature will be particularly useful for gift registries, special occasions, or simply sharing favorite products with others.
+
+- Advanced Product Recommendations: Leveraging user behavior and preferences, the platform will offer personalized product recommendations based on browsing history, past purchases, and popular items. This will enhance user experience by helping users discover products that best match their interests.
+
+- Loyalty Program: A reward system will be implemented where users earn points for purchases, reviews, and other activities. These points can be redeemed for discounts or exclusive offers, encouraging user retention and engagement.
+
+<br>
+
+[Back to Top](#table-of-contents)
+
+
+## Design
+### Colour Scheme
+- The following colors were chosen for the website.
+
+![Color Sheme](static/images/readme_images/ayina_c_colors.png)
+
+### Typography
+ - For the logo and key headings, such as those on the Sign-In Page, we have selected the Rubik Vinyl font, which adds a bold, modern, and distinctive touch to our brand identity. For the rest of the site, we have chosen Lato, a clean and highly readable sans-serif font, ensuring a pleasant and user-friendly reading experience across all content. 
+
+### Images
+- All images used as educational material on the website have been sourced from various websites via Google. 
