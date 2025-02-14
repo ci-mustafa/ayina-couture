@@ -632,6 +632,18 @@ Enhanced user feedback by displaying the correct product name in the modal to pr
 [Back to Top](#table-of-contents)
 
 
+## Credits
+Below is a list of valuable resources that provided guidance, inspiration, and technical support throughout this project:
+
+- [Boutique Ado Walkthrough Project](https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+EA101+2021_T1/courseware/eb05f06e62c64ac89823cc956fcd8191/3adff2bf4a78469db72c5330b1afa836/) – A comprehensive learning resource that helped structure the development process.
+- [Stack Overflow](https://stackoverflow.com/questions) – An invaluable platform for troubleshooting and finding solutions to coding challenges.
+- [Django Allauth Documentation](https://docs.allauth.org/en/latest/) – A key resource for implementing authentication, user registration, and account management features.
+
+<br>
+
+[Back to Top](#table-of-contents)
+
+
 ## Acknowledgements
 I would like to extend my heartfelt gratitude to my mentor, Mitko Bachvarov, for his exceptional guidance and unwavering support throughout my learning journey. His expertise and encouragement have been invaluable to my development.
 
