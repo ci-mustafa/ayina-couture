@@ -43,7 +43,7 @@ Users can browse collections, search for products, view detailed descriptions, a
 13. [Testing](#testing)
 14. [Bugs](#bugs)
 15. [Credits](#credits)
-16. [Deployment and Local Developement](#deployment-and-local-development)
+16. [Deployment and Local Developement](#deployment-and-local-developement)
 17. [Acknowledgements](#acknowledgements)
 
 
