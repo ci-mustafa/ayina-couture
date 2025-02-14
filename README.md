@@ -40,6 +40,11 @@ Users can browse collections, search for products, view detailed descriptions, a
     * [Frameworks Used](#frameworks-used)
     * [Libraries And Installed Packages](#libraries-and-installed-packages)
     * [Tools and Resources](#tools-and-resources)
+13. [Testing](#testing)
+14. [Bugs](#bugs)
+15. [Credits](#credits)
+16. [Deployment](#deployment)
+17. [Acknowledgements](#acknowledgements)
 
 
 <br>
@@ -581,7 +586,60 @@ Ayina Couture has integrated Stripe as the primary payment gateway to provide a 
 [Back to Top](#table-of-contents)
 
 
+## Testing
+
+For all testing, please refer to the [TESTING.md](TESTING.md) file.
+
+<br>
+
+[Back to Top](#table-of-contents)
+
+## Bugs
+
+Below are the problems I encountered and how I solved them.
+
+### Bug: Cart Item Update Issue with Size Selection
+#### Issue Description:
+The cart update functionality was not correctly handling items with sizes. When a user updated the quantity of an item that had a size selection, the update form did not correctly associate the item with its size, leading to incorrect updates or duplicate entries in the cart. Additionally, the URL structure did not fully support updating items based on both product ID and size.
+
+##### Root Cause:
+- The update-cart-item URL did not differentiate between items with and without sizes properly.
+- The form did not retain the selected size correctly, leading to mismatches when updating.
+- The session cart used inconsistent keys (sometimes only the product ID, sometimes product ID + size), which caused items to be overwritten incorrectly.
+##### Solution:
+- Updated the update_cart_item view to check whether the product has sizes and dynamically assign a unique key (product_id + size) to ensure accurate identification.
+- Modified the cart update form (update_cart_item.html) to correctly pass the selected size in the request.
+- Refactored the cart session logic to maintain correct mappings when updating quantities and sizes, preventing duplicate or misplaced items.
+- Adjusted the URLs in cart/urls.py to support size-based updates properly.
+Implemented success and error messages to provide user feedback on cart updates.
+
+### Bug: Incorrect Item Deletion in Cart Modal
+#### Issue Description:
+The delete confirmation modal was not dynamically updating its content based on the selected product. Instead, it always displayed the first item's details, causing users to potentially delete the wrong cart item. This issue occurred because the modal content was not being populated with the correct product information when the "Remove" button was clicked.
+
+##### Root Cause:
+- The delete modal's content was static, always showing the first item in the cart rather than the item the user selected.
+- The delete button inside the modal had a hardcoded URL that did not dynamically change based on the selected product.
+- The modal did not correctly capture and display the product name, size, and delete URL when a user clicked the "Remove" button.
+##### Solution:
+- Updated the delete button inside the cart template to include data-id, data-size, data-name, and data-url attributes, ensuring each product's details were passed to the modal correctly.
+- Modified the JavaScript logic (cart_item_delete_confirmation.js) to dynamically update the modal content when it is triggered. Now, it retrieves the correct product name and delete URL from the clicked button and applies them to the modal.
+- Ensured the delete button inside the modal dynamically updates its href attribute to point to the correct delete URL based on the selected product.
+Enhanced user feedback by displaying the correct product name in the modal to prevent accidental deletions.
+
+<br>
+
+[Back to Top](#table-of-contents)
 
 
+## Acknowledgements
+I would like to extend my heartfelt gratitude to my mentor, Mitko Bachvarov, for his exceptional guidance and unwavering support throughout my learning journey. His expertise and encouragement have been invaluable to my development.
 
+I also wish to express my sincere appreciation to the entire staff of the Code Institute for their outstanding organization and facilitation of the educational process. Their commitment to providing a high-quality learning experience has been instrumental in my progress.
+
+Additionally, I would like to thank my classmates for their collaboration and camaraderie. Your enthusiasm, knowledge, and willingness to support one another, especially during challenging times, have made this learning experience both productive and enjoyable.
+
+<br>
+
+[Back to Top](#table-of-contents)
 
