@@ -43,7 +43,7 @@ Users can browse collections, search for products, view detailed descriptions, a
 13. [Testing](#testing)
 14. [Bugs](#bugs)
 15. [Credits](#credits)
-16. [Deployment](#deployment)
+16. [Deployment and Local Developement](#deployment-and-local-development)
 17. [Acknowledgements](#acknowledgements)
 
 
@@ -576,7 +576,7 @@ Ayina Couture has integrated Stripe as the primary payment gateway to provide a 
 * [GitPod](https://www.gitpod.io/)
 * [GitHub](https://github.com/)
 * [Heroku](https://heroku.com)
-* [ElephantSQL](https://www.elephantsql.com/)
+* [PostgreSQL](https://www.postgresql.org/)
 * [Cloudinary](https://cloudinary.com/)
 * [AmIResponsive](https://ui.dev/amiresponsive)
 * [Drawsql](https://drawsql.app/)
@@ -643,6 +643,159 @@ Below is a list of valuable resources that provided guidance, inspiration, and t
 
 [Back to Top](#table-of-contents)
 
+
+## Deployment and Local Developement
+
+Live deployment can be found on this  [Ayina Couture live website here](https://ayina-couture-32f4a278cf2b.herokuapp.com/)
+
+### PostgreSQL Database
+[Ayina Couture](https://github.com/ci-mustafa/ayina-couture) is using [PostgreSQL](https://www.postgresql.org/) Database.
+
+For the backend of this project, Ayina Couture utilizes a PostgreSQL database provided by Code Institute. This database serves as the primary storage for application data, ensuring reliable and efficient data management. To connect Ayina Couture to this PostgreSQL database and enable data storage functionality, simply use the provided database URL in your environment settings.
+
+### Cloudinary
+[Ayina Couture](https://github.com/ci-mustafa/ayina-couture) is using [Cloudinary](https://cloudinary.com/)
+1. For Primary interest, you can choose Programmable Media for image and video API.
+2. Optional: edit your assigned cloud name to something more memorable.
+3. On your Cloudinary Dashboard, you can copy your API Environment Variable.
+4. Be sure to remove the CLOUDINARY_URL= as part of the API value; this is the key.
+
+### Stripe API
+
+This project uses [Stripe](https://stripe.com) to handle the ecommerce payments.
+
+Once you've created a Stripe account and logged-in, follow these series of steps to get your project connected.
+
+- From your Stripe dashboard, click to expand the "Get your test API keys".
+- You'll have two keys here:
+	- `STRIPE_PUBLIC_KEY` = Publishable Key (starts with **pk**)
+	- `STRIPE_SECRET_KEY` = Secret Key (starts with **sk**)
+
+As a backup, in case users prematurely close the purchase-order page during payment, we can include Stripe Webhooks.
+
+- From your Stripe dashboard, click **Developers**, and select **Webhooks**.
+- From there, click **Add Endpoint**.
+	- `https://ayina-couture-32f4a278cf2b.herokuapp.com/quickcheckout/wh`
+- Click **receive all events**.
+- Click **Add Endpoint** to complete the process.
+- You'll have a new key here:
+	- `STRIPE_WH_SECRET` = Signing Secret (Wehbook) Key (starts with **wh**)
+
+### Gmail API
+
+This project uses [Gmail](https://mail.google.com) to handle sending emails to users for account verification and purchase order confirmations.
+
+Once you've created a Gmail (Google) account and logged-in, follow these series of steps to get your project connected.
+
+- Click on the **Account Settings** (cog icon) in the top-right corner of Gmail.
+- Click on the **Accounts and Import** tab.
+- Within the section called "Change account settings", click on the link for **Other Google Account settings**.
+- From this new page, select **Security** on the left.
+- Select **2-Step Verification** to turn it on. (verify your password and account)
+- Once verified, select **Turn On** for 2FA.
+- Navigate back to the **Security** page, and you'll see a new option called **App passwords**.
+- This might prompt you once again to confirm your password and account.
+- Select **Mail** for the app type.
+- Select **Other (Custom name)** for the device type.
+	- Any custom name, such as "Django"
+- You'll be provided with a 16-character password (API key).
+	- Save this somewhere locally, as you cannot access this key again later!
+	- `EMAIL_HOST_PASS` = user's 16-character API key
+	- `EMAIL_HOST_USER` = user's own personal Gmail email address
+
+### Heroku Deployment
+
+This project uses [Heroku](https://www.heroku.com), a platform as a service (PaaS) that enables developers to build, run, and operate applications entirely in the cloud.
+
+Deployment steps are as follows, after account setup:
+
+- Select **New** in the top-right corner of your Heroku Dashboard, and select **Create new app** from the dropdown menu.
+- Your app name must be unique, and then choose a region closest to you (EU or USA), and finally, select **Create App**.
+- From the new app **Settings**, click **Reveal Config Vars**, and set your environment variables.
+
+| Key | Value |
+| --- | --- |
+| `DATABASE_URL` | user's own value |
+| `DISABLE_COLLECTSTATIC` | 1 (*this is temporary, and can be removed for the final deployment*) |
+| `EMAIL_HOST_PASS` | user's own value |
+| `EMAIL_HOST_USER` | user's own value |
+| `SECRET_KEY` | user's own value |
+| `STRIPE_PUBLIC_KEY` | user's own value |
+| `STRIPE_SECRET_KEY` | user's own value |
+| `STRIPE_WH_SECRET` | user's own value |
+| `CLOUDINARY_URL` | user's own value |
+
+Heroku needs two additional files in order to deploy properly.
+- requirements.txt
+- Procfile
+
+You can install this project's **requirements** (where applicable) using:
+- `pip3 install -r requirements.txt`
+
+If you have your own packages that have been installed, then the requirements file needs updated using:
+- `pip3 freeze --local > requirements.txt`
+
+The **Procfile** can be created with the following command:
+- `echo web: gunicorn app_name.wsgi > Procfile`
+- *replace **app_name** with the name of your primary Django app name; the folder where settings.py is located*
+
+For Heroku deployment, follow these steps to connect your own GitHub repository to the newly created app:
+
+Either:
+- Select **Automatic Deployment** from the Heroku app.
+
+Or:
+- In the Terminal/CLI, connect to Heroku using this command: `heroku login -i`
+- Set the remote for Heroku: `heroku git:remote -a app_name` (replace *app_name* with your app name)
+- After performing the standard Git `add`, `commit`, and `push` to GitHub, you can now type:
+	- `git push heroku main`
+
+The project should now be connected and deployed to Heroku!
+
+### Environment Variables
+Environment variables can be stored in an env.py file for local development, ensuring sensitive data such as secret keys, API credentials, and database URLs remain secure. Alternatively, they can be configured directly within the hosting platform's environment settings (e.g., in Heroku Config Vars or GitHub Actions secrets) to maintain security and streamline deployment. Proper management of environment variables is essential for protecting sensitive information and ensuring a smooth deployment process.
+
+
+### Local Development
+This project can be cloned or forked in order to make a local copy on your own system.
+
+For either method, you will need to install any applicable packages found within the *requirements.txt* file.
+- `pip3 install -r requirements.txt`.
+
+You will need to create a new file called `env.py` at the root-level,
+and include the same environment variables listed above from the Heroku deployment steps.
+
+Sample `env.py` file:
+
+```python
+import os
+
+os.environ.setdefault("DATABASE_URL", "user's own value")
+os.environ.setdefault("CLOUDINARY_URL", "user's own value")
+os.environ.setdefault("EMAIL_HOST_PASS", "user's own value")
+os.environ.setdefault("EMAIL_HOST_USER", "user's own value")
+os.environ.setdefault("SECRET_KEY", "user's own value")
+os.environ.setdefault("STRIPE_PUBLIC_KEY", "user's own value")
+os.environ.setdefault("STRIPE_SECRET_KEY", "user's own value")
+os.environ.setdefault("STRIPE_WH_SECRET", "user's own value")
+```
+#### How to Fork
+1. Log in(or Sign Up) to Github
+2. Go to repository for this project [Ayina Couture](https://github.com/ci-mustafa/ayina-couture)
+3. Click the fork button in the top right corner
+
+#### How to Clone
+1. Log in(or Sign Up) to Github
+2. Go to repository for this project [Ayina Couture](https://github.com/ci-mustafa/ayina-couture)
+3. Click on the code button, select whether you would like to clone with HTTPS, SSH or GitHub CLI and copy the link shown.
+4. Open the terminal in your code editor and change the current working directory to the location you want to use for the cloned directory.
+5. Type the following command in the terminal (after the git clone you will need to paste the link you copied in step 3 above)
+6. Set up a virtual environment (this step is not required if you are using the Code Institute Template in GitPod as this will already be set up for you).
+7. Install the packages from the requirements.txt file - run Command pip3 install -r requirements.txt
+
+<br>
+
+[Back to Top](#table-of-contents)
 
 ## Acknowledgements
 I would like to extend my heartfelt gratitude to my mentor, Mitko Bachvarov, for his exceptional guidance and unwavering support throughout my learning journey. His expertise and encouragement have been invaluable to my development.
