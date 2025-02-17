@@ -1313,34 +1313,34 @@ button[type="submit"]:hover {
 }
 
 /* Colors list styles */
-    /* Ensure the color list is displayed horizontally */
-    .color-list {
-        list-style-type: none;   
-        margin-bottom: 10px;              
-        display: flex;         
-        flex-wrap: wrap;         
-    }
+/* Ensure the color list is displayed horizontally */
+.color-list {
+    list-style-type: none;   
+    margin-bottom: 10px;              
+    display: flex;         
+    flex-wrap: wrap;         
+}
 
-    .color-list li {
-        margin-right: 3px;     
-        display: flex;          
-        align-items: center;  
-    }
+.color-list li {
+    margin-right: 3px;     
+    display: flex;          
+    align-items: center;  
+}
 
-    /* Color Code Display Style */
-    .color-code {
-        width: 30px;            
-        height: 30px;           
-        display: inline-block;
-        border-radius: 50%;     
-        margin-right: 10px;     
-        border: 2px solid #000;
-    }
+/* Color Code Display Style */
+.color-code {
+    width: 30px;            
+    height: 30px;           
+    display: inline-block;
+    border-radius: 50%;     
+    margin-right: 10px;     
+    border: 2px solid #000;
+}
 
-    /* Dynamically set background color based on the color code */
-    .color-code[data-color] {
-        background-color: attr(data-color color);
-    }
+/* Dynamically set background color based on the color code */
+.color-code[data-color] {
+    background-color: attr(data-color color);
+}
 
 /* Apply margin-top for about inner div class on smaller screens */
 @media (max-width: 767px) {

@@ -134,5 +134,58 @@ All code was validated using industry-standard tools specific to each programmin
 ![Signup Page](static/images/testing_images/signup-val.png)
 </details>
 
+#### CSS Validation
+
+<details>
+<summary> Custom CSS (core.css)
+</summary>
+
+![Css](static/images/testing_images/css-ayina-c-validation.png)
+</details>
+
+#### JS Validation
+
+<details>
+<summary> Cart item delete confirmation
+</summary>
+
+![Cart Item Delete Confirmation](static/images/testing_images/cart_item_delete_confirmation.png)
+</details>
+
+<details>
+<summary> Wishlist item delete confirmation
+</summary>
+
+![Wishlist Item Delete Confirmation](static/images/testing_images/wishlit_item_delete_conf.png)
+</details>
+
+<details>
+<summary> Home popup
+</summary>
+
+![Home popup](static/images/testing_images/popup.png)
+</details>
+
+<details>
+<summary> Quantity value validation
+</summary>
+
+![Quantity value validation](static/images/testing_images/quantity_value_validation.png)
+</details>
+
+<details>
+<summary> Show toast
+</summary>
+
+![Show toast](static/images/testing_images/toast.png)
+</details>
+
+<details>
+<summary> Stripe element
+</summary>
+
+![Stripe element](static/images/testing_images/stripe_element.png)
+</details>
+
 
 
