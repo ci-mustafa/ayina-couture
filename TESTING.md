@@ -454,6 +454,8 @@ Here are the results of the manual testing:
 | | Click on 'sign in' link or button | Redirect to sign in page | Pass | |
 | | Click on 'sign up' button (after filling the form and performing form validation) |Send email confirmation and redirect to confirm email page | Pass | |
 
+[Back to Top](#table-of-contents)
+
 
 
 
