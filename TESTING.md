@@ -17,6 +17,13 @@ Throughout the development of this project, rigorous testing was conducted to en
 ### [Features Testing](#features-testing-1)
 ---
 
+### Browser Compatibility Testing
+
+The project was tested on Chrome and Microsoft Edge web browsers to check for compatibility issues and ensure it functions as expected across all of them. This testing process guarantees a smooth and consistent user experience, regardless of the browser used.
+
+### Device Testing
+Device testing was conducted on a variety of phone models, including Samsung Galaxy A13, iPhone 14 pro max, iPhone 15 pro and iphone 16. The assistance of family members and friends was sought to perform the testing. This comprehensive approach ensured that the website was thoroughly evaluated on different devices and platforms, contributing to a more robust and user-friendly final product.
+
 ### Code Validation 
 All code was validated using industry-standard tools specific to each programming language to ensure compliance with best practices, readability, and efficiency. This process helped identify and resolve syntax errors, security vulnerabilities, and performance issues.
 
