@@ -351,6 +351,37 @@ I have used the recommended [CI Python Linter](https://pep8ci.herokuapp.com) to 
 </details>
 
 
+### Lighthouse Report
+I've tested my deployed project using the Lighthouse Audit tool to check for any major issues.
+
+| Page | Size | Screenshot | Notes |
+| --- | --- | --- | --- |
+| Home | Desktop | ![screenshot](static/images/lighthous_report/desktop-home.png) |  Performance slightly affected by minor issues, but no major concerns |
+| Home | Mobile | ![screenshot](static/images/lighthous_report/mobile-home.png) |  Performance slightly affected by minor issues, but no major concerns |
+| Products | Desktop | ![screenshot](static/images/lighthous_report/desktop-products.png)|  Performance slightly affected by minor issues, but no major concerns |
+| Products | Mobile | ![screenshot](static/images/lighthous_report/mobile-products.png) |  Performance slightly affected by minor issues, but no major concerns |
+| Product detail | Desktop | ![screenshot](static/images/lighthous_report/desktop-product-detail.png) |  Performance slightly affected by minor issues, but no major concerns |
+| Product detail | Mobile | ![screenshot](static/images/lighthous_report/mobile-product-detail.png) |  Performance slightly affected by minor issues, but no major concerns |
+| Contact | Desktop | ![screenshot](static/images/lighthous_report/desktop-contact.png) |  Performance slightly affected by minor issues, but no major concerns |
+| Contact | Mobile | ![screenshot](static/images/lighthous_report/mobile-contact.png) |  Performance slightly affected by minor issues, but no major concerns |
+| Wishlist | Desktop | ![screenshot](static/images/lighthous_report/desktop-wishlist.png) |  Performance slightly affected by minor issues, but no major concerns |
+| Wishlist  | Mobile | ![screenshot](static/images/lighthous_report/mobile-wishlist.png) |  Performance slightly affected by minor issues, but no major concerns |
+| Sign Up | Desktop | ![screenshot](static/images/lighthous_report/desktop-signup.png) |  Performance slightly affected by minor issues, but no major concerns |
+| Sign Up | Mobile | ![screenshot](static/images/lighthous_report/mobile-signup.png) |  Performance slightly affected by minor issues, but no major concerns |
+| Sign In | Desktop | ![screenshot](static/images/lighthous_report/desktop-login.png) |  Performance slightly affected by minor issues, but no major concerns |
+| Sign In | Mobile | ![screenshot](static/images/lighthous_report/mobile-login.png) |  Performance slightly affected by minor issues, but no major concerns |
+| Log Out | Desktop | ![screenshot](static/images/lighthous_report/desktop-logout.png) |  Performance slightly affected by minor issues, but no major concerns |
+| Log Out | Mobile | ![screenshot](static/images/lighthous_report/mobile-logout.png) |  Performance slightly affected by minor issues, but no major concerns |
+| Cart | Desktop | ![screenshot](static/images/lighthous_report/desktop-cart.png) |  Performance slightly affected by minor issues, but no major concerns |
+| Cart | Mobile | ![screenshot](static/images/lighthous_report/mobile-cart.png) |  Performance slightly affected by minor issues, but no major concerns |
+| Checkout | Desktop | ![screenshot](static/images/lighthous_report/desktop-checkout.png) |  Performance slightly affected by minor issues, but no major concerns |
+| Checkout | Mobile | ![screenshot](static/images/lighthous_report/mobile-checkout.png) |  Performance slightly affected by minor issues, but no major concerns |
+| Checkout Success | Desktop | ![screenshot](static/images/lighthous_report/desktop-checkoutsuccess.png) |  Performance slightly affected by minor issues, but no major concerns |
+| Checkout Success | Mobile | ![screenshot](static/images/lighthous_report/mobile-checkoutsuccess.png) |  Performance slightly affected by minor issues, but no major concerns |
+| Profile | Desktop | ![screenshot](static/images/lighthous_report/desktop-profile.png) |  Performance slightly affected by minor issues, but no major concerns |
+| Profile | Mobile | ![screenshot](static/images/lighthous_report/mobile-profile.png) |  Performance slightly affected by minor issues, but no major concerns |
+| About | Desktop | ![screenshot](static/images/lighthous_report/desktop-about.png) |  Performance slightly affected by minor issues, but no major concerns |
+| About | Mobile | ![screenshot](static/images/lighthous_report/mobile-about.png) |  Performance slightly affected by minor issues, but no major concerns |
 
 
 
