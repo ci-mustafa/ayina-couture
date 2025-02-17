@@ -383,6 +383,82 @@ I've tested my deployed project using the Lighthouse Audit tool to check for any
 | About | Desktop | ![screenshot](static/images/lighthous_report/desktop-about.png) |  Performance slightly affected by minor issues, but no major concerns |
 | About | Mobile | ![screenshot](static/images/lighthous_report/mobile-about.png) |  Performance slightly affected by minor issues, but no major concerns |
 
+### Features Testing
+Here are the results of the manual testing:
+
+| Page | User Action | Expected Result | Pass/Fail | Comments |
+| --- | --- | --- | --- | --- |
+| **Home Page** | | | | |
+| | Click on 'Browse our styles' button | Redirection to Products page | Pass | |
+| **Navigation bar** | | | | |
+| | Click on Logo | Redirection to Home page | Pass | |
+| | Click on 'All products' link | Redirection to Products page | Pass | |
+| | Click on 'Women' link | Redirection to Women category page | Pass | |
+| | Click on 'Men' link | Redirection to Men category page | Pass | |
+| | Click on 'Accessories' link | Redirection to Accessories category page | Pass | |
+| | Click on 'Contact Us' link | Redirection to Contact page | Pass | |
+| | Click on 'About Us' link | Redirection to About page | Pass | |
+| | Click on 'My Account' dropdown | show 'My profile' and 'logout' link (If user is authenticated) | Pass | |
+| | Click on 'My Account' dropdown | show 'Register' and 'Login' link (If user is not authenticated) | Pass | |
+| | Click on 'My Wishlist' link | Redirect to Wishlist page (If user is authenticated) | Pass | |
+| | Click on 'My Wishlist' link | Redirect to Login page (If user is not authenticated) | Pass | |
+| | Click on 'Bascket' link | Redirect to Cart page | Pass | |
+| | Click on 'Search' input and type name or some product description | Show requested product | Pass | |
+| **Footer** | | | | |
+| | Click on 'Home' link | Redirect to home page | Pass | |
+| | Click on 'Shop' link | Redirect to products page | Pass | |
+| | Click on 'Contact' link | Redirect to contact page | Pass | |
+| | Click on 'Social media' links | Redirect to requested social media home page (if available)  | Pass | |
+| **Products** | | | | |
+| | Click on product items link | Redirect to product details page | Pass | |
+| **Product detail** | | | | |
+| | Fill out 'Rating inputs' and click on 'Submit rating' button  | Validate inputs, save submited rating and Redirect to product details page | Pass | |
+| | Click on 'Sort' button | Show dropdown to sort by price | Pass | |
+| | Select quantity, select color (if available), select size (if available) click on 'Add to cart' button  | Redirect to product detail page (show toast notification with a button to checkout) | Pass | |
+| | Click on 'Add to wishlist' button |Add item to wishlist and redirect to Wishlist page | Pass | |
+| **Wishlist** | | | | |
+| | Click on 'View p' button | Redirect to product details page | Pass | |
+| | Click on 'Trash' button | Show delete modal confirmation | Pass | |
+| | Click on 'cancel' button in delete modal C| Redirect to wishlist page | Pass | |
+| | Click on 'delete' button in delete modal C| Delete selected item and redirect to wishlist page | Pass | |
+| **Cart** | | | | |
+| | Click on 'Remove' button | Show delete modal confirmation | Pass | |
+| | Click on 'cancel' button in delete modal C| Redirect to cart page | Pass | |
+| | Click on 'delete' button in delete modal C| Delete selected item and redirect to cart page | Pass | |
+| | Click on 'Update' button | Redirect to cart update page | Pass | |
+| | Click on 'Update cart item' button in cart update page | Update cart item and redirect to cart page | Pass | |
+| | Click on 'Back to cart' button in cart update page | Redirect to cart page | Pass | |
+| | Click on 'Delete all items' button |  Show delete modal confirmation ( cancel or delete ), redirect to cart page | Pass | |
+| | Click on 'Keep shopping' button | Redirect to products page | Pass | |
+| | Click on 'Secure checkout' button | Redirect to checkout page | Pass | |
+| **Checkout** | | | | |
+| | Click on 'Complate order' button (after filling the form and performing form validation)  | Redirect to checkout success page | Pass | |
+| | Click on 'Adjust cart item' button | Redirect to cart page | Pass | |
+| **Checkout Success** | | | | |
+| | Click on 'Browse our styles' button | Redirect to products page | Pass | |
+| **Profile** | | | | |
+| | Click on 'Update information' button | Update user information and redirect to profile page | Pass | |
+| | Click on 'order number' link | Redirect to order history | Pass | |
+| **Contact us** | | | | |
+| | Click on 'Send message' button (after filling the form and performing form validation) | Send message and redirect to contact page | Pass | |
+| **About us** | | | | |
+| | Click on 'Shop now' button | Redirect to Products page | Pass | |
+| **Sign in** | | | | |
+| | Click on 'home' button | Redirect to home page | Pass | |
+| | Click on 'google' button | Redirect to login using google provider | Pass | |
+| | Click on 'sign up' link or button | Redirect to sign up page | Pass | |
+| | Click on 'sign in' button (after filling the form and performing form validation and authentication) | Redirect to home page | Pass | |
+| | Click on 'reset password' button | Redirect to reset password page | Pass | |
+| **Sign up** | | | | |
+| | Click on 'home' button | Redirect to home page | Pass | |
+| | Click on 'sign in' link or button | Redirect to sign in page | Pass | |
+| | Click on 'sign up' button (after filling the form and performing form validation) |Send email confirmation and redirect to confirm email page | Pass | |
+
+
+
+
+
+
 
 
 
