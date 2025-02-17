@@ -17,6 +17,30 @@ Throughout the development of this project, rigorous testing was conducted to en
 ### [Features Testing](#features-testing-1)
 ---
 
+### Responsiveness Testing
+To ensure responsiveness and adaptability, the deployed website was thoroughly tested across a range of devices and screen sizes. Developer Tools were used to simulate various screen dimensions, allowing for an in-depth review of the website’s performance on different devices. Bootstrap classes and media queries were applied strategically to preserve both the design and functionality, guaranteeing a consistent and user-friendly experience on all platforms. This approach ensures that the website remains visually appealing and fully operational, regardless of the device used.
+
+<details>
+<summary> PC
+</summary>
+
+![PC](static/images/testing_images/desktop.png)
+</details>
+
+<details>
+<summary> Ipad
+</summary>
+
+![Ipad](static/images/testing_images/ipad.png)
+</details>
+
+<details>
+<summary> Mobile
+</summary>
+
+![Mobile](static/images/testing_images/mobile.png)
+</details>
+
 ### Browser Compatibility Testing
 
 The project was tested on Chrome and Microsoft Edge web browsers to check for compatibility issues and ensure it functions as expected across all of them. This testing process guarantees a smooth and consistent user experience, regardless of the browser used.
