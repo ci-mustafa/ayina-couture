@@ -12,7 +12,7 @@ Throughout the development of this project, rigorous testing was conducted to en
 * [HTML Validation](#html-validation)
 * [CSS Validation](#css-validation)
 * [JavaScript Validation](#javascript-validation)
-* [Python](#python)
+* [Python Validation](#python-validation)
 ### [Lighthouse Report](#lighthouse-report-1)
 ### [Features Testing](#features-testing-1)
 ---
@@ -21,6 +21,7 @@ Throughout the development of this project, rigorous testing was conducted to en
 All code was validated using industry-standard tools specific to each programming language to ensure compliance with best practices, readability, and efficiency. This process helped identify and resolve syntax errors, security vulnerabilities, and performance issues.
 
 #### HTML Validation
+I have used the recommended [HTML W3C Validator](https://validator.w3.org) to validate all of my HTML files.
 
 <details>
 <summary> Home Page
@@ -135,6 +136,7 @@ All code was validated using industry-standard tools specific to each programmin
 </details>
 
 #### CSS Validation
+I have used the recommended [CSS Jigsaw Validator](https://jigsaw.w3.org/css-validator) to validate all of my CSS files.
 
 <details>
 <summary> Custom CSS (core.css)
@@ -143,7 +145,8 @@ All code was validated using industry-standard tools specific to each programmin
 ![Css](static/images/testing_images/css-ayina-c-validation.png)
 </details>
 
-#### JS Validation
+#### JavaScript Validation
+I have used the recommended [JShint Validator](https://jshint.com) to validate all of my JS files.
 
 <details>
 <summary> Cart item delete confirmation
@@ -186,6 +189,138 @@ All code was validated using industry-standard tools specific to each programmin
 
 ![Stripe element](static/images/testing_images/stripe_element.png)
 </details>
+
+#### Python Validation
+I have used the recommended [CI Python Linter](https://pep8ci.herokuapp.com) to validate all of my Python files.
+
+<details>
+<summary> Home view
+</summary>
+
+![Home view](static/images/testing_images/home-view.png)
+</details>
+
+<details>
+<summary> Product view
+</summary>
+
+![Product view](static/images/testing_images/product-view.png)
+</details>
+
+<details>
+<summary> Product model
+</summary>
+
+![Product model](static/images/testing_images/product-model.png)
+</details>
+
+<details>
+<summary> Product url
+</summary>
+
+![Product url](static/images/testing_images/product-urls.png)
+</details>
+
+<details>
+<summary> Cart view
+</summary>
+
+![Cart view](static/images/testing_images/cart-view.png)
+</details>
+
+<details>
+<summary> Cart url
+</summary>
+
+![Cart url](static/images/testing_images/cart-urls.png)
+</details>
+
+<details>
+<summary> Cart context
+</summary>
+
+![Cart context](static/images/testing_images/cart-context.png)
+</details>
+
+<details>
+<summary> Checkout view
+</summary>
+
+![Checkout view](static/images/testing_images/checkout-view.png)
+</details>
+
+<details>
+<summary> Checkout model
+</summary>
+
+![Checkout model](static/images/testing_images/checkout%20model.png)
+</details>
+
+<details>
+<summary> Checkout form
+</summary>
+
+![Checkout form](static/images/testing_images/checout-form.png)
+</details>
+
+<details>
+<summary> About view
+</summary>
+
+![About view](static/images/testing_images/about-view.png)
+</details>
+
+<details>
+<summary> Contact view
+</summary>
+
+![Contact view](static/images/testing_images/contact-view.png)
+</details>
+
+<details>
+<summary> Contact model
+</summary>
+
+![Contact model](static/images/testing_images/contact-model.png)
+</details>
+
+<details>
+<summary> Contact form
+</summary>
+
+![Contact form](static/images/testing_images/contact-form.png)
+</details>
+
+<details>
+<summary> Profile view
+</summary>
+
+![Profile view](static/images/testing_images/profile-view.png)
+</details>
+
+<details>
+<summary> Profile model
+</summary>
+
+![Profile model](static/images/testing_images/profile-model.png)
+</details>
+
+<details>
+<summary> Wishlist view
+</summary>
+
+![Wishlist view](static/images/testing_images/wishlist-view.png)
+</details>
+
+<details>
+<summary> Wishlist model
+</summary>
+
+![Wishlist model](static/images/testing_images/wishlist-model.png)
+</details>
+
+
+
 
 
 
