@@ -5,6 +5,7 @@ from .models import UserProfile
 from .forms import UserProfileForm
 from quickcheckout.models import Order
 
+
 @login_required
 def profile(request):
     profile = get_object_or_404(UserProfile, user=request.user)
@@ -14,7 +15,8 @@ def profile(request):
             form.save()
             messages.success(request, 'Profile updated successfully')
         else:
-            messages.error(request, 'Failed to update profile. Please check the form for errors.')
+            messages.error(request, 'Failed to update profile.\
+                Please check the form for errors.')
     form = UserProfileForm(instance=profile)
     orders = profile.user.orders.all()
     template = 'profiles/profile.html'

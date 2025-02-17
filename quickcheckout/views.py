@@ -16,7 +16,7 @@ def quickcheckout(request):
 
     if not cart:
         messages.error(request, 'There is nothing in your cart at the moment!')
-        return redirect('products')  # Redirect to product page or other relevant page
+        return redirect('products')
 
     current_cart = cart_context(request)
     total = current_cart['final_total']
@@ -93,13 +93,18 @@ def quickcheckout(request):
             # Clear the cart, set success message, and redirect
             request.session['cart'] = {}
             request.session.modified = True
-            return redirect(reverse('checkout-success', args=[order.order_number]))
+            return redirect(reverse('checkout-success',
+                                    args=[order.order_number]))
         else:
             # Capture form errors
-            form_errors = " ".join([f"{field}: {' '.join(errors)}" for field, errors in order_form.errors.items()])
+            form_errors = " ".join([
+                f"{field}: {' '.join(errors)}"
+                for field, errors in order_form.errors.items()
+            ])
             
             # Display form errors in the message
-            messages.error(request, f"There was an error with your form. Please double-check your information. — Errors: {form_errors}")
+            messages.error(request, f"There was an error with your form.\
+                Please double-check your information. — Errors: {form_errors}")
 
 
 
@@ -113,12 +118,11 @@ def quickcheckout(request):
     return render(request, 'quickcheckout/quickcheckout.html', context)
 
 
-
-
 def checkout_success(request, order_number):
     save_info = request.session.get('save_info')
     order = get_object_or_404(Order, order_number=order_number)
-    messages.success(request, f'Your payment was successful! Your order has been placed. \
+    messages.success(request, f'Your payment was successful!\
+        Your order has been placed. \
         Your order number is {order_number}. A confirmation \
         email will be sent to {order.email}.')
 

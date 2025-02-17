@@ -11,23 +11,25 @@ from .forms import ProductForm
 # Products view
 def all_products(request):
     """
-    Retrieve and display all products with optional filtering, searching, sorting, and pagination.
-
+    Retrieve and display all products with optional filtering,
+    searching, sorting, and pagination.
     This view supports:
     - Filtering by collection
     - Searching by product name or description
     - Sorting by price (ascending or descending)
     - Paginating results (10 products per page)
-
     Args:
-        request (HttpRequest): The HTTP request containing optional GET parameters:
-            - `collection`: Filters products by collection title (case-insensitive)
+        request (HttpRequest): The HTTP request containing optional
+        GET parameters:
+            - `collection`: Filters products by collection title
+            (case-insensitive)
             - `query`: Searches products by name or description
-            - `sort_by`: Sorts products by price (`price_asc` or `price_desc`)
+            - `sort_by`: Sorts products by price
+            (`price_asc` or `price_desc`)
             - `page`: Specifies the pagination page number
-
     Returns:
-        HttpResponse: Renders `products.html` with the filtered and paginated product list.
+        HttpResponse: Renders `products.html` with the filtered
+        and paginated product list.
     """
     products = models.Product.objects.all()
     query = None
@@ -38,29 +40,27 @@ def all_products(request):
         if 'collection' in request.GET:
             collection = request.GET.get('collection')
             if collection:
-                products = products.filter(collection__title__iexact=collection)
-
+                products = products.filter(
+                    collection__title__iexact=collection)
         # Handle Search Query
         if 'query' in request.GET:
             query = request.GET['query']
             if not query:
                 messages.error(request, 'You did not enter any search data!')
                 return redirect(reverse('products'))
-            queries = Q(name__icontains=query) | Q(description__icontains=query)
+            queries = Q(name__icontains=query) | Q(
+                description__icontains=query)
             products = products.filter(queries)
-
         # Handle Sorting
         if sort_by == 'price_asc':
             products = products.order_by('price')  # Sort by price ascending
         elif sort_by == 'price_desc':
             products = products.order_by('-price')  # Sort by price descending
-
     paginator = Paginator(products, 5)  # Show products per page
-    page_number = request.GET.get('page')  # Get the current page number from the query params
-    page_obj = paginator.get_page(page_number)  # Get the products for the current page
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
     ratings_range = range(1, 6)  # range from 1 to 5 for the stars
     top_rate_value = 5.0
-
     context = {
         'products': products,
         'rating_range': ratings_range,
@@ -110,7 +110,8 @@ def product_add(request):
 
     Only superusers are allowed to add new products. If the request method is 
     POST and the form is valid, the product is saved and the user is redirected 
-    to the product list with a success message. Otherwise, the form is displayed.
+    to the product list with a success message.
+    Otherwise, the form is displayed.
 
     Returns:
         - Renders `product_add.html` with the form for GET requests.
@@ -123,7 +124,6 @@ def product_add(request):
 
     if request.method == 'POST':
         form = ProductForm(request.POST, request.FILES)
-        
         # Check if the form is valid
         if form.is_valid():
             form.save()  # Save the new product
@@ -132,7 +132,9 @@ def product_add(request):
         else:
             # Log any errors
             logger.error(f"Form errors: {form.errors}")
-            messages.error(request, "There was an error with the form. Please check the fields.")
+            messages.error(request,
+                           "There was an error with the form.\
+                           Please check the fields.")
     else:
         form = ProductForm()
 
@@ -147,21 +149,17 @@ def delete_product(request, pk):
 
     """
     Render a confirmation page before deleting a product.
-
-    This view allows a superuser to delete a product. If the request is 
-    a POST, the product is deleted and the user is redirected to the 
-    product list with a success message. Otherwise, a confirmation page 
+    This view allows a superuser to delete a product. If the request is
+    a POST, the product is deleted and the user is redirected to the
+    product list with a success message. Otherwise, a confirmation page
     is displayed.
-
     Only superusers can access this view.
     """
 
     if not request.user.is_superuser:
         messages.error(request, 'You are not authorized to delete products.')
         return redirect(reverse('home'))
-    
     product = get_object_or_404(models.Product, pk=pk)
-
     if request.method == 'POST':  # If user confirms deletion
         product.delete()
         messages.success(request, 'Product deleted successfully!')
@@ -170,7 +168,8 @@ def delete_product(request, pk):
     context = {
         'product': product
     }
-    return render(request, 'products/product_delete_confirmation.html', context)
+    return render(request, 'products/product_delete_confirmation.html',
+                  context)
 
 
 # Update product view
@@ -180,17 +179,15 @@ def product_update(request, pk):
     """
     Update an existing product.
 
-    This view allows a superuser to edit product details. If the request is 
-    a POST, the form is validated and saved. Otherwise, the form is displayed 
+    This view allows a superuser to edit product details. If the request is
+    a POST, the form is validated and saved. Otherwise, the form is displayed
     with the current product data.
-
     Only superusers can access this view.
     """
 
     if not request.user.is_superuser:
         messages.error(request, 'You are not authorized to update products.')
         return redirect(reverse('home'))
-
     product = get_object_or_404(models.Product, pk=pk)
 
     # Handle form submission
@@ -221,12 +218,14 @@ def submit_product_rating(request, pk):
         pk (int): The primary key of the product to rate.
 
     Returns:
-        HttpResponse: Redirects back to the product detail page after submitting the rating.
+        HttpResponse: Redirects back to the product detail
+        page after submitting the rating.
     """
     product = get_object_or_404(models.Product, pk=pk)
 
     # Check if the user has already rated the product
-    existing_rating = models.ProductRating.objects.filter(product=product, user=request.user).first()
+    existing_rating = models.ProductRating.objects.filter(product=product,
+                                                user=request.user).first()
 
     # If a rating already exists, update it
     if existing_rating:
@@ -234,7 +233,7 @@ def submit_product_rating(request, pk):
         existing_rating.comment = request.POST.get('comment')
         existing_rating.save()
         messages.success(request, "Your rating has been updated successfully.")
-        
+    
     else:
         # Otherwise, create a new rating
         models.ProductRating.objects.create(

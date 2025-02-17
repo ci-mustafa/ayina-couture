@@ -20,7 +20,8 @@ class ColorAdmin(admin.ModelAdmin):
 @admin.register(models.Product)
 class ProductAdmin(admin.ModelAdmin):
     list_display = [
-        'sku','name', 'image','description', 'display_colors', 'material', 'price',
+        'sku','name', 'image','description', 'display_colors',
+        'material', 'price',
         'has_sizes', 'stock_quantity',
         'collection__title'
     ]

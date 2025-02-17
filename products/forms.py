@@ -1,14 +1,15 @@
 from django import forms
 from .models import Product, Color, Collection
 
+
 class ProductForm(forms.ModelForm):
     """
     Form for creating and updating Product instances.
-
-    This form includes fields such as name, description, price, collection, material, 
-    stock quantity, color, gender, occasion, featured status, size availability, and image. 
-    It also applies Bootstrap styling to form inputs for better UI experience.
-
+    This form includes fields such as name, description,
+    price, collection, material, stock quantity, color, gender,
+    occasion, featured status, size availability, and image. 
+    It also applies Bootstrap styling to form inputs
+    for better UI experience.
     Attributes:
         model (Product): The associated model for this form.
         fields (list): Specifies the fields to be included in the form.
@@ -22,19 +23,27 @@ class ProductForm(forms.ModelForm):
                   'has_sizes', 'image']
         
         widgets = {
-            'name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Product Name'}),
-            'description': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Product Description', 'rows': 4}),
-            'price': forms.NumberInput(attrs={'class': 'form-control', 'placeholder': 'Price'}),
-            'material': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Material'}),
+            'name': forms.TextInput(attrs={'class': 'form-control',
+                                    'placeholder': 'Product Name'}),
+            'description': forms.Textarea(attrs={'class': 'form-control',
+                                          'placeholder': 'Product Description', 
+                                          'rows': 4}),
+            'price': forms.NumberInput(attrs={'class': 'form-control',
+                                      'placeholder': 'Price'}),
+            'material': forms.TextInput(attrs={'class': 'form-control',
+                                       'placeholder': 'Material'}),
             'has_sizes': forms.CheckboxInput(attrs={'class': 'form-check-input'}),
             'image': forms.FileInput(attrs={'class': 'form-control'}),
             'collection': forms.Select(attrs={'class': 'form-control'}),
-            'occasion': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Occasion'}),
+            'occasion': forms.TextInput(attrs={'class': 'form-control',
+                                       'placeholder': 'Occasion'}),
             'is_featured': forms.CheckboxInput(attrs={'class': 'form-check-input'}),
-            'stock_quantity': forms.NumberInput(attrs={'class': 'form-control', 'placeholder': 'Stock Quantity'}),
+            'stock_quantity': forms.NumberInput(attrs={'class': 'form-control',
+                                               'placeholder': 'Stock Quantity'}),
         }
-    
-    # Adjust the 'color' field to use ModelMultipleChoiceField for many-to-many relationships
+
+    # Adjust the 'color' field to use ModelMultipleChoiceField
+    #  for many-to-many relationships
     color = forms.ModelMultipleChoiceField(
         queryset=Color.objects.all(),  
         widget=forms.CheckboxSelectMultiple(attrs={'class': 'form-check-input'}),  
