@@ -28,10 +28,10 @@ if os.path.exists(env_file):
 SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = [
-    '8000-cimustafa-ayinacouture-sisyhlz2ich.ws-eu117.gitpod.io',
+    '8000-cimustafa-ayinacouture-8abmxpi4q3o.ws-eu118.gitpod.io',
     'cimustafa-ayinacouture-0g69ygd7vkp.ws.codeinstitute-ide.net',
     'ayina-couture-32f4a278cf2b.herokuapp.com',
     ".herokuapp.com",
@@ -41,7 +41,7 @@ ALLOWED_HOSTS = [
 ]
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://8000-cimustafa-ayinacouture-sisyhlz2ich.ws-eu117.gitpod.io',
+    'https://8000-cimustafa-ayinacouture-8abmxpi4q3o.ws-eu118.gitpod.io',
     'https://cimustafa-ayinacouture-0g69ygd7vkp.ws.codeinstitute-ide.net',
     'https://ayina-couture-32f4a278cf2b.herokuapp.com',
     'https://*.herokuapp.com',

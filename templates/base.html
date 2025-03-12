@@ -158,12 +158,12 @@
     <!-- Main content block -->
     {% block content %}
     {% endblock %}
-    <!-- Footer -->
+   <!-- Footer -->
     <footer class="footer text-white text-center text-lg-start">
         <div class="container p-4">
             <div class="row">
                 <!-- About Section -->
-                <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
+                <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
                     <h5 class="text-uppercase">About Us</h5>
                     <p>
                         We are committed to delivering high-quality products and services. Your satisfaction is our priority.
@@ -171,7 +171,7 @@
                 </div>
 
                 <!-- Links Section -->
-                <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
+                <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
                     <h5 class="text-uppercase">Quick Links</h5>
                     <ul class="list-unstyled">
                         <li><a href="{% url 'home' %}" class="quick-link">Home</a></li>
@@ -181,7 +181,7 @@
                 </div>
 
                 <!-- Social Media Section -->
-                <div class="col-lg-4 col-md-12 mb-4 mb-md-0">
+                <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
                     <h5 class="text-uppercase">Follow Us</h5>
                     <div class="d-flex justify-content-center justify-content-lg-start">
                         <a href="https://www.facebook.com/" class="btn btn-outline-light btn-floating m-1 footer-links" target="_blank">
@@ -201,12 +201,29 @@
                         </a>
                     </div>
                 </div>
+
+                <!-- Newsletter Subscription Section -->
+                <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                    <h5 class="text-uppercase">Subscribe to our Newsletter</h5>
+                    <form action="#" method="POST">
+                        {% csrf_token %}
+                        <div class="input-group">
+                            <input type="email" name="email" class="form-control" placeholder="Enter your email" required>
+                        </div>
+                        <br>
+                        <div class="input-group">
+                            <button class="subscribe-btn btn btn-lg rounded-0 text-uppercase py-3" 
+                            type="submit" style="border: 2px solid white; color: white;">Subscribe</button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
         <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
             © 2025 Ayina Couture. All rights reserved.
         </div>
     </footer>
+
     <!-- Bootstrap JS with Popper.js for interactive components -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"

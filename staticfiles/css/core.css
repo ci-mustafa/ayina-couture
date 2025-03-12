@@ -378,7 +378,8 @@ ul, ol{
 .add-to-cart-btn-signup,
 .add-to-wishlist-btn-signup,
 .delete-btn,
-.cancel-btn {
+.cancel-btn,
+.subscribe-btn {
     background-color: #222831; 
     color: white; 
     min-width: 260px; 
