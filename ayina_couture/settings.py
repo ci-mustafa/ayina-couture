@@ -28,7 +28,7 @@ if os.path.exists(env_file):
 SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = [
     '8000-cimustafa-ayinacouture-8abmxpi4q3o.ws-eu118.gitpod.io',
