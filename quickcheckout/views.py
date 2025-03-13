@@ -1,4 +1,5 @@
 from django.conf import settings
+from django.core.mail import send_mail
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from .forms import OrderForm
@@ -121,6 +122,34 @@ def quickcheckout(request):
 def checkout_success(request, order_number):
     save_info = request.session.get('save_info')
     order = get_object_or_404(Order, order_number=order_number)
+
+    # Construct the email subject and message
+    subject = f"Order Confirmation - {order_number}"
+    message = f"""
+    Dear {order.full_name},
+
+    Thank you for your purchase! Your order has been successfully placed.
+
+    Order Number: {order_number}
+    Total Amount: {order.order_final_total} EUR
+
+    You will receive another email once your order has been shipped.
+
+    If you have any questions, feel free to contact us.
+
+    Best regards,
+    Ayina Couture
+    """
+
+    # Send the email to the customer
+    send_mail(
+        subject,
+        message,
+        settings.DEFAULT_FROM_EMAIL,  # Email sender configured in settings.py
+        [order.email],  # Customer's email address
+        fail_silently=False,  # If False, will raise an error if email fails
+    )
+
     messages.success(request, f'Your payment was successful!\
         Your order has been placed. \
         Your order number is {order_number}. A confirmation \

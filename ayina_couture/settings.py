@@ -28,7 +28,7 @@ if os.path.exists(env_file):
 SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = [
     '8000-cimustafa-ayinacouture-8abmxpi4q3o.ws-eu118.gitpod.io',
@@ -151,6 +151,7 @@ SITE_ID = 1
 
 if DEBUG:
     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+    DEFAULT_FROM_EMAIL = os.getenv('EMAIL_HOST_USER')
 else:
     EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
     EMAIL_HOST = 'smtp.gmail.com'
@@ -158,7 +159,7 @@ else:
     EMAIL_USE_TLS = True
     EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
     EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
-    DEFAULT_FROM_EMAIL = 'Ayina Couture <ayina.couture@gmail.com>'
+    DEFAULT_FROM_EMAIL = os.getenv('EMAIL_HOST_USER')
 
 ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
 ACCOUNT_EMAIL_REQUIRED = True
