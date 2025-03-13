@@ -11,6 +11,13 @@ import stripe
 
 
 def quickcheckout(request):
+    """
+    Handles the checkout process, including form validation, 
+    Stripe payment intent creation, and order processing.
+
+    Returns:
+        HttpResponse: Renders the checkout page.
+    """
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
     cart = request.session.get('cart', {})
@@ -120,10 +127,25 @@ def quickcheckout(request):
 
 
 def checkout_success(request, order_number):
+    """
+    Handles successful checkout operations.
+
+    This function retrieves the order details,
+    sends an order confirmation email to the customer,
+    displays a success message,
+    and clears the shopping cart from the session.
+
+    Args:
+        request (HttpRequest): The HTTP request object.
+        order_number (str): The unique identifier of the order.
+
+    Returns:
+        HttpResponse: Renders the checkout success page with order details.
+    """
     save_info = request.session.get('save_info')
     order = get_object_or_404(Order, order_number=order_number)
 
-    # Construct the email subject and message
+    
     subject = f"Order Confirmation - {order_number}"
     message = f"""
     Dear {order.full_name},
@@ -145,9 +167,9 @@ def checkout_success(request, order_number):
     send_mail(
         subject,
         message,
-        settings.DEFAULT_FROM_EMAIL,  # Email sender configured in settings.py
-        [order.email],  # Customer's email address
-        fail_silently=False,  # If False, will raise an error if email fails
+        settings.DEFAULT_FROM_EMAIL,  
+        [order.email],  
+        fail_silently=False,  
     )
 
     messages.success(request, f'Your payment was successful!\
