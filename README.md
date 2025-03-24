@@ -498,9 +498,15 @@ Ayina Couture operates on a Business to Consumer (B2C) model, offering customers
 [Back to Top](#table-of-contents)
 
 ## Marketing Strategy
-- Social Media Marketing: We will leverage popular social media platforms such as Instagram, Facebook, and Pinterest to showcase our unique collections, share behind-the-scenes content, and engage with our community.
+- Facebook Page Marketing: We have created a dedicated Facebook page to promote our brand, engage with our audience, and showcase our latest collections. Through regular posts, exclusive offers, and interactive content, we aim to build a strong community of fashion lovers.
 
-- Email Marketing: Regular email campaigns will keep our customers informed about new product launches, special offers, and cultural stories behind our designs. Personalized newsletters and promotions will help build customer loyalty and encourage repeat purchases.
+![Facebook Page](static/images/readme_images/facebook_page1.png)
+
+![Facebook Page](static/images/readme_images/facebook_page2.png)
+
+- Newsletter Marketing: We have integrated a newsletter subscription feature on our website to keep our customers informed about the latest product launches, exclusive offers, and the inspiration behind our designs.
+
+![Newsletter](static/images/readme_images/newsletter.png)
 
 <br>
 
